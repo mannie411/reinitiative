@@ -1,9 +1,14 @@
 export type GenericObject = { [key: string]: unknown };
 
+export type DrawerState = "expanded" | "collapsed";
+export type NavbarState = "default" | "transparent";
+
 export interface AppContextProps {
-  state: "expanded" | "collapsed";
-  open: boolean;
-  setOpen: (open: boolean) => void;
+  drawerState: DrawerState;
+  navbarState: NavbarState;
+  setDrawerState: (open: DrawerState) => void;
+  setNavbarState: (open: NavbarState) => void;
+  toggleSchedule: () => void;
 }
 
 export interface Testimonial {
