@@ -1,3 +1,4 @@
+import { type MouseEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import svgPaths from "../../../../assets/svg/svg-c9y12vgf3";
 
@@ -20,7 +21,7 @@ function BlogCardContent({ articleId }: { articleId: string }) {
         params={{ articleId }}
         className="content-stretch flex items-center justify-center pb-[8px] pt-0 px-0 relative shrink-0 cursor-pointer"
         data-name="Button"
-        onClick={(e) => {
+        onClick={(e: MouseEvent<HTMLAnchorElement>) => {
           e.stopPropagation();
           window.scrollTo(0, 0);
         }}

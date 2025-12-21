@@ -1,6 +1,11 @@
 import * as React from "react";
 import { useContext } from "react";
-import { FormFieldContext, FormItemContext, SidebarContext } from "../context";
+import {
+  ChartContext,
+  FormFieldContext,
+  FormItemContext,
+  SidebarContext,
+} from "../context";
 import { useFormContext, useFormState } from "react-hook-form";
 
 const MOBILE_BREAKPOINT = 768;
@@ -50,6 +55,16 @@ export const useSidebar = () => {
   const context = useContext(SidebarContext);
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.");
+  }
+
+  return context;
+};
+
+export const useChart = () => {
+  const context = useContext(ChartContext);
+
+  if (!context) {
+    throw new Error("useChart must be used within a <ChartContainer />");
   }
 
   return context;
