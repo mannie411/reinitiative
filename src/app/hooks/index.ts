@@ -1,5 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { AppContext, SidebarContext } from "../context";
+import { AppContext } from "../context";
+
+export * from "./ui";
 
 export function useAppContext() {
   const context = useContext(AppContext);
@@ -45,13 +47,4 @@ export const useScrollPosition = () => {
   }, []); // Empty dependency array ensures the effect runs only once on mount and unmount
 
   return scrollPosition;
-};
-
-export const useSidebar = () => {
-  const context = useContext(SidebarContext);
-  if (!context) {
-    throw new Error("useSidebar must be used within a SidebarProvider.");
-  }
-
-  return context;
 };

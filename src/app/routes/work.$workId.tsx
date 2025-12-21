@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import svgPaths from "../../assets/svg/svg-3i71g9bhv5";
@@ -91,109 +90,13 @@ function FilmIcon() {
   );
 }
 
-function MenuIcon() {
-  return (
-    <div className="relative shrink-0 size-[24px]" data-name="menu-01">
-      <svg
-        className="block size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 24 24"
-      >
-        <g id="menu-01">
-          <path
-            d="M4 5H20"
-            id="Vector"
-            stroke="var(--stroke-0, white)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M4 12H20"
-            id="Vector_2"
-            stroke="var(--stroke-0, white)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M4 19H20"
-            id="Vector_3"
-            stroke="var(--stroke-0, white)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function NavbarButton({ onClick }: { onClick: () => void }) {
-  return (
-    <div
-      className="basis-0 content-stretch flex gap-[24px] grow items-center min-h-px min-w-px relative shrink-0 cursor-pointer hover:opacity-70 transition-opacity"
-      onClick={onClick}
-    >
-      <MenuIcon />
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[14px] text-nowrap text-white tracking-[3.36px]">
-        MENU
-      </p>
-    </div>
-  );
-}
-
-function Logo() {
-  return (
-    <Link
-      to="/"
-      className="content-stretch flex items-center justify-center relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
-      data-name="Logo"
-    >
-      <p className="font-['GT_Super_Ds_Trial:Rg',sans-serif] leading-[normal] not-italic relative shrink-0 text-[26px] text-nowrap text-white tracking-[5.2px] uppercase">
-        Re:Initiative
-      </p>
-    </Link>
-  );
-}
-
-function EnquireButton() {
-  return (
-    <div
-      className="basis-0 content-stretch flex grow items-center justify-end min-h-px min-w-px relative shrink-0"
-      data-name="Button"
-    >
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[14px] text-center text-nowrap text-white tracking-[3.36px]">
-        ENQUIRE
-      </p>
-    </div>
-  );
-}
-
-function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
-  return (
-    <div className="relative shrink-0 w-full z-10" data-name="Navbar">
-      <div className="flex flex-row items-center size-full">
-        <div className="content-stretch flex items-center justify-between px-[20px] md:px-[64px] py-[30px] relative w-full max-w-[1440px] mx-auto">
-          <NavbarButton onClick={onMenuClick} />
-          <Logo />
-          <EnquireButton />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HeroSection({ onMenuClick }: { onMenuClick: () => void }) {
+function HeroSection() {
   return (
     <div
       className="bg-[#2d3648] h-[1025px] relative shrink-0 w-full"
       data-name="Header"
     >
       <div className="absolute inset-0 size-full">
-        <Navbar onMenuClick={onMenuClick} />
         <div className="absolute top-[90px] w-full h-[935px] flex items-center justify-center">
           <FilmIcon />
         </div>
@@ -413,11 +316,9 @@ function RelatedWorks() {
 }
 
 export function WorkDetailsPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans w-full">
-      <HeroSection onMenuClick={() => setIsMenuOpen(true)} />
+      <HeroSection />
       <MainContent />
       <RelatedWorks />
       <CompanyLogos />

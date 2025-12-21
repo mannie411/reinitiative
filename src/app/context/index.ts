@@ -1,8 +1,18 @@
 import { createContext } from "react";
 import type { SidebarContextProps } from "@/app/components/ui/sidebar";
 import type { AppContextProps } from "@/types";
+import type {
+  FormFieldContextValue,
+  FormItemContextValue,
+} from "../components/ui/form";
 
 export * from "./Contexts";
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const SidebarContext = createContext<SidebarContextProps | null>(null);
+export const FormFieldContext = createContext<FormFieldContextValue>(
+  {} as FormFieldContextValue
+);
+export const FormItemContext = createContext<FormItemContextValue>(
+  {} as FormItemContextValue
+);
