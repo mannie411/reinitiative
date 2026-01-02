@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import svgPaths from "../../../assets/svg/svg-52b3uls4d7";
+import svgPaths from "@/assets/svg";
 
 function HeadingCategoryLink() {
   return (

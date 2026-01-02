@@ -1,4 +1,4 @@
-import svgPaths from "@/assets/svg/svg-rmxwyj29u9";
+import svgPaths from "@/assets/svg";
 import type { Testimonial } from "@/types";
 import {
   Carousel,
@@ -66,10 +66,14 @@ function Testimonial() {
     >
       <div className="relative shrink-0 w-full" data-name="Content+arrow">
         <div className="flex flex-row items-center size-full justify-center">
-          <div className="content-stretch flex items-center justify-between p-[10px] relative w-full max-w-[600px]">
+          <div
+            className="content-stretch flex items-center justify-between 
+          p-[10px] relative w-full md:max-w-[600px]"
+          >
             <div
               onClick={() => api?.scrollPrev()}
-              className="flex items-center justify-center relative shrink-0 size-[24px] cursor-pointer hover:opacity-70 transition-opacity"
+              className="flex items-center justify-center relative shrink-0 size-[24px]
+               cursor-pointer hover:opacity-70 transition-opacity"
               style={{
                 "--transform-inner-width": "0",
                 "--transform-inner-height": "0",
@@ -82,20 +86,29 @@ function Testimonial() {
             <Carousel setApi={setApi} opts={{ loop: true }}>
               <CarouselContent>
                 {testimonials.map(({ content, name, position }, idx) => (
-                  <CarouselItem key={`item-${idx}`}>
+                  <CarouselItem key={`item-${idx}`} className="basis-full">
                     <div
                       className="content-stretch flex flex-col
                 gap-[30px] items-center leading-[normal] relative 
                 shrink-0 text-[#2d3648] text-[16px] text-center"
                       data-name="Name+Company"
                     >
-                      <p className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[#53627e] text-[16px] text-center w-full max-w-[394px]">
+                      <p
+                        className="font-eb-garamond font-normal leading-[normal] relative shrink-0
+                       text-[#53627e] text-[16px] text-center w-full max-w-[394px]"
+                      >
                         {content}
                       </p>
-                      <p className="font-eb-garamond font-normal relative shrink-0 tracking-[9.6px] w-full uppercase">
+                      <p
+                        className="font-eb-garamond font-normal relative shrink-0 tracking-normal 
+                      md:tracking-[9.6px] w-full uppercase"
+                      >
                         {name}
                       </p>
-                      <p className="font-eb-garamond font-normal relative shrink-0 tracking-[6.4px] w-full uppercase">
+                      <p
+                        className="font-eb-garamond font-normal relative shrink-0 tracking-normal 
+                      md:tracking-[6.4px] w-full uppercase"
+                      >
                         {position}
                       </p>
                     </div>
@@ -106,7 +119,8 @@ function Testimonial() {
 
             <div
               onClick={() => api?.scrollNext()}
-              className="flex items-center justify-center relative shrink-0 size-[24px] cursor-pointer hover:opacity-70 transition-opacity"
+              className="flex items-center justify-center relative shrink-0 size-[24px] 
+              cursor-pointer hover:opacity-70 transition-opacity"
               style={
                 {
                   "--transform-inner-width": "0",
@@ -127,14 +141,17 @@ function Testimonial() {
 
 export function Testimonials() {
   return (
-    <div className="bg-white relative shrink-0 w-full" data-name="Testimonies">
+    <div className="bg-white relative w-full" data-name="Testimonies">
       <div className="overflow-clip rounded-[inherit] size-full">
         <div className="content-stretch flex flex-col items-center px-[20px] md:px-[180px] py-[64px] relative w-full">
           <div
             className="content-stretch flex flex-col gap-[26px] items-center relative shrink-0 w-full"
             data-name="Container"
           >
-            <p className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[20px] text-center tracking-[8px] uppercase w-full">
+            <p
+              className="font-eb-garamond font-normal leading-[normal] relative 
+            shrink-0 text-[#2d3648] text-[20px] text-center tracking-[8px] uppercase w-full"
+            >
               <span className="tracking-[3.2px]">In</span>
               <span className=" italic tracking-[1.12px] lowercase">
                 {" "}

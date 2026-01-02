@@ -1,4 +1,4 @@
-import svgPaths from "@/assets/svg/svg-qeuti6zhwj";
+import svgPaths from "@/assets/svg";
 
 function Image10() {
   return (
@@ -47,9 +47,7 @@ function Heading() {
     >
       <p className="font-gt-super-ds leading-[normal] not-italic relative shrink-0 text-[18px] md:text-[22px] text-center text-white tracking-[-0.44px] w-full max-w-[740px]">
         <span>{`Re:Initiative is a strategic consultancy, `}</span>
-        <span className="font-['GT_Super_Ds_Trial:Rg_It',sans-serif]">
-          specializing
-        </span>
+        <span className="font-gt-super-ds">specializing</span>
         <span>{` in brand transformation `}</span>
         <span className="font-gt-super-ds italic">through</span>
         <span>{` integrated strategy, design, and growth architecture.`}</span>

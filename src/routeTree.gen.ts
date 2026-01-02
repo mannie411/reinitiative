@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SampleRouteImport } from './routes/sample'
-import { Route as ProcessRouteImport } from './routes/process'
+import { Route as OurProcessRouteImport } from './routes/our-process'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
@@ -24,9 +24,9 @@ const SampleRoute = SampleRouteImport.update({
   path: '/sample',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProcessRoute = ProcessRouteImport.update({
-  id: '/process',
-  path: '/process',
+const OurProcessRoute = OurProcessRouteImport.update({
+  id: '/our-process',
+  path: '/our-process',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersRoute = CareersRouteImport.update({
@@ -69,7 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/careers': typeof CareersRoute
-  '/process': typeof ProcessRoute
+  '/our-process': typeof OurProcessRoute
   '/sample': typeof SampleRoute
   '/blog/$articleId': typeof BlogArticleIdRoute
   '/work/$workId': typeof WorkWorkIdRoute
@@ -80,7 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/careers': typeof CareersRoute
-  '/process': typeof ProcessRoute
+  '/our-process': typeof OurProcessRoute
   '/sample': typeof SampleRoute
   '/blog/$articleId': typeof BlogArticleIdRoute
   '/work/$workId': typeof WorkWorkIdRoute
@@ -92,7 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/careers': typeof CareersRoute
-  '/process': typeof ProcessRoute
+  '/our-process': typeof OurProcessRoute
   '/sample': typeof SampleRoute
   '/blog/$articleId': typeof BlogArticleIdRoute
   '/work/$workId': typeof WorkWorkIdRoute
@@ -105,7 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about-us'
     | '/careers'
-    | '/process'
+    | '/our-process'
     | '/sample'
     | '/blog/$articleId'
     | '/work/$workId'
@@ -116,7 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about-us'
     | '/careers'
-    | '/process'
+    | '/our-process'
     | '/sample'
     | '/blog/$articleId'
     | '/work/$workId'
@@ -127,7 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about-us'
     | '/careers'
-    | '/process'
+    | '/our-process'
     | '/sample'
     | '/blog/$articleId'
     | '/work/$workId'
@@ -139,7 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutUsRoute: typeof AboutUsRoute
   CareersRoute: typeof CareersRoute
-  ProcessRoute: typeof ProcessRoute
+  OurProcessRoute: typeof OurProcessRoute
   SampleRoute: typeof SampleRoute
   BlogArticleIdRoute: typeof BlogArticleIdRoute
   WorkWorkIdRoute: typeof WorkWorkIdRoute
@@ -156,11 +156,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SampleRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/process': {
-      id: '/process'
-      path: '/process'
-      fullPath: '/process'
-      preLoaderRoute: typeof ProcessRouteImport
+    '/our-process': {
+      id: '/our-process'
+      path: '/our-process'
+      fullPath: '/our-process'
+      preLoaderRoute: typeof OurProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers': {
@@ -219,7 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutUsRoute: AboutUsRoute,
   CareersRoute: CareersRoute,
-  ProcessRoute: ProcessRoute,
+  OurProcessRoute: OurProcessRoute,
   SampleRoute: SampleRoute,
   BlogArticleIdRoute: BlogArticleIdRoute,
   WorkWorkIdRoute: WorkWorkIdRoute,

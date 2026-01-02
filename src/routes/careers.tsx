@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   CareersHero,
@@ -15,12 +16,12 @@ export function CareersPage() {
   useDocumentTitle("Careers | RE:Initiative");
 
   return (
-    <div className="bg-white min-h-screen flex flex-col font-sans w-full">
+    <Fragment>
       <CareersHero />
       <CareersValues />
       <CareersJoin />
       <CompanyLogos />
       <Testimonials />
-    </div>
+    </Fragment>
   );
 }

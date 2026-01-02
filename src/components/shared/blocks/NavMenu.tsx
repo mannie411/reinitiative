@@ -1,4 +1,4 @@
-import svgPaths from "../../assets/svg/svg-2yniqniud8";
+import svgPaths from "@/assets/svg";
 
 function Cancel() {
   return (
@@ -31,7 +31,7 @@ function CloseMenu() {
       data-name="Close Menu"
     >
       <Cancel />
-      <p className="font-['EB_Garamond:SemiBold',sans-serif] font-semibold leading-[normal] relative shrink-0 text-[#53627e] text-[14px] text-nowrap tracking-[3.36px] uppercase">
+      <p className="font-eb-garamond font-semibold leading-[normal] relative shrink-0 text-[#53627e] text-[14px] text-nowrap tracking-[3.36px] uppercase">
         close
       </p>
     </div>
@@ -44,7 +44,7 @@ function Link() {
       className="content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full"
       data-name="Link"
     >
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
+      <p className=" font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
         About Us
       </p>
     </div>
@@ -57,7 +57,7 @@ function Link1() {
       className="content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full"
       data-name="Link"
     >
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
+      <p className=" font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
         Our Process
       </p>
     </div>
@@ -70,7 +70,7 @@ function Link2() {
       className="content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full"
       data-name="Link"
     >
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
+      <p className=" font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
         Selected Work
       </p>
     </div>
@@ -83,7 +83,7 @@ function Link3() {
       className="content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full"
       data-name="Link"
     >
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
+      <p className=" font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
         Blog Articles
       </p>
     </div>
@@ -96,7 +96,7 @@ function Link4() {
       className="content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full"
       data-name="Link"
     >
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
+      <p className=" font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[0.96px]">
         Careers
       </p>
     </div>
@@ -124,7 +124,7 @@ function Menu() {
       className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full"
       data-name="Menu"
     >
-      <p className="font-['EB_Garamond:SemiBold',sans-serif] font-semibold leading-[normal] relative shrink-0 text-[#53627e] text-[12px] tracking-[2.88px] uppercase w-full">
+      <p className="font-eb-garamond font-semibold leading-[normal] relative shrink-0 text-[#53627e] text-[12px] tracking-[2.88px] uppercase w-full">
         menu
       </p>
       <MenuLinks />
@@ -135,7 +135,7 @@ function Menu() {
 function Frame() {
   return (
     <div className="content-stretch flex items-center justify-center pb-[10px] pt-0 px-0 relative shrink-0">
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#53627e] text-[14px] text-center text-nowrap tracking-[3.36px]">
+      <p className=" font-normal leading-[normal] relative shrink-0 text-[#53627e] text-[14px] text-center text-nowrap tracking-[3.36px]">
         ENQUIRE
       </p>
     </div>

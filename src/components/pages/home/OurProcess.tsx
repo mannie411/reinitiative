@@ -1,4 +1,4 @@
-import { PlaceholderImage } from "../../blocks/Placeholder";
+import { PlaceholderImage } from "../../shared/blocks/Placeholder";
 
 function ButtonLink() {
   return (

@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { Fragment } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Hero,
   SelectedWork,
   CompanyLogos,
   Testimonials,
   OurProcess,
 } from "@/components/pages/home";
-import { useAppContext, useDocumentTitle, useScrollPosition } from "@/hooks";
+import { useDocumentTitle } from "@/hooks";
+import { HeroSection } from "@/components/shared";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -15,32 +15,14 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   useDocumentTitle("RE:Initivative");
-  const scrollPosition = useScrollPosition();
-  const { setNavbarState, navbarState } = useAppContext();
-
-  useEffect(() => {
-    const threshold = 100;
-
-    if (scrollPosition > threshold) {
-      // Only update if it's not already default
-      if (navbarState !== "default") {
-        setNavbarState("default");
-      }
-    } else {
-      // Only update if it's not already transparent
-      if (navbarState !== "transparent") {
-        setNavbarState("transparent");
-      }
-    }
-  }, [scrollPosition, navbarState, setNavbarState]);
 
   return (
-    <>
-      <Hero />
+    <Fragment>
+      <HeroSection />
       <SelectedWork />
       <CompanyLogos />
       <OurProcess />
       <Testimonials />
-    </>
+    </Fragment>
   );
 }

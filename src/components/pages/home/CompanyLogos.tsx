@@ -100,23 +100,6 @@ function Logos() {
   );
 }
 
-function Container1() {
-  return (
-    <div
-      className="content-stretch flex flex-col gap-[36px] items-center relative shrink-0 w-full"
-      data-name="Container"
-    >
-      <p
-        className="font-eb-garamond font-normal italic leading-[normal] min-w-full relative shrink-0 
-      text-[#53627e] text-[18px] text-center w-[min-content]"
-      >
-        The company we keep.
-      </p>
-      <Logos />
-    </div>
-  );
-}
-
 export function CompanyLogos() {
   return (
     <div
@@ -124,8 +107,22 @@ export function CompanyLogos() {
       data-name="Company we keep"
     >
       <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col items-center px-[20px] md:px-[180px] py-[86px] relative w-full">
-          <Container1 />
+        <div
+          className="content-stretch flex flex-col items-center 
+        px-[20px] md:px-[180px] py-[86px] relative w-full"
+        >
+          <div
+            className="content-stretch flex flex-col gap-[36px] items-center relative shrink-0 w-full"
+            data-name="Container"
+          >
+            <p
+              className="font-eb-garamond font-normal italic leading-[normal] 
+              min-w-full relative shrink-0 text-[#53627e] text-[18px] text-center w-[min-content]"
+            >
+              The company we keep.
+            </p>
+            <Logos />
+          </div>
         </div>
       </div>
     </div>

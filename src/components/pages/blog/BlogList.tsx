@@ -1,6 +1,6 @@
 import { type MouseEvent } from "react";
 import { Link } from "@tanstack/react-router";
-import svgPaths from "../../../assets/svg/svg-c9y12vgf3";
+import svgPaths from "@/assets/svg";
 
 function BlogCardContent({ articleId }: { articleId: string }) {
   return (

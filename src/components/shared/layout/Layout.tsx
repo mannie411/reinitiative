@@ -5,8 +5,8 @@ import Drawer from "./Drawer";
 import Footer from "./Footer";
 import Header from "./Header";
 import { AppProvider } from "@/context";
+import { SchedulingModal } from "../scheduling";
 import type { DrawerState, NavbarState } from "@/types";
-import { SchedulingModal } from "./scheduling";
 
 export const Layout = ({ children }: PropsWithChildren) => {
   const [drawerState, setDrawerState] = useState<DrawerState>("collapsed");
@@ -30,7 +30,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
   return (
     <AppProvider value={contextValue}>
       <Header />
-      <main className="min-h-screen w-full">{children}</main>
+      <main className="min-h-screen w-full overflow-clip">{children}</main>
       <Footer />
 
       <AnimatePresence>
@@ -43,7 +43,11 @@ export const Layout = ({ children }: PropsWithChildren) => {
               className="fixed inset-0 bg-black z-40"
               onClick={() => setDrawerState("collapsed")}
             />
-            <Drawer onClose={() => setDrawerState("collapsed")} />
+            <Drawer
+              onClose={() => {
+                setDrawerState("collapsed");
+              }}
+            />
           </>
         )}
       </AnimatePresence>

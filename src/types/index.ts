@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from "react";
+
 export type GenericObject = { [key: string]: unknown };
 
 export type DrawerState = "expanded" | "collapsed";
@@ -6,8 +8,8 @@ export type NavbarState = "default" | "transparent";
 export interface AppContextProps {
   drawerState: DrawerState;
   navbarState: NavbarState;
-  setDrawerState: (open: DrawerState) => void;
-  setNavbarState: (open: NavbarState) => void;
+  setDrawerState: Dispatch<SetStateAction<DrawerState>>;
+  setNavbarState: Dispatch<SetStateAction<NavbarState>>;
   toggleSchedule: () => void;
 }
 

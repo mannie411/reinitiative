@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import { PlaceholderImage } from "../../blocks/Placeholder";
+import { PlaceholderImage } from "../../shared/blocks/Placeholder";
 
 function Column({ children }: PropsWithChildren) {
   return (
@@ -128,53 +128,56 @@ function Content2() {
 
 export function CareersValues() {
   return (
-    <div
-      className="content-stretch flex flex-col gap-[80px] md:gap-[120px] 
-      items-center pb-[120px] pt-[90px] px-0 relative shrink-0 w-full max-w-[1440px] mx-auto"
-      data-name="Container"
-    >
+    <section className="relative">
       <div
-        aria-hidden="true"
-        className="absolute border-[1px_0px] border-[rgba(160,171,192,0.6)] 
-        border-solid inset-0 pointer-events-none"
-      />
+        className=" content-stretch flex flex-col gap-[80px] md:gap-[120px] 
+      items-center pb-[120px] pt-[90px] px-0 relative shrink-0"
+        data-name="Container"
+      >
+        <div
+          aria-hidden="true"
+          className="absolute border-[1px_0px] border-[rgba(160,171,192,0.6)] 
+        border-solid inset-0 pointer-events-none "
+        />
 
-      <div
-        className="content-stretch flex items-center justify-center px-[20px] 
+        <div
+          className="content-stretch flex items-center justify-center px-[20px] 
       md:px-[40px] py-0 relative shrink-0 w-full max-w-[1080px]"
-        data-name="Section"
-      >
-        <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
-          <Column>
-            <Content />
-            <Image />
-          </Column>
+          data-name="Section"
+        >
+          <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
+            <Column>
+              <Content />
+              <Image />
+            </Column>
+          </div>
         </div>
-      </div>
 
-      <div
-        className="content-stretch flex items-center justify-center px-[20px] md:px-[40px] py-0 relative shrink-0 w-full max-w-[1080px]"
-        data-name="Section"
-      >
-        <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
-          <Column>
-            <Image />
-            <Content1 />
-          </Column>
+        <div
+          className="content-stretch flex items-center justify-center px-[20px] md:px-[40px] py-0 relative shrink-0 w-full max-w-[1080px]"
+          data-name="Section"
+        >
+          <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
+            <Column>
+              <Image />
+              <Content1 />
+            </Column>
+          </div>
         </div>
-      </div>
 
-      <div
-        className="content-stretch flex items-center justify-center px-[20px] md:px-[40px] py-0 relative shrink-0 w-full max-w-[1080px]"
-        data-name="Section"
-      >
-        <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
-          <Column>
-            <Content2 />
-            <Image />
-          </Column>
+        <div
+          className="content-stretch flex items-center justify-center px-[20px]
+           md:px-[40px] py-0 relative shrink-0 w-full max-w-[1080px]"
+          data-name="Section"
+        >
+          <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
+            <Column>
+              <Content2 />
+              <Image />
+            </Column>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

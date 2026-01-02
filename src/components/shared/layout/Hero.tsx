@@ -1,6 +1,6 @@
-import { PlaceholderVideo } from "../../blocks/Placeholder";
+import { PlaceholderVideo } from "../blocks/Placeholder";
 
-export function Hero() {
+export function HeroSection() {
   return (
     <div
       className="bg-[#2d3648] h-[1025px] relative shrink-0 w-full overflow-hidden -mt-[100px]"

@@ -13,7 +13,7 @@ import {
   // isBefore,
   startOfDay,
 } from "date-fns";
-import svgPaths from "@/assets/svg/svg-0bdato82qn";
+import svgPaths from "@/assets/svg";
 import { Button } from "@/components/ui";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -86,27 +86,32 @@ export function DateTimeSelector({
   };
 
   return (
-    <div className="flex">
+    <div className="relative flex flex-col md:flex-row max-h-[85vh] max-sm:overflow-y-auto">
       {/* Left Panel - Description */}
-      <div className="bg-[#394e79] w-[330px] flex flex-col px-[31px] py-[34px] gap-[85px]">
-        <button
-          onClick={onBack}
-          className="flex gap-[12px] items-center text-white hover:opacity-80 transition-opacity"
-        >
-          <div className="size-[24px] flex items-center justify-center">
-            <svg
-              className="block size-full rotate-[270deg]"
-              fill="none"
-              preserveAspectRatio="none"
-              viewBox="0 0 24 24"
-            >
-              <path d={svgPaths.p3c144b80} fill="white" />
-            </svg>
-          </div>
-          <p className="font-gt-super-ds text-[15px] tracking-[-0.3px]">
-            Back to website
-          </p>
-        </button>
+      <div
+        className="bg-[#394e79] w-full max-sm:w-[320px]  md:w-[330px] flex flex-col 
+       p-[20px] md:p-[40px] gap-[85px] overflow-y-auto"
+      >
+        <div className="bg-[#394e79] w-full">
+          <button
+            onClick={onBack}
+            className="flex gap-[12px] items-center text-white hover:opacity-80 transition-opacity"
+          >
+            <div className="size-[24px] flex items-center justify-center">
+              <svg
+                className="block size-full rotate-[270deg]"
+                fill="none"
+                preserveAspectRatio="none"
+                viewBox="0 0 24 24"
+              >
+                <path d={svgPaths.p3c144b80} fill="white" />
+              </svg>
+            </div>
+            <p className="font-gt-super-ds text-[15px] tracking-[-0.3px]">
+              Back to website
+            </p>
+          </button>
+        </div>
 
         <div className="flex flex-col gap-[42px]">
           <div className="flex flex-col gap-[16px]">
@@ -149,7 +154,10 @@ export function DateTimeSelector({
       </div>
 
       {/* Right Panel - Date & Time Selection */}
-      <div className="bg-white w-[750px] px-[32px] py-[24px] flex flex-col md:flex-row gap-[24px] border-l border-[#edeff2]">
+      <div
+        className="bg-white max-sm:w-[320px] w-full md:w-[750px]  px-[20px] md:px-[40px] py-[42px] flex flex-col 
+      md:flex-row gap-[24px] border-l border-[#edeff2] overflow-y-auto"
+      >
         <div className="w-full">
           <p className="font-gt-super-ds text-[22px] tracking-[-0.44px] text-[#2d3648]">
             Select a Date & Time
@@ -168,7 +176,10 @@ export function DateTimeSelector({
                 <ChevronLeft />
               </Button>
 
-              <p className="font-gt-super-ds text-[22px] tracking-[-0.44px] text-[#2d3648] text-center min-w-[180px]">
+              <p
+                className="font-gt-super-ds text-[22px] tracking-[-0.44px] text-[#2d3648] 
+              text-center w-full  md:min-w-[180px]"
+              >
                 {format(currentMonth, "MMMM yyyy")}
               </p>
 
@@ -178,16 +189,18 @@ export function DateTimeSelector({
             </div>
 
             {/* Calendar Grid */}
-            <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-col gap-[16px] md:gap-[24px]">
               {/* Day Headers */}
-              <div className="grid grid-cols-7 gap-[16px]">
+              <div className="grid grid-cols-7 gap-[12px] md:gap-[16px]">
                 {["MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"].map(
                   (day) => (
-                    <div key={day} className="text-center">
-                      <p className="font-avenir-lt text-[14px] tracking-[2.8px] text-[#2d3648] uppercase">
-                        {day}
-                      </p>
-                    </div>
+                    <p
+                      key={day}
+                      className="text-center font-avenir-lt text-[8px] md:text-[14px] 
+                      tracking-[2.8px] text-[#2d3648] uppercase"
+                    >
+                      {day}
+                    </p>
                   )
                 )}
               </div>
@@ -211,8 +224,8 @@ export function DateTimeSelector({
                       key={index}
                       onClick={() => isAvailable && onDateSelect(date)}
                       disabled={!isAvailable}
-                      className={`
-                      size-[48px] rounded-full flex items-center justify-center
+                      className={`size-[32px]
+                      md:size-[48px] rounded-full flex items-center justify-center
                       font-avenir-lt text-[16px] uppercase
                       transition-colors
                       ${isSelected ? "bg-[#394e79] text-white" : ""}
@@ -299,26 +312,24 @@ export function DateTimeSelector({
 
         {/* Available Times - Show when date is selected */}
         {selectedDate && (
-          <div className="overflow-hidden">
-            <div className="flex flex-col gap-[16px] border-t border-[#edeff2] pt-[24px] ">
-              <p className="font-gt-super-ds text-[16px] text-[#2d3648]">
-                Select a date to see available times.
-              </p>
-              <div className="grid grid-cols-3 md:flex md:flex-col gap-[12px] max-h-[500px] overflow-y-scroll">
-                {TIME_SLOTS.map((time) => (
-                  <button
-                    key={time}
-                    onClick={() => onTimeSelect(time)}
-                    className="bg-[#edeff2] hover:bg-[#394e79] hover:text-white transition-colors
+          <div className="flex flex-col gap-[16px] border-t border-[#edeff2] pt-[24px] ">
+            <p className="font-gt-super-ds text-[16px] text-[#2d3648]">
+              Select a date to see available times.
+            </p>
+            <div className="grid grid-cols-3 md:flex md:flex-col gap-[12px] max-h-[500px] overflow-y-scroll">
+              {TIME_SLOTS.map((time) => (
+                <button
+                  key={time}
+                  onClick={() => onTimeSelect(time)}
+                  className="bg-[#edeff2] hover:bg-[#394e79] hover:text-white transition-colors
                      px-[16px] py-[12px] rounded-[4px] font-eb-garamond text-[16px] text-[#2d3648]"
-                  >
-                    {time}
-                  </button>
-                ))}
-              </div>
-              <div className="flex justify-center">
-                <ChevronDown />
-              </div>
+                >
+                  {time}
+                </button>
+              ))}
+            </div>
+            <div className="hidden md:flex justify-center">
+              <ChevronDown />
             </div>
           </div>
         )}

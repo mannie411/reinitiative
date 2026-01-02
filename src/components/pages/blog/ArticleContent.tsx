@@ -1,4 +1,4 @@
-import { PlaceholderImage } from "@/components/blocks/Placeholder";
+import { PlaceholderImage } from "@/components/shared/blocks/Placeholder";
 
 function Image() {
   return (
@@ -14,13 +14,13 @@ function Image() {
 function Frame5() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 uppercase w-full">
-      <p className="font-['Avenir_LT_Pro:55_Roman',sans-serif] not-italic relative shrink-0 text-[#a0abc0] text-[10px] tracking-[4px] w-full text-center">
+      <p className="font-avenir-lt not-italic relative shrink-0 text-[#a0abc0] text-[10px] tracking-[4px] w-full text-center">
         CATEGORY
       </p>
-      <p className="font-['EB_Garamond:Medium',sans-serif] font-medium relative shrink-0 text-[#2d3648] text-[24px] md:text-[32px] tracking-[6.4px] w-full text-center">
+      <p className=" font-medium relative shrink-0 text-[#2d3648] text-[24px] md:text-[32px] tracking-[6.4px] w-full text-center">
         name of article
       </p>
-      <p className="font-['Avenir_LT_Pro:55_Roman',sans-serif] not-italic relative shrink-0 text-[#a0abc0] text-[10px] tracking-[4px] w-full text-center">
+      <p className="font-avenir-lt not-italic relative shrink-0 text-[#a0abc0] text-[10px] tracking-[4px] w-full text-center">
         november 14, 2025
       </p>
     </div>
@@ -34,7 +34,7 @@ function Content() {
       data-name="Content"
     >
       <Frame5 />
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
+      <p className=" font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
         Lorem ipsum dolor sit amet consectetur. Condimentum massa enim imperdiet
         feugiat odio aliquam praesent mattis vitae. Lobortis pellentesque leo
         congue adipiscing eleifend magna diam. Quis eget mi amet parturient
@@ -44,7 +44,7 @@ function Content() {
         bibendum diam nulla proin massa. Habitasse massa velit arcu vitae morbi
         egestas. Amet vel ante egestas vulputate pharetra lectus felis nisl.
       </p>
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
+      <p className=" font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
         Lorem ipsum dolor sit amet consectetur. Condimentum massa enim imperdiet
         feugiat odio aliquam praesent mattis vitae. Lobortis pellentesque leo
         congue adipiscing eleifend magna diam. Quis eget mi amet parturient
@@ -54,7 +54,7 @@ function Content() {
         bibendum diam nulla proin massa. Habitasse massa velit arcu vitae morbi
         egestas. Amet vel ante egestas vulputate pharetra lectus felis nisl.
       </p>
-      <p className="font-['EB_Garamond:Regular',sans-serif] font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
+      <p className=" font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
         Lorem ipsum dolor sit amet consectetur. Condimentum massa enim imperdiet
         feugiat odio aliquam praesent mattis vitae. Lobortis pellentesque leo
         congue adipiscing eleifend magna diam. Quis eget mi amet parturient

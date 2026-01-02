@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import svgPaths from "../../../assets/svg/svg-qeuti6zhwj";
+import svgPaths from "@/assets/svg";
 
 function ImageContainer() {
   return (
@@ -55,11 +55,11 @@ function WorkItem({ brand, category }: { brand: string; category: string }) {
     >
       <ImageContainer />
       <div className="content-stretch flex flex-col gap-[16px] items-start justify-center relative shrink-0 w-full">
-        <p className="font-['EB_Garamond:Medium',sans-serif] font-medium leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-nowrap tracking-[6.4px] uppercase group-hover:text-[#53627e] transition-colors">
+        <p className=" font-medium leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-nowrap tracking-[6.4px] uppercase group-hover:text-[#53627e] transition-colors">
           {brand}
         </p>
         <div className="content-stretch flex items-center relative shrink-0">
-          <p className="font-['Avenir_LT_Pro:55_Roman',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#53627e] text-[12px] text-nowrap tracking-[4.8px] uppercase">
+          <p className="font-avenir-lt leading-[normal] not-italic relative shrink-0 text-[#53627e] text-[12px] text-nowrap tracking-[4.8px] uppercase">
             {category}
           </p>
         </div>

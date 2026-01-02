@@ -1,4 +1,4 @@
-import svgPaths from "@/assets/svg/svg-c9y12vgf3";
+import svgPaths from "@/assets/svg";
 
 function Image5() {
   return (

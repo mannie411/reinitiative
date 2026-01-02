@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import { Link, linkOptions } from "@tanstack/react-router";
-import svgPaths from "@/assets/svg/svg-2yniqniud8";
+import { Link, linkOptions, useLocation } from "@tanstack/react-router";
+import svgPaths from "@/assets/svg";
 import { useAppContext } from "@/hooks";
+import { cn } from "../../ui/utils";
 
 const options = linkOptions([
   {
@@ -15,7 +16,7 @@ const options = linkOptions([
     activeOptions: { exact: true },
   },
   {
-    to: "/process",
+    to: "/our-process",
     label: "Our Process",
     activeOptions: { exact: true },
   },
@@ -69,12 +70,16 @@ const Cancel = () => {
 const CloseMenu = ({ onClose }: { onClose: () => void }) => {
   return (
     <div
-      className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full cursor-pointer hover:opacity-70 transition-opacity"
+      className="content-stretch flex gap-[10px] items-center relative shrink-0 
+      w-full cursor-pointer hover:opacity-70 transition-opacity"
       data-name="Close Menu"
       onClick={onClose}
     >
       <Cancel />
-      <p className="font-eb-garamond font-semibold leading-[normal] relative shrink-0 text-[#53627e] text-[14px] text-nowrap tracking-[3.36px] uppercase">
+      <p
+        className="font-eb-garamond font-semibold leading-[normal] relative 
+      shrink-0 text-[#53627e] text-[14px] text-nowrap tracking-[3.36px] uppercase"
+      >
         close
       </p>
     </div>
@@ -82,10 +87,12 @@ const CloseMenu = ({ onClose }: { onClose: () => void }) => {
 };
 
 const NavLink = ({
+  active,
   text,
   to,
   onClose,
 }: {
+  active: boolean;
   text: string;
   to?: string;
   onClose: () => void;
@@ -96,7 +103,10 @@ const NavLink = ({
         className="content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full opacity-50"
         data-name="Link"
       >
-        <p className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-2">
+        <p
+          className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
+        text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-2"
+        >
           {text}
         </p>
       </div>
@@ -106,11 +116,19 @@ const NavLink = ({
   return (
     <Link
       to={to}
-      className="content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full hover:bg-black/5 transition-colors rounded-md"
+      className={cn(
+        `content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full
+        transition-colors rounded-md`,
+        active ? `italic` : `hover:italic`
+      )}
       data-name="Link"
       onClick={onClose}
+      resetScroll={true}
     >
-      <p className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-2">
+      <p
+        className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
+      text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-2"
+      >
         {text}
       </p>
     </Link>
@@ -118,12 +136,16 @@ const NavLink = ({
 };
 
 const Menu = ({ onClose }: { onClose: () => void }) => {
+  const location = useLocation();
   return (
     <div
       className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full"
       data-name="Menu"
     >
-      <p className="font-eb-garamond font-semibold leading-[normal] relative shrink-0 text-[#53627e] text-[12px] tracking-[2.88px] uppercase w-full">
+      <p
+        className="font-eb-garamond font-semibold leading-[normal] relative shrink-0 
+      text-[#53627e] text-[12px] tracking-[2.88px] uppercase w-full"
+      >
         menu
       </p>
       <div
@@ -136,14 +158,9 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
             text={label}
             to={to}
             onClose={onClose}
+            active={location.pathname === to}
           />
         ))}
-        {/* <NavLink text="Home" to="/" onClose={onClose} />
-        <NavLink text="About Us" to="/about" onClose={onClose} />
-        <NavLink text="Our Process" onClose={onClose} />
-        <NavLink text="Selected Work" to="/selected-works" onClose={onClose} />
-        <NavLink text="Blog Articles" to="/blog" onClose={onClose} />
-        <NavLink text="Careers" to="/careers" onClose={onClose} /> */}
       </div>
     </div>
   );
@@ -152,7 +169,8 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
 const SocialLinks = () => {
   return (
     <div
-      className="content-stretch flex font-eb-garamond font-normal gap-[24px] italic items-center leading-[normal] relative shrink-0 text-[#53627e] text-[16px] text-center text-nowrap"
+      className="content-stretch flex font-eb-garamond font-normal gap-[24px] italic 
+      items-center leading-[normal] relative shrink-0 text-[#53627e] text-[16px] text-center text-nowrap"
       data-name="Social Links"
     >
       <p className="relative shrink-0 cursor-pointer hover:underline">
@@ -166,10 +184,18 @@ const SocialLinks = () => {
 };
 
 const DrawerFooter = () => {
+  const { toggleSchedule } = useAppContext();
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0">
-      <div className="content-stretch flex items-center justify-center pb-[10px] pt-0 px-0 relative shrink-0 cursor-pointer">
-        <p className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[#53627e] text-[14px] text-center text-nowrap tracking-[3.36px]">
+      <div
+        className="content-stretch flex items-center justify-center pb-[10px] pt-0 px-0 
+      relative shrink-0 cursor-pointer"
+        onClick={toggleSchedule}
+      >
+        <p
+          className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
+        text-[#53627e] text-[14px] text-center text-nowrap tracking-[3.36px]"
+        >
           ENQUIRE
         </p>
       </div>

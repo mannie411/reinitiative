@@ -1,4 +1,4 @@
-import svgPaths from "@/assets/svg/svg-rmxwyj29u9";
+import svgPaths from "@/assets/svg";
 
 export const PlaceholderImage = () => {
   return (

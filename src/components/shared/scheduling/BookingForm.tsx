@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import svgPaths from "@/assets/svg/svg-0bdato82qn";
+import svgPaths from "@/assets/svg";
 
 interface BookingFormProps {
   selectedDate: Date | undefined;
@@ -65,29 +65,31 @@ export function BookingForm({
   };
 
   return (
-    <div className="flex max-h-[90vh] overflow-hidden">
+    <div className="relative flex flex-col md:flex-row  max-h-[85vh]">
       {/* Left Panel - Description */}
-      <div className="bg-[#fcfcfd] w-[330px] flex flex-col gap-[40px] p-[40px] overflow-y-auto">
-        <div className="flex flex-col gap-[85px]">
-          <button
-            onClick={onBack}
-            className="flex gap-[12px] items-center text-[#2d3648] hover:opacity-80 transition-opacity"
-          >
-            <div className="size-[24px] flex items-center justify-center">
-              <svg
-                className="block size-full rotate-[270deg]"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path d={svgPaths.p3c144b80} fill="#2D3648" />
-              </svg>
-            </div>
-            <p className="font-gt-super-ds text-[15px] tracking-[-0.3px]">
-              Back to website
-            </p>
-          </button>
+      <div className="bg-[#fcfcfd] w-[330px] flex flex-col gap-[10px] p-[20px] md:p-[40px] overflow-y-auto">
+        <div className="flex flex-col gap-[20px] ">
+          <div className="bg-[#fcfcfd]">
+            <button
+              onClick={onBack}
+              className="flex gap-[12px] items-center text-[#2d3648] hover:opacity-80 transition-opacity"
+            >
+              <div className="size-[24px] flex items-center justify-center">
+                <svg
+                  className="block size-full rotate-[270deg]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path d={svgPaths.p3c144b80} fill="#2D3648" />
+                </svg>
+              </div>
+              <p className="font-gt-super-ds text-[15px] tracking-[-0.3px]">
+                Back to website
+              </p>
+            </button>
+          </div>
 
-          <div className="flex flex-col gap-[40px]">
+          <div className="flex flex-col gap-[40px] max-sm:mt-12">
             <div className="flex flex-col gap-[16px]">
               <p className="font-gt-super-ds text-[24px] tracking-[4.8px] uppercase text-[#53627e]">
                 RE:INITIATIVE
@@ -158,7 +160,10 @@ export function BookingForm({
       </div>
 
       {/* Right Panel - Form */}
-      <div className="flex-1 w-[750px] bg-white border-l border-[rgba(160,171,192,0.4)] px-[42px] py-[42px] overflow-y-auto">
+      <div
+        className="flex-1 w-full max-sm:w-[320px]  md:w-[750px] bg-white border-l 
+        border-[rgba(160,171,192,0.4)]  px-[20px] md:px-[40px] py-[42px] overflow-y-auto"
+      >
         <form onSubmit={handleSubmit} className="flex flex-col gap-[40px]">
           {/* Enter Details Section */}
           <div className="flex flex-col gap-[24px]">

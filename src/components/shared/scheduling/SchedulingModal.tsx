@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-
 import * as Dialog from "@radix-ui/react-dialog";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+
 import { SchedulingFlow } from "./SchedulingFlow";
 
 interface SchedulingModalProps {
@@ -14,8 +14,14 @@ export function SchedulingModal({ open, onOpenChange }: SchedulingModalProps) {
     <Fragment>
       <Dialog.Root open={open} onOpenChange={onOpenChange}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md" />
-          <Dialog.Content className="fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 focus:outline-none">
+          <Dialog.Overlay
+            className="fixed inset-0 z-50 flex items-center 
+          justify-center bg-black/50 backdrop-blur-md"
+          />
+          <Dialog.Content
+            className="fixed left-1/2 top-1/2 z-50 -translate-x-1/2 
+          -translate-y-1/2 focus:outline-none"
+          >
             <VisuallyHidden.Root>
               <Dialog.Title>Schedule a Meeting</Dialog.Title>
               <Dialog.Description>
