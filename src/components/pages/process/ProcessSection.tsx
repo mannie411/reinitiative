@@ -1,3 +1,5 @@
+import { ImagePlaceholder } from "@/components/shared/layout/Icons";
+
 interface ProcessSectionProps {
   title: string;
   services: string[];
@@ -17,38 +19,14 @@ export function ProcessSection({
     <section
       className={`w-full ${isFirst ? "pb-[96px]" : "py-[96px]"} ${!isFirst ? "border-t border-[#a0abc0]" : ""}`}
     >
-      <div className="max-w-[1440px] mx-auto px-[180px]">
+      <div className="max-w-[1440px] mx-auto px-[20px] md:px-[180px]">
         <div className="flex flex-col gap-[64px]">
           {/* Image - only show for non-first sections */}
-          {!isFirst && (
-            <div className="w-full h-[708px] bg-[#a0abc0] rounded-[4px] overflow-hidden relative">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[80px]">
-                <svg
-                  className="block size-full"
-                  fill="none"
-                  viewBox="0 0 80 80"
-                >
-                  <path
-                    d="M10 23.3333H70V63.3333C70 65.1014 69.2976 66.7971 68.0474 68.0474C66.7971 69.2976 65.1014 70 63.3333 70H16.6667C14.8986 70 13.2029 69.2976 11.9526 68.0474C10.7024 66.7971 10 65.1014 10 63.3333V23.3333Z"
-                    stroke="white"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="5"
-                  />
-                  <path
-                    d="M56.6663 70V46.6667C56.6663 44.8986 55.964 43.2029 54.7137 41.9526C53.4635 40.7024 51.7678 40 49.9997 40H29.9997C28.2316 40 26.5359 40.7024 25.2856 41.9526C24.0354 43.2029 23.333 44.8986 23.333 46.6667V70"
-                    stroke="white"
-                    strokeWidth="5"
-                  />
-                  <path
-                    d="M70 23.3333L40 10L10 23.3333"
-                    stroke="white"
-                    strokeWidth="5"
-                  />
-                </svg>
-              </div>
+          <div className="w-full h-[708px] bg-[#a0abc0] rounded-[4px] overflow-hidden relative">
+            <div className="animate-in fade-in slide-in-from-top-8 duration-500 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[80px]">
+              <ImagePlaceholder />
             </div>
-          )}
+          </div>
 
           {/* Content */}
           <div className="flex flex-col gap-[16px]">
@@ -59,7 +37,7 @@ export function ProcessSection({
             </div>
 
             {/* Services and Description */}
-            <div className="flex gap-[161px] items-start">
+            <div className="flex flex-col md:flex-row gap-[20px] md:gap-[161px] items-start">
               {/* Services List */}
               <div className="w-[239px] shrink-0">
                 <div className="font-eb-garamond text-[16px] text-[#53627e] leading-[normal]">
@@ -72,7 +50,7 @@ export function ProcessSection({
               </div>
 
               {/* Description */}
-              <div className="flex-1">
+              <div className="md:flex-1">
                 <div className="font-eb-garamond text-[16px] text-[#53627e] leading-[normal]">
                   {description.map((paragraph, index) => {
                     // Check if this paragraph contains the italic text

@@ -112,11 +112,11 @@ export function ProcessPage() {
     <div className="min-h-screen bg-[#fcfcfd]">
       {/* Hero Section */}
       <section className="w-full py-[96px]">
-        <div className="max-w-[1440px] mx-auto px-[180px]">
+        <div className="max-w-[1440px] mx-auto px-[20px] md:px-[180px]">
           <div className="flex flex-col items-center gap-[64px]">
             {/* Heading */}
             <div className="flex flex-col items-center gap-[16px] max-w-[620px]">
-              <h1 className="font-['GT_Super_Ds_Trial:Rg',sans-serif] text-[22px] text-[#2d3648] text-center tracking-[-0.44px]">
+              <h1 className="font-gt-super-ds text-[22px] text-[#2d3648] text-center tracking-[-0.44px]">
                 <span>Five pillars. </span>
                 <span className="font-gt-super-ds">One</span>{" "}
                 <span className="font-gt-super-ds italic">transformation.</span>
@@ -128,19 +128,27 @@ export function ProcessPage() {
             </div>
 
             {/* Category Links */}
-            <div className="w-full max-w-[1080px] border-t border-b border-[rgba(160,171,192,0.5)] flex items-center justify-between px-0 py-[24px]">
-              {processSteps.map((step) => (
-                <p
-                  key={step.id}
-                  className="font-eb-garamond text-[16px] text-[#53627e] tracking-[3.2px]"
-                >
-                  {step.title}
-                </p>
-              ))}
+            <div
+              className="w-full border-t border-b border-[rgba(160,171,192,0.5)] 
+             px-0 py-[24px] "
+            >
+              <div
+                className="flex gap-[20px] md:items-center md:justify-between max-sm:animate-marquee
+              w-full"
+              >
+                {processSteps.map((step) => (
+                  <p
+                    key={step.id}
+                    className="font-eb-garamond text-[16px] text-[#53627e] tracking-[3.2px]"
+                  >
+                    {step.title}
+                  </p>
+                ))}
+              </div>
             </div>
 
             {/* First Section Image */}
-            <div className="w-full h-[708px] bg-[#a0abc0] rounded-[4px] overflow-hidden relative">
+            {/* <div className="w-full h-[708px] bg-[#a0abc0] rounded-[4px] overflow-hidden relative">
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[80px]">
                 <svg
                   className="block size-full"
@@ -166,7 +174,7 @@ export function ProcessPage() {
                   />
                 </svg>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

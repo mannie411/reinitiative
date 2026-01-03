@@ -185,3 +185,27 @@
     font-family: var(--font-eb-garamond);
   }
 }
+
+@theme {
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  --animate-marquee: marquee 10s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      /* Moves the content its entire width to the left */
+      transform: translateX(-100%);
+    }
+  }
+}
