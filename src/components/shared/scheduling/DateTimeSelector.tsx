@@ -89,10 +89,10 @@ export function DateTimeSelector({
     <div className="relative flex flex-col md:flex-row max-h-[85vh] max-sm:overflow-y-auto">
       {/* Left Panel - Description */}
       <div
-        className="bg-[#394e79] w-full max-sm:w-[320px]  md:w-[330px] flex flex-col 
+        className="bg-[#2d3648] w-full max-sm:w-[320px]  md:w-[330px] flex flex-col 
        p-[20px] md:p-[40px] gap-[85px] overflow-y-auto"
       >
-        <div className="bg-[#394e79] w-full">
+        <div className="bg-[#2d3648] w-full">
           <button
             onClick={onBack}
             className="flex gap-[12px] items-center text-white hover:opacity-80 transition-opacity"
