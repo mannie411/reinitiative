@@ -42,13 +42,19 @@ function Image5() {
 function Heading() {
   return (
     <div
-      className="absolute content-stretch flex flex-col items-center left-[calc(50%+2px)] top-[calc(50%-11.5px)] translate-x-[-50%] translate-y-[-50%] px-4 w-full"
+      className="absolute content-stretch flex flex-col items-center left-[calc(50%+2px)] 
+      top-[calc(50%-11.5px)] translate-x-[-50%] translate-y-[-50%] px-4 w-full"
       data-name="Heading"
     >
-      <p className="font-gt-super-ds leading-[normal] not-italic relative shrink-0 text-[18px] md:text-[22px] text-center text-white tracking-[-0.44px] w-full max-w-[420px]">
-        <span>{`Thoughts on brand building, strategy, design, and the systems that `}</span>
-        <span className="italic">connect</span>
-        <span>{` them.`}</span>
+      <p
+        className="font-gt-super-ds leading-[normal] not-italic relative shrink-0 text-[18px] 
+      md:text-[22px] text-center text-white tracking-[-0.44px] w-full max-w-[420px]"
+      >
+        <span>
+          Thoughts on brand building, strategy, design, and the systems that
+        </span>
+        <span className="not-italic">connect</span>
+        <span> them.</span>
       </p>
     </div>
   );

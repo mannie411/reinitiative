@@ -100,12 +100,12 @@ const NavLink = ({
   if (!to) {
     return (
       <div
-        className="content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full opacity-50"
+        className="content-stretch flex items-center  py-[12px] relative shrink-0 w-full opacity-50"
         data-name="Link"
       >
         <p
           className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
-        text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-2"
+        text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-0 "
         >
           {text}
         </p>
@@ -118,8 +118,8 @@ const NavLink = ({
       to={to}
       className={cn(
         `content-stretch flex items-center px-0 py-[6px] relative shrink-0 w-full
-        transition-colors rounded-md`,
-        active ? `italic` : `hover:italic`
+        transition-all rounded-md`,
+        active ? `italic font-semibold` : `hover:italic`
       )}
       data-name="Link"
       onClick={onClose}
@@ -127,7 +127,7 @@ const NavLink = ({
     >
       <p
         className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
-      text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-2"
+      text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-0"
       >
         {text}
       </p>
@@ -176,7 +176,7 @@ const SocialLinks = ({ closeDrawer }: { closeDrawer: () => void }) => {
       <Link
         to={"https://instagram.com/"}
         target={"_blank"}
-        className="relative shrink-0 cursor-pointer hover:underline"
+        className="relative shrink-0 cursor-pointer hover:underline text-[#53627E]"
         onClick={closeDrawer}
       >
         Instagram
@@ -184,7 +184,7 @@ const SocialLinks = ({ closeDrawer }: { closeDrawer: () => void }) => {
       <Link
         to={"https://linkedin.com/"}
         target={"_blank"}
-        className="relative shrink-0 cursor-pointer hover:underline"
+        className="relative shrink-0 cursor-pointer hover:underline text-[#53627E]"
         onClick={closeDrawer}
       >
         LinkedIn
@@ -208,7 +208,7 @@ const DrawerFooter = () => {
       >
         <p
           className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
-        text-[#53627e] text-[14px] text-center text-nowrap tracking-[3.36px]"
+        text-[#53627E] text-[14px] text-center text-nowrap tracking-[3.36px]"
         >
           ENQUIRE
         </p>

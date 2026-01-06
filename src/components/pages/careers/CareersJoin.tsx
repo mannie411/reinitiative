@@ -12,7 +12,7 @@ function Heading() {
       relative shrink-0  text-[22px] text-center tracking-[-0.44px] w-full max-w-[362px]"
       >
         <span>If you're ready to create and collaborate, we'd love</span>
-        <span className="not-italic">{` to hear from you`}</span>
+        <span className="not-italic"> to hear from you</span>
       </p>
     </div>
   );
