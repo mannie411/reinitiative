@@ -93,12 +93,14 @@ function Container2() {
 
 export function OurProcess() {
   return (
-    <div className="bg-white relative shrink-0 w-full" data-name="About Us">
-      <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col items-center px-[20px] md:px-[180px] py-[90px] relative w-full">
-          <Container2 />
+    <section className="relative">
+      <div className="shrink-0 w-full" data-name="About Us">
+        <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
+          <div className="content-stretch flex flex-col items-center px-[20px] md:px-[180px] py-[90px] relative w-full">
+            <Container2 />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

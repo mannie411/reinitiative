@@ -10,8 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SampleRouteImport } from './routes/sample'
-import { Route as OurProcessRouteImport } from './routes/our-process'
+import { Route as OurServicesRouteImport } from './routes/our-services'
 import { Route as CareersRouteImport } from './routes/careers'
+import { Route as BookingRouteImport } from './routes/booking'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkIndexRouteImport } from './routes/work/index'
@@ -24,14 +25,19 @@ const SampleRoute = SampleRouteImport.update({
   path: '/sample',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OurProcessRoute = OurProcessRouteImport.update({
-  id: '/our-process',
-  path: '/our-process',
+const OurServicesRoute = OurServicesRouteImport.update({
+  id: '/our-services',
+  path: '/our-services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersRoute = CareersRouteImport.update({
   id: '/careers',
   path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingRoute = BookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutUsRoute = AboutUsRouteImport.update({
@@ -68,8 +74,9 @@ const BlogArticleIdRoute = BlogArticleIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/booking': typeof BookingRoute
   '/careers': typeof CareersRoute
-  '/our-process': typeof OurProcessRoute
+  '/our-services': typeof OurServicesRoute
   '/sample': typeof SampleRoute
   '/blog/$articleId': typeof BlogArticleIdRoute
   '/work/$workId': typeof WorkWorkIdRoute
@@ -79,8 +86,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/booking': typeof BookingRoute
   '/careers': typeof CareersRoute
-  '/our-process': typeof OurProcessRoute
+  '/our-services': typeof OurServicesRoute
   '/sample': typeof SampleRoute
   '/blog/$articleId': typeof BlogArticleIdRoute
   '/work/$workId': typeof WorkWorkIdRoute
@@ -91,8 +99,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/booking': typeof BookingRoute
   '/careers': typeof CareersRoute
-  '/our-process': typeof OurProcessRoute
+  '/our-services': typeof OurServicesRoute
   '/sample': typeof SampleRoute
   '/blog/$articleId': typeof BlogArticleIdRoute
   '/work/$workId': typeof WorkWorkIdRoute
@@ -104,8 +113,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about-us'
+    | '/booking'
     | '/careers'
-    | '/our-process'
+    | '/our-services'
     | '/sample'
     | '/blog/$articleId'
     | '/work/$workId'
@@ -115,8 +125,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about-us'
+    | '/booking'
     | '/careers'
-    | '/our-process'
+    | '/our-services'
     | '/sample'
     | '/blog/$articleId'
     | '/work/$workId'
@@ -126,8 +137,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about-us'
+    | '/booking'
     | '/careers'
-    | '/our-process'
+    | '/our-services'
     | '/sample'
     | '/blog/$articleId'
     | '/work/$workId'
@@ -138,8 +150,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutUsRoute: typeof AboutUsRoute
+  BookingRoute: typeof BookingRoute
   CareersRoute: typeof CareersRoute
-  OurProcessRoute: typeof OurProcessRoute
+  OurServicesRoute: typeof OurServicesRoute
   SampleRoute: typeof SampleRoute
   BlogArticleIdRoute: typeof BlogArticleIdRoute
   WorkWorkIdRoute: typeof WorkWorkIdRoute
@@ -156,11 +169,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SampleRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/our-process': {
-      id: '/our-process'
-      path: '/our-process'
-      fullPath: '/our-process'
-      preLoaderRoute: typeof OurProcessRouteImport
+    '/our-services': {
+      id: '/our-services'
+      path: '/our-services'
+      fullPath: '/our-services'
+      preLoaderRoute: typeof OurServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers': {
@@ -168,6 +181,13 @@ declare module '@tanstack/react-router' {
       path: '/careers'
       fullPath: '/careers'
       preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about-us': {
@@ -218,8 +238,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutUsRoute: AboutUsRoute,
+  BookingRoute: BookingRoute,
   CareersRoute: CareersRoute,
-  OurProcessRoute: OurProcessRoute,
+  OurServicesRoute: OurServicesRoute,
   SampleRoute: SampleRoute,
   BlogArticleIdRoute: BlogArticleIdRoute,
   WorkWorkIdRoute: WorkWorkIdRoute,

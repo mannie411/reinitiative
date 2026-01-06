@@ -1,4 +1,4 @@
-import { ImagePlaceholder } from "@/components/shared/layout/Icons";
+import { ImagePlaceholder } from "@/components/shared/blocks/Icons";
 
 function Image() {
   return (
@@ -16,7 +16,7 @@ function Image() {
   );
 }
 
-function Column2() {
+function Column1() {
   return (
     <div
       className="basis-0 content-stretch flex flex-col gap-[36px] grow 
@@ -29,11 +29,11 @@ function Column2() {
       >
         <p
           className="font-avenir-lt leading-[normal] not-italic relative shrink-0
-         text-[#53627e] text-[12px] tracking-[2.4px] uppercase w-full"
+         text-[12px] tracking-[2.4px] uppercase w-full"
         >
           Who We Serve
         </p>
-        <p className=" font-normal leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] w-full">
+        <p className=" font-normal leading-[normal] relative shrink-0 text-[16px] w-full">
           <span>{`We work with visionary founders who `}</span>
           <span className=" italic">refuse to settle</span>. Who see the gap
           between where they are and w
@@ -47,7 +47,7 @@ function Column2() {
   );
 }
 
-function Column3() {
+function Column2() {
   return (
     <div
       className="basis-0 content-stretch flex flex-col gap-[36px] grow 
@@ -61,7 +61,7 @@ function Column3() {
       >
         <div
           className=" font-normal leading-[normal] relative shrink-0 
-        text-[#2d3648] text-[16px] text-center w-full"
+        t text-[16px] text-center w-full"
         >
           <p className="mb-0">{`You have traction but your brand doesn't match your ambition. 
           You're solving real problems but struggling to communicate your value.
@@ -76,20 +76,17 @@ function Column3() {
 
 export function WhoWeServe() {
   return (
-    <div
-      className="content-stretch flex flex-col items-start md:pb-[120px] 
-      pt-[40px] md:pt-[90px] px-0 relative shrink-0 w-full"
-      data-name="Container"
-    >
-      <div
-        className="content-stretch flex flex-col md:flex-row gap-[60px] 
-        md:gap-[80px] items-center justify-center px-[20px] md:px-[40px] py-0 
-        relative shrink-0 w-full max-w-[1080px] mx-auto"
-        data-name="Section"
-      >
-        <Column2 />
-        <Column3 />
+    <section className="relative">
+      <div className="container">
+        <div
+          className="content-stretch flex flex-col md:flex-row gap-[60px] 
+        md:gap-[80px] items-center justify-center py-[40px] md:py-[80px]"
+          data-name="Section"
+        >
+          <Column1 />
+          <Column2 />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

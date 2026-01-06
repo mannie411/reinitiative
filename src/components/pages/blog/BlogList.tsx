@@ -7,11 +7,18 @@ function BlogCardContent({ articleId }: { articleId: string }) {
     <div className="content-stretch flex flex-col gap-[18px] items-start justify-center relative shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0">
         <div className="content-stretch flex items-center relative shrink-0">
-          <p className="font-avenir-lt leading-[normal] not-italic relative shrink-0 text-[#a0abc0] text-[10px] text-nowrap tracking-[4px] uppercase">
+          <p
+            className="font-avenir-lt leading-[normal] not-italic relative shrink-0 
+          text-[#a0abc0] text-[10px] text-nowrap tracking-[4px] uppercase"
+          >
             CATEGORY
           </p>
         </div>
-        <p className="font-eb-garamond font-medium leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-nowrap tracking-[6.4px] uppercase group-hover:text-[#53627e] transition-colors">
+        <p
+          className="font-eb-garamond font-medium leading-[normal] relative shrink-0 
+        text-[#2d3648] text-[16px] text-nowrap tracking-[6.4px] uppercase
+        group-hover:text-[#53627e] transition-colors"
+        >
           name of article
         </p>
       </div>
@@ -19,7 +26,8 @@ function BlogCardContent({ articleId }: { articleId: string }) {
       <Link
         to="/blog/$articleId"
         params={{ articleId }}
-        className="content-stretch flex items-center justify-center pb-[8px] pt-0 px-0 relative shrink-0 cursor-pointer"
+        className="content-stretch flex items-center justify-center pb-[8px] pt-0 px-0 
+        relative shrink-0 cursor-pointer"
         data-name="Button"
         onClick={(e: MouseEvent<HTMLAnchorElement>) => {
           e.stopPropagation();
@@ -28,9 +36,13 @@ function BlogCardContent({ articleId }: { articleId: string }) {
       >
         <div
           aria-hidden="true"
-          className="absolute border-[0px_0px_1px] border-[rgba(160,171,192,0.8)] border-solid inset-0 pointer-events-none group-hover:border-[#53627e] transition-colors"
+          className="absolute border-[0px_0px_1px] border-[rgba(160,171,192,0.8)] 
+          border-solid inset-0 pointer-events-none group-hover:border-[#53627e] transition-colors"
         />
-        <p className="font-avenir-lt leading-[normal] not-italic relative shrink-0 text-[#53627e] text-[12px] text-center text-nowrap tracking-[2.88px] uppercase">
+        <p
+          className="font-avenir-lt leading-[normal] not-italic relative shrink-0 
+        text-[#53627e] text-[12px] text-center text-nowrap tracking-[2.88px] uppercase"
+        >
           read more
         </p>
       </Link>
@@ -48,10 +60,16 @@ function HeadingCategoryLink() {
         aria-hidden="true"
         className="absolute border-[#a0abc0] border-[1px_0px] border-solid inset-0 pointer-events-none"
       />
-      <p className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[#53627e] text-[18px] text-nowrap tracking-[7.2px] uppercase">
+      <p
+        className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
+      text-[#53627e] text-[18px] text-nowrap tracking-[7.2px] uppercase"
+      >
         blog articles
       </p>
-      <p className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[#53627e] text-[18px] text-nowrap text-right tracking-[7.2px] hidden md:block">
+      <p
+        className="font-eb-garamond font-normal leading-[normal] relative shrink-0
+       text-[#53627e] text-[18px] text-nowrap text-right tracking-[7.2px] hidden md:block"
+      >
         CATEGORIES
       </p>
     </div>
@@ -61,7 +79,9 @@ function HeadingCategoryLink() {
 function CategoryLinks() {
   return (
     <div
-      className="content-stretch flex flex-wrap font-avenir-lt gap-[24px] md:gap-[72px] items-center leading-[normal] not-italic px-0 md:px-[24px] py-0 relative shrink-0 text-[#2d3648] text-[12px] text-nowrap tracking-[2.4px] uppercase"
+      className="content-stretch flex flex-wrap font-avenir-lt gap-[24px] md:gap-[72px] 
+      items-center leading-[normal] not-italic px-0 md:px-[24px] py-0 relative shrink-0 
+      text-[#2d3648] text-[12px] text-nowrap tracking-[2.4px] uppercase"
       data-name="Category Links"
     >
       <p className="relative shrink-0 cursor-pointer hover:text-[#53627e] transition-colors font-bold">
@@ -86,7 +106,8 @@ function CategoryLinks() {
 function FilterSection() {
   return (
     <div
-      className="bg-white content-stretch flex flex-col gap-[24px] items-center overflow-clip relative shrink-0 w-full max-w-[1080px]"
+      className="content-stretch flex flex-col gap-[24px] items-center 
+      overflow-clip relative shrink-0 w-full max-w-[1080px]"
       data-name="Heading+Category Links"
     >
       <HeadingCategoryLink />
@@ -98,7 +119,8 @@ function FilterSection() {
 function BlogCardImage() {
   return (
     <div
-      className="bg-[#a0abc0] h-[300px] md:h-[458px] overflow-clip relative shrink-0 w-full group-hover:opacity-90 transition-opacity"
+      className="bg-[#a0abc0] h-[300px] md:h-[458px] overflow-clip relative 
+      shrink-0 w-full group-hover:opacity-90 transition-opacity"
       data-name="Image"
     >
       <div

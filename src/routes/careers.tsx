@@ -5,8 +5,9 @@ import {
   CareersValues,
   CareersJoin,
 } from "@/components/pages/careers";
-import { CompanyLogos, Testimonials } from "@/components/pages/home";
+
 import { useDocumentTitle } from "@/hooks";
+import { CompanyLogos, Testimonials } from "@/components/shared/blocks";
 
 export const Route = createFileRoute("/careers")({
   component: CareersPage,

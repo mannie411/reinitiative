@@ -76,9 +76,8 @@ const Copyright = () => {
             />
           </g>
         </svg>
-        <p className="inline-block font-eb-garamond text-[12px] tracking-[6.6px]">
-          {" "}
-          2026
+        <p className="inline-block font-eb-garamond text-[12px] tracking-[6.6px] text-white">
+          <span> 2026</span>
         </p>
       </div>
     </div>
@@ -100,22 +99,18 @@ const LinksCopyright = () => {
 
 const Footer = () => {
   return (
-    <footer className="w-full" data-name="Footer">
-      <div className="bg-[#2d3648] relative  w-full">
-        <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-          <div
-            className="content-stretch flex flex-col gap-[56px] items-center px-[20px]
-           md:px-[180px] py-[49px] relative w-full"
-          >
-            <p
-              className="font-gt-super-ds leading-[normal] not-italic relative 
-             text-[26px] text-center text-white tracking-[5.2px] uppercase w-full"
-            >
-              Re:Initiative
-            </p>
-            <LinksCopyright />
-          </div>
-        </div>
+    <footer className="relative bg-[#2d3648] " data-name="Footer">
+      <div
+        className="relative w-full content-stretch flex flex-col gap-[56px] items-center 
+        px-[20px] md:px-[64px] py-[49px]  text-white"
+      >
+        <p
+          className="font-gt-super-ds leading-[normal] not-italic relative 
+            text-white text-[26px] text-center  tracking-[5.2px] uppercase w-full"
+        >
+          Re:Initiative
+        </p>
+        <LinksCopyright />
       </div>
     </footer>
   );

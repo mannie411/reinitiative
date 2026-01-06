@@ -2,12 +2,14 @@ import { Fragment } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   SelectedWork,
-  CompanyLogos,
-  Testimonials,
-  OurProcess,
+  // OurProcess,
 } from "@/components/pages/home";
 import { useDocumentTitle } from "@/hooks";
-import { HeroSection } from "@/components/shared";
+import {
+  CompanyLogos,
+  HeroSection,
+  Testimonials,
+} from "@/components/shared/blocks";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -20,8 +22,8 @@ function HomePage() {
     <Fragment>
       <HeroSection />
       <SelectedWork />
+      {/* <OurProcess /> */}
       <CompanyLogos />
-      <OurProcess />
       <Testimonials />
     </Fragment>
   );

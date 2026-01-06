@@ -1,6 +1,6 @@
 @import url("https://fonts.cdnfonts.com/css/gt-super-ds-trial");
 @import url("https://fonts.cdnfonts.com/css/avenir-lt-pro");
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 @font-face {
   font-family: "GT Super Ds Trial", sans-serif;
@@ -15,9 +15,16 @@
   font-family: "EB Garamond", sans-serif;
 }
 
+@font-face {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+}
+
 @theme {
   --font-avenir-lt: "Avenir LT Pro", sans-serif;
   --font-gt-super-ds: "GT Super Ds Trial", sans-serif;
   --font-gt-super-txt: "GT Super Txt Trial", sans-serif;
   --font-eb-garamond: "EB Garamond", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-nunito: "Nunito" sans-serif;
 }

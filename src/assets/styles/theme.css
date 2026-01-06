@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
+  --background: #f5f1ec;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
@@ -146,36 +146,43 @@
 
   h2 {
     font-family: var(--font-gt-super-ds);
+
+    font-family: var(--font-gt-super-ds);
     font-size: var(--text-xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   h3 {
+    font-family: var(--font-gt-super-ds);
     font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   h4 {
+    font-family: var(--font-gt-super-ds);
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   label {
+    font-family: var(--font-eb-garamond);
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   button {
+    font-family: var(--font-eb-garamond);
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   input {
+    font-family: var(--font-eb-garamond);
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
@@ -183,7 +190,12 @@
 
   p {
     font-family: var(--font-eb-garamond);
+    color: #506081;
   }
+}
+
+@utility container {
+  @apply max-w-[1440px] mx-auto px-[20px] md:px-[120px];
 }
 
 @theme {

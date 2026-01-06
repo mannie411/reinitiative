@@ -1,4 +1,5 @@
-import { ImagePlaceholder } from "@/components/shared/layout/Icons";
+import { ButtonUnderline } from "@/components/shared/blocks";
+import { ImagePlaceholder } from "@/components/shared/blocks/Icons";
 
 function Heading() {
   return (
@@ -8,32 +9,10 @@ function Heading() {
     >
       <p
         className="font-gt-super-ds leading-[normal] not-italic 
-      relative shrink-0 text-[#2d3648] text-[22px] text-center tracking-[-0.44px] w-full max-w-[362px]"
+      relative shrink-0  text-[22px] text-center tracking-[-0.44px] w-full max-w-[362px]"
       >
-        <span>{`If you're ready to create and collaborate, we'd love`}</span>
-        <span className="italic">{` to hear from you`}</span>
-      </p>
-    </div>
-  );
-}
-
-function Button() {
-  return (
-    <div
-      className="content-stretch flex items-center 
-      justify-center pb-[12px] pt-0 px-0 relative shrink-0 cursor-pointer group"
-      data-name="Button"
-    >
-      <div
-        aria-hidden="true"
-        className="absolute border-[0px_0px_1px] border-[rgba(160,171,192,0.8)] border-solid inset-0 
-        pointer-events-none group-hover:border-[#2d3648] transition-colors"
-      />
-      <p
-        className="font-eb-garamond font-semibold leading-[normal] relative shrink-0
-       text-[#53627e] text-[16px] text-center text-nowrap tracking-[6.4px] group-hover:text-[#2d3648] transition-colors"
-      >
-        JOIN US
+        <span>If you're ready to create and collaborate, we'd love</span>
+        <span className="not-italic">{` to hear from you`}</span>
       </p>
     </div>
   );
@@ -59,24 +38,31 @@ function Image() {
 
 export function CareersJoin() {
   return (
-    <div
-      className="content-stretch flex flex-col gap-[64px] items-center 
-      px-[20px] md:px-[180px] py-[90px] relative shrink-0 w-full "
-      data-name="Container"
-    >
-      <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-full">
-        <Heading />
-        <Button />
-      </div>
-
+    <section className="relative ">
       <div
-        className="gap-[32px] grid grid-cols-1 md:grid-cols-2 relative shrink-0 w-full"
-        data-name="Row"
+        className="content-stretch flex flex-col gap-[64px] items-center 
+      px-[20px] md:px-[180px] py-[90px] relative shrink-0 w-full "
+        data-name="Container"
       >
-        {[...Array(4)].map((i) => (
-          <Image key={`item-${i}`} />
-        ))}{" "}
+        <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-full">
+          <Heading />
+          <ButtonUnderline
+            text="JOIN US"
+            onClick={() => {
+              console.log("Join us");
+            }}
+          />
+        </div>
+
+        <div
+          className="gap-[32px] grid grid-cols-1 md:grid-cols-2 relative shrink-0 w-full"
+          data-name="Row"
+        >
+          {[...Array(4)].map((i) => (
+            <Image key={`item-${i}`} />
+          ))}{" "}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -67,8 +67,8 @@ export function BookingForm({
   return (
     <div className="relative flex flex-col md:flex-row  max-h-[85vh]">
       {/* Left Panel - Description */}
-      <div className="bg-[#fcfcfd] w-[330px] flex flex-col gap-[10px] p-[20px] md:p-[40px] overflow-y-auto">
-        <div className="flex flex-col gap-[20px] ">
+      <div className="bg-[#fcfcfd] w-[330px] flex flex-col gap-[24px] p-[20px] md:p-[40px] overflow-y-auto">
+        <div className="flex flex-col gap-[24px] ">
           <div className="bg-[#fcfcfd]">
             <button
               onClick={onBack}
@@ -116,16 +116,15 @@ export function BookingForm({
               </div>
             </div>
 
-            <div className="font-eb-garamond text-[16px] text-[#2d3648]">
+            <div className="font-eb-garamond text-[16px] text-[#2d3648] space-y-8">
               <p className="mb-4">
                 Book a free 20-min Google Meet call to learn more about the
                 Re:Initiative and get any of your questions answered.
               </p>
               <p>
-                <span className="font-['EB_Garamond:Bold',sans-serif] font-bold">
-                  Important:
-                </span>
-                {` Ensure you select the correct AM/PM time to avoid mistakes, like 3am instead of 3pm.`}
+                <span className=" font-bold">Important:</span>
+                Ensure you select the correct AM/PM time to avoid mistakes, like
+                3am instead of 3pm.
               </p>
             </div>
           </div>

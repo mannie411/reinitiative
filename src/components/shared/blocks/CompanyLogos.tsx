@@ -12,8 +12,8 @@ import {
 function Logos() {
   return (
     <div
-      className="content-stretch flex items-center justify-center relative 
-      shrink-0 w-full max-w-[964px] flex-wrap gap-8 "
+      className="content-stretch flex items-start justify-center relative 
+     w-full flex-wrap gap-8 "
       data-name="Logos"
     >
       <div
@@ -100,16 +100,13 @@ function Logos() {
   );
 }
 
-export function CompanyLogos() {
+export default function CompanyLogos() {
   return (
-    <div
-      className="bg-[#f5f6f8] relative shrink-0 w-full"
-      data-name="Company we keep"
-    >
-      <div className="overflow-clip rounded-[inherit] size-full">
+    <section className="relative" data-name="Company we keep">
+      <div className="container">
         <div
           className="content-stretch flex flex-col items-center 
-        px-[20px] md:px-[180px] py-[86px] relative w-full"
+        overflow-clip size-full py-[40px] md:py-[80px] "
         >
           <div
             className="content-stretch flex flex-col gap-[36px] items-center relative shrink-0 w-full"
@@ -117,7 +114,7 @@ export function CompanyLogos() {
           >
             <p
               className="font-eb-garamond font-normal italic leading-[normal] 
-              min-w-full relative shrink-0 text-[#53627e] text-[18px] text-center w-[min-content]"
+              min-w-full relative shrink-0 text-[18px] text-center w-[min-content]"
             >
               The company we keep.
             </p>
@@ -125,6 +122,6 @@ export function CompanyLogos() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

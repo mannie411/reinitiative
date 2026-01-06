@@ -15,7 +15,9 @@ import {
 } from "date-fns";
 import svgPaths from "@/assets/svg";
 import { Button } from "@/components/ui";
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Globe } from "lucide-react";
+import { cn } from "@/components/ui/utils";
+import { AnimatePresence, motion } from "motion/react";
 
 interface DateTimeSelectorProps {
   selectedDate: Date | undefined;
@@ -86,7 +88,7 @@ export function DateTimeSelector({
   };
 
   return (
-    <div className="relative flex flex-col md:flex-row max-h-[85vh] max-sm:overflow-y-auto">
+    <motion.div className="relative w-full flex flex-col md:flex-row max-h-[85vh] max-sm:overflow-y-auto">
       {/* Left Panel - Description */}
       <div
         className="bg-[#2d3648] w-full max-sm:w-[320px]  md:w-[330px] flex flex-col 
@@ -95,7 +97,8 @@ export function DateTimeSelector({
         <div className="bg-[#2d3648] w-full">
           <button
             onClick={onBack}
-            className="flex gap-[12px] items-center text-white hover:opacity-80 transition-opacity"
+            className="flex gap-[12px] items-center text-white hover:opacity-80
+             transition-opacity font-gt-super-ds"
           >
             <div className="size-[24px] flex items-center justify-center">
               <svg
@@ -107,9 +110,9 @@ export function DateTimeSelector({
                 <path d={svgPaths.p3c144b80} fill="white" />
               </svg>
             </div>
-            <p className="font-gt-super-ds text-[15px] tracking-[-0.3px]">
+            <span className=" text-[15px] tracking-[-0.3px]">
               Back to website
-            </p>
+            </span>
           </button>
         </div>
 
@@ -138,15 +141,13 @@ export function DateTimeSelector({
             </div>
           </div>
 
-          <div className="font-eb-garamond text-[16px] text-white">
-            <p className="mb-4">
+          <div className="space-y-4">
+            <p className="mb-4 text-white">
               Book a free 20-min Google Meet call to learn more about the
               Re:Initiative and get any of your questions answered.
             </p>
-            <p>
-              <span className="font-['EB_Garamond:Bold',sans-serif] font-bold">
-                Important:
-              </span>
+            <p className="text-white">
+              <span className="font-bold ">Important:</span>
               {` Ensure you select the correct AM/PM time to avoid mistakes, like 3am instead of 3pm.`}
             </p>
           </div>
@@ -155,185 +156,163 @@ export function DateTimeSelector({
 
       {/* Right Panel - Date & Time Selection */}
       <div
-        className="bg-white max-sm:w-[320px] w-full md:w-[750px]  px-[20px] md:px-[40px] py-[42px] flex flex-col 
-      md:flex-row gap-[24px] border-l border-[#edeff2] overflow-y-auto"
+        className="bg-white max-sm:w-[320px] w-[750px] px-[20px] md:px-[40px] 
+        py-[32px] flex flex-col border-l border-[#edeff2] overflow-y-auto"
       >
         <div className="w-full">
           <p className="font-gt-super-ds text-[22px] tracking-[-0.44px] text-[#2d3648]">
             Select a Date & Time
           </p>
-
-          {/* Calendar */}
-          <div className="bg-white flex flex-col gap-[32px] py-[24px]">
-            {/* Month Navigation */}
-            <div className="flex gap-[64px] items-center justify-center">
-              <Button
-                variant="ghost"
-                onClick={handlePrevMonth}
-                disabled={isAtMinMonth} // Disable UI
-                className={isAtMinMonth ? "opacity-30" : ""}
-              >
-                <ChevronLeft />
-              </Button>
-
-              <p
-                className="font-gt-super-ds text-[22px] tracking-[-0.44px] text-[#2d3648] 
-              text-center w-full  md:min-w-[180px]"
-              >
-                {format(currentMonth, "MMMM yyyy")}
-              </p>
-
-              <Button variant={"ghost"} onClick={handleNextMonth}>
-                <ChevronRight />
-              </Button>
-            </div>
-
-            {/* Calendar Grid */}
-            <div className="flex flex-col gap-[16px] md:gap-[24px]">
-              {/* Day Headers */}
-              <div className="grid grid-cols-7 gap-[12px] md:gap-[16px]">
-                {["MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"].map(
-                  (day) => (
-                    <p
-                      key={day}
-                      className="text-center font-avenir-lt text-[8px] md:text-[14px] 
-                      tracking-[2.8px] text-[#2d3648] uppercase"
-                    >
-                      {day}
-                    </p>
-                  )
-                )}
-              </div>
-
-              {/* Dates */}
-              <div className="grid grid-cols-7 gap-x-[16px] gap-y-[16px]">
-                {calendarDays.map((date, index) => {
-                  if (!date) {
-                    return (
-                      <div key={`empty-${index}`} className="size-[48px]" />
-                    );
-                  }
-
-                  const isAvailable = isDateAvailable(date);
-                  const isSelected =
-                    selectedDate && isSameDay(date, selectedDate);
-                  // const isCurrentMonth = isSameMonth(date, currentMonth);
-
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => isAvailable && onDateSelect(date)}
-                      disabled={!isAvailable}
-                      className={`size-[32px]
-                      md:size-[48px] rounded-full flex items-center justify-center
-                      font-avenir-lt text-[16px] uppercase
-                      transition-colors
-                      ${isSelected ? "bg-[#394e79] text-white" : ""}
-                      ${!isSelected && isAvailable ? "bg-[#edeff2] text-[#2d3648] hover:bg-[#dde0e5]" : ""}
-                      ${!isAvailable ? "text-[#a0abc0] cursor-not-allowed" : "cursor-pointer"}
-                    `}
-                    >
-                      {format(date, "d")}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Time Zone */}
-          <div className="flex flex-col gap-[12px]">
-            <div className="flex gap-[8px] items-center">
-              <div className="size-[18px]">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.375 14.25V16.5"
-                    stroke="#2D3648"
-                    stroke-width="1.25"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M7.875 16.5H10.875"
-                    stroke="#2D3648"
-                    stroke-width="1.25"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.125 12C7.2255 12 4.875 9.6495 4.875 6.75C4.875 3.85051 7.2255 1.5 10.125 1.5C13.0245 1.5 15.375 3.85051 15.375 6.75C15.375 9.6495 13.0245 12 10.125 12Z"
-                    stroke="#2D3648"
-                    stroke-width="1.25"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M6.375 3C6.86573 3.02888 7.11927 3.26924 7.55512 3.72976C8.34232 4.56155 9.12953 4.63095 9.6543 4.35369C10.4415 3.9378 9.78 3.26416 10.7039 2.89807C11.3061 2.65946 11.3901 2.0102 11.0549 1.5"
-                    stroke="#2D3648"
-                    stroke-width="1.25"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M15 7.5C13.875 7.5 13.6753 8.4351 12.75 8.25C10.875 7.875 10.3437 8.29417 10.3437 9.18832C10.3437 10.0824 10.3437 10.0824 9.95377 10.753C9.70012 11.1892 9.61147 11.6253 10.117 12"
-                    stroke="#2D3648"
-                    stroke-width="1.25"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M4.875 1.5C3.48648 2.84996 2.625 4.73115 2.625 6.81188C2.625 10.9199 5.98286 14.25 10.125 14.25C12.1691 14.25 14.0222 13.439 15.375 12.1238"
-                    stroke="#2D3648"
-                    stroke-width="1.25"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </div>
-              <p className="font-gt-super-ds text-[16px] tracking-[-0.32px] text-[#2d3648]">
-                Time zone
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-[10px]">
-              <div className="border-b border-[#a0abc0] pb-[12px]">
-                <p className="font-gt-super-ds text-[16px] text-[#53627e]">
-                  Europe/London (GMT+0/+1)
-                </p>
-              </div>
-              <p className="font-eb-garamond text-[12px] text-[#465776]">
-                All times are shown in your selected time zone
-              </p>
-            </div>
-          </div>
         </div>
 
-        {/* Available Times - Show when date is selected */}
-        {selectedDate && (
-          <div className="flex flex-col gap-[16px] border-t border-[#edeff2] pt-[24px] ">
-            <p className="font-gt-super-ds text-[16px] text-[#2d3648]">
-              Select a date to see available times.
-            </p>
-            <div className="grid grid-cols-3 md:flex md:flex-col gap-[12px] max-h-[500px] overflow-y-scroll">
-              {TIME_SLOTS.map((time) => (
-                <button
-                  key={time}
-                  onClick={() => onTimeSelect(time)}
-                  className="bg-[#edeff2] hover:bg-[#394e79] hover:text-white transition-colors
-                     px-[16px] py-[12px] rounded-[4px] font-eb-garamond text-[16px] text-[#2d3648]"
+        <div className="flex flex-col md:flex-row gap-[24px]">
+          <div className="w-full">
+            {/* Calendar */}
+            <div className="bg-white flex flex-col gap-[24px] ">
+              {/* Month Navigation */}
+              <div className="flex gap-[64px] items-center justify-center">
+                <Button
+                  variant="ghost"
+                  onClick={handlePrevMonth}
+                  disabled={isAtMinMonth} // Disable UI
+                  className={isAtMinMonth ? "opacity-30" : ""}
                 >
-                  {time}
-                </button>
-              ))}
+                  <ChevronLeft />
+                </Button>
+
+                <p
+                  className="font-gt-super-ds text-[18px] tracking-[-0.44px] text-[#2d3648] 
+              text-center w-full  md:min-w-[180px]"
+                >
+                  {format(currentMonth, "MMMM yyyy")}
+                </p>
+
+                <Button variant={"ghost"} onClick={handleNextMonth}>
+                  <ChevronRight />
+                </Button>
+              </div>
+
+              {/* Calendar Grid */}
+              <div className="flex flex-col gap-[16px] md:gap-[24px]">
+                {/* Day Headers */}
+                <div className="grid grid-cols-7 gap-[12px] md:gap-[16px]">
+                  {["MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"].map(
+                    (day) => (
+                      <p
+                        key={day}
+                        className="text-center font-avenir-lt text-[8px] md:text-[14px] 
+                      tracking-[2.8px] text-[#2d3648] uppercase"
+                      >
+                        {day}
+                      </p>
+                    )
+                  )}
+                </div>
+
+                {/* Dates */}
+                <div className="grid grid-cols-7 gap-x-[16px] gap-y-[16px]">
+                  {calendarDays.map((date, index) => {
+                    if (!date) {
+                      return (
+                        <div key={`empty-${index}`} className="size-[48px]" />
+                      );
+                    }
+
+                    const isAvailable = isDateAvailable(date);
+                    const isSelected =
+                      selectedDate && isSameDay(date, selectedDate);
+                    // const isCurrentMonth = isSameMonth(date, currentMonth);
+
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => isAvailable && onDateSelect(date)}
+                        disabled={!isAvailable}
+                        className={cn(
+                          `size-[32px] md:size-[48px] rounded-full flex items-center justify-center
+                      font-inter text-[16px] uppercase transition-colors not-italic`,
+                          isSelected ? "bg-[#394e79] text-white" : "",
+                          !isSelected && isAvailable
+                            ? "bg-[#edeff2] text-[#2d3648] hover:bg-[#dde0e5]"
+                            : "",
+                          !isAvailable
+                            ? "text-[#a0abc0] cursor-not-allowed"
+                            : "cursor-pointer"
+                        )}
+                      >
+                        {format(date, "d")}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-            <div className="hidden md:flex justify-center">
-              <ChevronDown />
+
+            {/* Time Zone */}
+            <div className="flex flex-col gap-[12px] py-[12px]">
+              <div className="flex gap-[8px] items-center">
+                <div className="size-[18px]">
+                  <Globe color="#2D3648" className="size-[18px]" />
+                </div>
+                <p className="font-gt-super-ds text-[16px] tracking-[-0.32px] text-[#2d3648]">
+                  Time zone
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-[10px]">
+                <div className="border-b border-[#a0abc0] pb-[12px]">
+                  <p className="font-gt-super-ds text-[16px] text-[#53627e]">
+                    Europe/London (GMT+0/+1)
+                  </p>
+                </div>
+                <p className="font-eb-garamond text-[12px] text-[#465776]">
+                  All times are shown in your selected time zone
+                </p>
+              </div>
             </div>
           </div>
-        )}
+
+          {/* Available Times - Show when date is selected */}
+          <AnimatePresence mode="wait">
+            {selectedDate && (
+              <motion.div
+                key="time-selector"
+                initial={{ opacity: 0, x: -50, width: 0 }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  width: window.innerWidth > 768 ? "30%" : "100%",
+                }}
+                exit={{ opacity: 0, x: -50, width: 0 }}
+                transition={{ type: "spring", damping: 28, stiffness: 200 }}
+                className="flex flex-col gap-[16px] border-t border-[#edeff2]"
+              >
+                <div className="min-w-[200px] flex flex-col gap-[16px]">
+                  <p className="font-gt-super-ds text-[16px] text-[#2d3648]">
+                    Select a date to see available times.
+                  </p>
+
+                  <div className="grid grid-cols-3 md:flex md:flex-col gap-[12px] max-h-[480px] overflow-y-scroll">
+                    {TIME_SLOTS.map((time) => (
+                      <button
+                        key={time}
+                        onClick={() => onTimeSelect(time)}
+                        className="bg-[#edeff2] hover:bg-[#394e79] hover:text-white transition-colors
+                     px-[16px] py-[12px] rounded-[4px] font-eb-garamond text-[16px] text-[#2d3648]"
+                      >
+                        {time}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="hidden justify-center">
+                    <ChevronDown />
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

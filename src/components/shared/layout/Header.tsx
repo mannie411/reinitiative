@@ -1,12 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useAppContext, useScrollPosition } from "@/hooks";
 import { useCallback, useEffect, useMemo } from "react";
+import { cn } from "@/components/ui/utils";
 
 function MenuIcon({ color = "#FFFFFF" }: { color?: string }) {
   return (
-    <div className="relative shrink-0 size-[24px]" data-name="menu-01">
+    <div className="relative shrink-0 size-[20px]" data-name="menu-01">
       <svg
-        className="block size-full"
+        className="inline-block size-full"
         fill="none"
         preserveAspectRatio="none"
         viewBox="0 0 24 24"
@@ -32,6 +33,7 @@ function MenuIcon({ color = "#FFFFFF" }: { color?: string }) {
             strokeWidth="1.5"
           />
           <path
+            className="hidden"
             d="M4 19H20"
             id="Vector_3"
             stroke="var(--stroke-0, white)"
@@ -54,8 +56,8 @@ function Logo() {
         data-name="Logo"
       >
         <p
-          className="font-gt-super-ds leading-[normal] not-italic relative shrink-0 
-      text-[26px] text-nowrap  tracking-[5.2px] uppercase"
+          className={cn(`font-gt-super-ds leading-[normal] not-italic relative shrink-0 
+      text-[18px] md:text-[24px] text-nowrap  tracking-[5.2px] uppercase text-[var(--text-color)]`)}
         >
           Re:Initiative
         </p>
@@ -67,8 +69,7 @@ function Logo() {
 const Header = () => {
   const routerState = useRouterState();
   const scrollPosition = useScrollPosition();
-  const { navbarState, setDrawerState, setNavbarState, toggleSchedule } =
-    useAppContext();
+  const { navbarState, setDrawerState, setNavbarState } = useAppContext();
   const currentPath = routerState.location.pathname;
 
   // 1. STABLE FUNCTIONS: No dependencies on drawerState
@@ -100,7 +101,7 @@ const Header = () => {
     );
   }, [currentPath, navbarState]);
 
-  const iconColor = useMemo(
+  const color = useMemo(
     () => (isHeaderTransparent ? "#FFFFFF" : "#000000"),
     [isHeaderTransparent]
   );
@@ -109,35 +110,57 @@ const Header = () => {
     const base =
       "sticky flex flex-col items-center z-40 justify-center top-0 w-full transition-colors duration-300";
     const theme = isHeaderTransparent
-      ? "bg-transparent text-white"
-      : "bg-white text-black shadow-sm";
+      ? "bg-transparent !text-white"
+      : "bg-transparent backdrop-blur-xs backdrop-[var(--background)] text-black shadow-sm";
     return `${base} ${theme}`;
   }, [isHeaderTransparent]);
 
   return (
-    <header className={headerClasses}>
-      <div className="relative md:max-w-[1440px] w-full  px-[20px] md:px-[64px] py-[30px]">
-        <div className="flex flex-row items-center md:justify-between w-full">
+    <header
+      className={headerClasses}
+      style={{
+        "--text-color": color,
+        height: "80px",
+      }}
+    >
+      <div className="relative w-full  px-[20px] md:px-[64px] py-[15px]">
+        <div
+          className={cn(
+            "flex flex-row items-center md:justify-between w-full",
+            `!text-(--text-color)`
+          )}
+        >
           <div
             className="flex gap-[24px] items-center cursor-pointer"
             onClick={openDrawer}
           >
-            <MenuIcon color={iconColor} />
-            <p className="font-eb-garamond text-[14px] tracking-[3.36px] hidden md:inline-block">
+            <MenuIcon color={color} />
+            <p
+              className={cn(
+                "font-eb-garamond text-[12px] tracking-[2.86px] hidden md:inline-block",
+                `!text-(--text-color)`
+              )}
+            >
               MENU
             </p>
           </div>
 
           <Logo />
 
-          <div
+          <Link
+            to={"/booking"}
             className="justify-end cursor-pointer hidden md:flex"
-            onClick={toggleSchedule}
+            // onClick={toggleSchedule}
           >
-            <p className="font-eb-garamond text-[14px] tracking-[3.36px]">
+            <p
+              className={cn(
+                "font-eb-garamond text-[12px] tracking-[2.86px]",
+                `!text-(--text-color)`
+              )}
+            >
               ENQUIRE
             </p>
-          </div>
+          </Link>
         </div>
       </div>
     </header>

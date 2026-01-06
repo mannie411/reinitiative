@@ -16,8 +16,8 @@ const options = linkOptions([
     activeOptions: { exact: true },
   },
   {
-    to: "/our-process",
-    label: "Our Process",
+    to: "/our-services",
+    label: "Our Services",
     activeOptions: { exact: true },
   },
   {
@@ -36,11 +36,11 @@ const options = linkOptions([
     activeOptions: { exact: true },
   },
 
-  {
-    to: undefined,
-    label: "Sample Page",
-    activeOptions: { exact: true },
-  },
+  // {
+  //   to: undefined,
+  //   label: "Sample Page",
+  //   activeOptions: { exact: true },
+  // },
 ]);
 
 const Cancel = () => {
@@ -117,7 +117,7 @@ const NavLink = ({
     <Link
       to={to}
       className={cn(
-        `content-stretch flex items-center px-0 py-[12px] relative shrink-0 w-full
+        `content-stretch flex items-center px-0 py-[6px] relative shrink-0 w-full
         transition-colors rounded-md`,
         active ? `italic` : `hover:italic`
       )}
@@ -139,11 +139,11 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
   const location = useLocation();
   return (
     <div
-      className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full"
+      className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full"
       data-name="Menu"
     >
       <p
-        className="font-eb-garamond font-semibold leading-[normal] relative shrink-0 
+        className="hidden font-eb-garamond font-semibold leading-[normal] relative shrink-0 
       text-[#53627e] text-[12px] tracking-[2.88px] uppercase w-full"
       >
         menu
@@ -166,31 +166,45 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
   );
 };
 
-const SocialLinks = () => {
+const SocialLinks = ({ closeDrawer }: { closeDrawer: () => void }) => {
   return (
     <div
       className="content-stretch flex font-eb-garamond font-normal gap-[24px] italic 
-      items-center leading-[normal] relative shrink-0 text-[#53627e] text-[16px] text-center text-nowrap"
+      items-center leading-[normal] relative shrink-0 text-[16px] text-center text-nowrap"
       data-name="Social Links"
     >
-      <p className="relative shrink-0 cursor-pointer hover:underline">
+      <Link
+        to={"https://instagram.com/"}
+        target={"_blank"}
+        className="relative shrink-0 cursor-pointer hover:underline"
+        onClick={closeDrawer}
+      >
         Instagram
-      </p>
-      <p className="relative shrink-0 cursor-pointer hover:underline">
-        Pinterest
-      </p>
+      </Link>
+      <Link
+        to={"https://linkedin.com/"}
+        target={"_blank"}
+        className="relative shrink-0 cursor-pointer hover:underline"
+        onClick={closeDrawer}
+      >
+        LinkedIn
+      </Link>
     </div>
   );
 };
 
 const DrawerFooter = () => {
-  const { toggleSchedule } = useAppContext();
+  const { setDrawerState } = useAppContext();
+  const closeDrawer = () => {
+    setDrawerState("collapsed");
+  };
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0">
-      <div
+      <Link
+        to={"/booking"}
+        onClick={closeDrawer}
         className="content-stretch flex items-center justify-center pb-[10px] pt-0 px-0 
       relative shrink-0 cursor-pointer"
-        onClick={toggleSchedule}
       >
         <p
           className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
@@ -198,21 +212,8 @@ const DrawerFooter = () => {
         >
           ENQUIRE
         </p>
-      </div>
-      <SocialLinks />
-    </div>
-  );
-};
-
-const Container = ({ onClose }: { onClose: () => void }) => {
-  return (
-    <div
-      className="content-stretch flex flex-col gap-[56px] h-full items-start relative shrink-0"
-      data-name="Container"
-    >
-      <CloseMenu onClose={onClose} />
-      <Menu onClose={onClose} />
-      <DrawerFooter />
+      </Link>
+      <SocialLinks closeDrawer={closeDrawer} />
     </div>
   );
 };
@@ -234,13 +235,20 @@ const Drawer = ({ onClose }: NavMenuProps) => {
       initial={{ x: "-100%" }}
       animate={{ x: 0 }}
       exit={{ x: "-100%" }}
-      transition={{ type: "tween", duration: 0.3 }}
-      className="fixed inset-y-0 left-0 w-full max-w-sm bg-[#f5f6f8] shadow-xl overflow-y-auto z-50"
+      transition={{ type: "tween", duration: 0.5 }}
+      className="fixed inset-y-0 left-0 w-full md:max-w-sm bg-[#f5f6f8] shadow-xl overflow-y-auto z-50"
       data-name="Nav Menu"
     >
       <div className="size-full min-h-screen">
         <div className="content-stretch flex items-start p-[32px] relative size-full">
-          <Container onClose={onNavigationPop} />
+          <div
+            className="content-stretch flex flex-col gap-[56px] h-full items-start relative shrink-0"
+            data-name="Container"
+          >
+            <CloseMenu onClose={onNavigationPop} />
+            <Menu onClose={onNavigationPop} />
+            <DrawerFooter />
+          </div>
         </div>
       </div>
     </motion.div>

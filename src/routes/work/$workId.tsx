@@ -2,8 +2,8 @@ import { Fragment } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import svgPaths from "@/assets/svg";
-import { CompanyLogos, Testimonials } from "@/components/pages/home";
-import { HeroSection } from "@/components/shared";
+
+import { HeroSection } from "@/components/shared/blocks";
 import { useAppContext } from "@/hooks";
 
 export const Route = createFileRoute("/work/$workId")({
@@ -229,8 +229,6 @@ export function WorkDetailsPage() {
       <HeroSection />
       <MainContent />
       <RelatedWorks />
-      <CompanyLogos />
-      <Testimonials />
     </Fragment>
   );
 }

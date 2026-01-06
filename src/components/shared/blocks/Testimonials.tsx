@@ -62,7 +62,7 @@ function Testimonial() {
   return (
     <div
       className="content-stretch flex flex-col gap-[36px] items-center relative shrink-0 w-full"
-      data-name="Testimony"
+      data-name="Testimonal"
     >
       <div className="relative shrink-0 w-full" data-name="Content+arrow">
         <div className="flex flex-row items-center size-full justify-center">
@@ -86,27 +86,27 @@ function Testimonial() {
             <Carousel setApi={setApi} opts={{ loop: true }}>
               <CarouselContent>
                 {testimonials.map(({ content, name, position }, idx) => (
-                  <CarouselItem key={`item-${idx}`} className="basis-full">
+                  <CarouselItem key={`item-${idx}`} className="basis-full ">
                     <div
                       className="content-stretch flex flex-col
                 gap-[30px] items-center leading-[normal] relative 
-                shrink-0 text-[#2d3648] text-[16px] text-center"
+                text-[16px] text-center max-w-[394px] mx-auto"
                       data-name="Name+Company"
                     >
                       <p
                         className="font-eb-garamond font-normal leading-[normal] relative shrink-0
-                       text-[#53627e] text-[16px] text-center w-full max-w-[394px]"
+                       text-[16px] text-center w-full "
                       >
                         {content}
                       </p>
                       <p
-                        className="font-eb-garamond font-normal relative shrink-0 tracking-normal 
+                        className="font-eb-garamond font-normal text-[14px] relative  tracking-normal 
                       md:tracking-[9.6px] w-full uppercase"
                       >
                         {name}
                       </p>
                       <p
-                        className="font-eb-garamond font-normal relative shrink-0 tracking-normal 
+                        className="font-eb-garamond font-normal text-[12px] relative tracking-normal 
                       md:tracking-[6.4px] w-full uppercase"
                       >
                         {position}
@@ -139,30 +139,31 @@ function Testimonial() {
   );
 }
 
-export function Testimonials() {
+export default function Testimonials() {
   return (
-    <div className="bg-white relative w-full" data-name="Testimonies">
-      <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col items-center px-[20px] md:px-[180px] py-[64px] relative w-full">
-          <div
-            className="content-stretch flex flex-col gap-[26px] items-center relative shrink-0 w-full"
-            data-name="Container"
-          >
-            <p
-              className="font-eb-garamond font-normal leading-[normal] relative 
-            shrink-0 text-[#2d3648] text-[20px] text-center tracking-[8px] uppercase w-full"
+    <section className="relative" data-name="Testimonials">
+      <div className="container">
+        <div className="overflow-clip rounded-[inherit] size-full w-full">
+          <div className="content-stretch flex flex-col items-center py-[40px] md:py-[80px]">
+            <div
+              className="content-stretch flex flex-col gap-[26px] items-center relative shrink-0 w-full"
+              data-name="Container"
             >
-              <span className="tracking-[3.2px]">In</span>
-              <span className=" italic tracking-[1.12px] lowercase">
-                {" "}
-                their{" "}
-              </span>
-              <span className="tracking-[3.2px]">words</span>
-            </p>
-            <Testimonial />
+              <p
+                className="font-eb-garamond font-normal leading-[normal] relative 
+            shrink-0  text-[20px] text-center tracking-[8px] uppercase w-full"
+              >
+                <span className="tracking-[3.2px]">In </span>
+                <span className=" italic tracking-[1.12px] lowercase">
+                  their
+                </span>
+                <span className="tracking-[3.2px]"> words</span>
+              </p>
+              <Testimonial />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

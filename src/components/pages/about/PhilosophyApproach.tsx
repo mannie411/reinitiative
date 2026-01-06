@@ -1,4 +1,4 @@
-import { ImagePlaceholder } from "@/components/shared/layout/Icons";
+import { ImagePlaceholder } from "@/components/shared/blocks/Icons";
 
 function Philosophy() {
   return (
@@ -110,16 +110,11 @@ function ApproachColumn() {
 
 export function PhilosophyApproach() {
   return (
-    <section>
-      <div
-        className="content-stretch flex flex-col items-start pb-[60px] md:pb-[120px] 
-        pt-[40px] md:pt-[90px] px-0 relative  w-full"
-        data-name="Container"
-      >
+    <section className="relative">
+      <div className="container">
         <div
-          className="content-stretch flex flex-col md:flex-row gap-[60px] md:gap-[80px]
-           items-center justify-center px-[20px] md:px-[40px] py-0 relative 
-            w-full max-w-[1080px] mx-auto"
+          className="content-stretch flex flex-col md:flex-row gap-[60px] 
+          md:gap-[80px] items-center justify-center py-[20px] md:py-[80px] "
           data-name="Section"
         >
           <PhilosophyColumn />

@@ -1,3 +1,9 @@
+import CompanyLogos from "./CompanyLogos";
 import NotFoundError from "./NotFound";
+import Testimonials from "./Testimonials";
 
-export { NotFoundError };
+export { CompanyLogos, NotFoundError, Testimonials };
+
+export * from "./Button";
+export * from "./Hero";
+export * from "./Icons";

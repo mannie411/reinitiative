@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import {
@@ -7,8 +8,9 @@ import {
   VideoSection,
   WhoWeServe,
 } from "@/components/pages/about";
-import { CompanyLogos, Testimonials } from "@/components/pages/home";
+
 import { useDocumentTitle } from "@/hooks";
+import { CompanyLogos, Testimonials } from "@/components/shared/blocks";
 
 export const Route = createFileRoute("/about-us")({
   component: AboutPage,
@@ -18,7 +20,7 @@ export function AboutPage() {
   useDocumentTitle("About | RE:Initiative");
 
   return (
-    <div className="bg-white min-h-screen flex flex-col font-sans w-full">
+    <Fragment>
       <AboutHero />
       <PhilosophyApproach />
       <VideoSection />
@@ -26,6 +28,6 @@ export function AboutPage() {
       <AboutBookCall />
       <CompanyLogos />
       <Testimonials />
-    </div>
+    </Fragment>
   );
 }
