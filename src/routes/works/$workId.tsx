@@ -3,10 +3,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import svgPaths from "@/assets/svg";
 
-import { HeroSection } from "@/components/shared/blocks";
+import {
+  CompanyLogos,
+  HeroSection,
+  Testimonials,
+} from "@/components/shared/blocks";
 import { useAppContext } from "@/hooks";
 
-export const Route = createFileRoute("/work/$workId")({
+export const Route = createFileRoute("/works/$workId")({
   component: WorkDetailsPage,
 });
 
@@ -173,37 +177,45 @@ function WorkWithUsCTA() {
 
 function MainContent() {
   return (
-    <div className="bg-white relative shrink-0 w-full" data-name="About Us">
-      <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col gap-[72px] items-center px-[20px] md:px-[180px] py-[90px] relative w-full">
-          <DescriptionSection />
-          <ImagePlaceholder />
-          <ImagePlaceholder />
-          <QuoteSection />
-          <ImagePlaceholder />
-          <WorkWithUsCTA />
+    <section className="relative w-full" data-name="Work Section">
+      <div className="container py-[4opx] md:py-[80px]">
+        <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
+          <div className="content-stretch flex flex-col gap-[72px] items-center  relative w-full">
+            <DescriptionSection />
+            <ImagePlaceholder />
+            <ImagePlaceholder />
+            <QuoteSection />
+            <ImagePlaceholder />
+            <WorkWithUsCTA />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
 function RelatedWorks() {
   return (
-    <div
-      className="bg-white relative shrink-0 w-full mt-20"
+    <section
+      className="relative shrink-0 w-full"
       data-name="Related Works Section"
     >
-      <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col gap-[64px] items-center px-[20px] md:px-[180px] py-[60px] md:py-[90px] relative w-full">
+      <div className="container flex flex-col items-center overflow-clip rounded-[inherit] size-full">
+        <div
+          className="content-stretch flex flex-col gap-[64px] items-center 
+         relative w-full"
+        >
           <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-full">
-            <p className=" font-medium leading-[normal] relative shrink-0 text-[#2d3648] text-[16px] text-center text-nowrap tracking-[6.4px] uppercase">
+            <p
+              className=" font-medium leading-[normal] relative shrink-0 text-[#2d3648] 
+            text-[16px] text-center text-nowrap tracking-[6.4px] uppercase"
+            >
               More from our portfolio
             </p>
 
             <div className="flex flex-col md:flex-row gap-[32px] items-center w-full justify-center">
               <Link
-                to="/selected-works"
+                to="/works"
                 className="content-stretch flex items-center justify-center pb-[12px] pt-0 px-0 relative shrink-0 cursor-pointer group"
                 data-name="Button Link"
               >
@@ -219,7 +231,7 @@ function RelatedWorks() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -229,6 +241,8 @@ export function WorkDetailsPage() {
       <HeroSection />
       <MainContent />
       <RelatedWorks />
+      <CompanyLogos />
+      <Testimonials />
     </Fragment>
   );
 }

@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SchedulingFlow } from "@/components/shared/scheduling";
 import { useDocumentTitle } from "@/hooks";
 import { motion } from "motion/react";
@@ -10,10 +10,6 @@ export const Route = createFileRoute("/booking")({
 
 function RouteComponent() {
   useDocumentTitle("Booking | RE:Initiative");
-
-  const router = useRouter();
-
-  console.log(router);
 
   return (
     <Fragment>

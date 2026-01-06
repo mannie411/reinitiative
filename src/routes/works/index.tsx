@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { WorksGrid } from "@/components/pages/works";
 import {
   ButtonUnderline,
@@ -9,12 +9,13 @@ import {
 } from "@/components/shared/blocks";
 import { useDocumentTitle } from "@/hooks";
 
-export const Route = createFileRoute("/work/")({
+export const Route = createFileRoute("/works/")({
   component: SelectedWorksPage,
 });
 
 export function SelectedWorksPage() {
   useDocumentTitle("Works | RE:Initiative");
+  const navigate = useNavigate();
 
   return (
     <Fragment>
@@ -32,20 +33,23 @@ export function SelectedWorksPage() {
       </HeroBanner>
 
       {/* This section corresponds to 'About Us' in DesktopWorks.tsx which wraps the grid and the button */}
-      <div className="bg-white relative shrink-0 w-full">
-        <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-          <div className="content-stretch flex flex-col gap-[64px] items-center pb-[90px] pt-[60px] md:pt-[120px] relative w-full">
-            {/* The grid component has its own internal width constraints but we need to ensure layout matches */}
-            <WorksGrid />
-            <ButtonUnderline
-              text="Book a Call"
-              onClick={() => {
-                console.log("Book a call");
-              }}
-            />
+      <section className="relative w-full">
+        <div className="container ">
+          <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
+            <div className="content-stretch flex flex-col items-center  relative w-full">
+              {/* The grid component has its own internal width constraints but we need to ensure layout matches */}
+              <WorksGrid />
+              <ButtonUnderline
+                text="Book a Call"
+                onClick={() => {
+                  navigate({ to: "/booking" });
+                  console.log("Book a call");
+                }}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </section>
       <CompanyLogos />
       <Testimonials />
     </Fragment>

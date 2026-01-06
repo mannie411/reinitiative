@@ -3,6 +3,8 @@ import { useAppContext, useScrollPosition } from "@/hooks";
 import { useCallback, useEffect, useMemo } from "react";
 import { cn } from "@/components/ui/utils";
 
+const transparentPaths = ["/", "/home", "/works/"];
+
 function MenuIcon({ color = "#FFFFFF" }: { color?: string }) {
   return (
     <div className="relative shrink-0 size-[20px]" data-name="menu-01">
@@ -94,11 +96,17 @@ const Header = () => {
 
   // 4. VISUAL LOGIC: Syncing transparency with path
   const isHeaderTransparent = useMemo(() => {
-    const transparentPaths = ["/", "/home", "/work/"];
-    console.log(currentPath);
-    return (
-      transparentPaths.includes(currentPath) && navbarState === "transparent"
-    );
+    // 1. Check for exact match on root "/" to avoid everything matching
+    if (currentPath === "/") {
+      return navbarState === "transparent";
+    }
+
+    // 2. Check if the current path starts with any of the subpaths
+    const isMatchingPath = transparentPaths
+      .filter((path) => path !== "/") // Exclude root from the "startsWith" check
+      .some((path) => currentPath.startsWith(path));
+
+    return isMatchingPath && navbarState === "transparent";
   }, [currentPath, navbarState]);
 
   const color = useMemo(

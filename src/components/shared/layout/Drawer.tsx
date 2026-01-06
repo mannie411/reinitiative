@@ -21,7 +21,7 @@ const options = linkOptions([
     activeOptions: { exact: true },
   },
   {
-    to: "/work",
+    to: "/works",
     label: "Selected Work",
     activeOptions: { exact: true },
   },

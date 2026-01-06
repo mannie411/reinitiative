@@ -48,7 +48,7 @@ function ImageContainer() {
 function WorkItem({ brand, category }: { brand: string; category: string }) {
   return (
     <Link
-      to="/work/$workId"
+      to="/works/work-name"
       params={{ workId: brand.toLowerCase().replace(/\s+/g, "-") }}
       className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-full cursor-pointer group hover:translate-y-[-4px] transition-transform duration-300"
       onClick={() => window.scrollTo(0, 0)}
@@ -79,9 +79,12 @@ export function WorksGrid() {
   ];
 
   return (
-    <div className="bg-white relative shrink-0 w-full" data-name="About Us">
+    <div className="w-full" data-name="Works Section">
       <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col gap-[72px] items-center px-[20px] md:px-[180px] py-[60px] md:py-[90px] relative w-full">
+        <div
+          className="content-stretch flex flex-col gap-[72px] items-center 
+        md:py-[90px] relative w-full"
+        >
           <div
             className="grid grid-cols-1 md:grid-cols-2 gap-[32px] items-start relative shrink-0 w-full"
             data-name="Row"
