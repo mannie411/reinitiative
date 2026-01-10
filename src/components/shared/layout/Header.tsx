@@ -139,7 +139,7 @@ const Header = () => {
       isHeaderTransparent && !isHero
         ? "bg-transparent"
         : isHero
-          ? "bg-transparent backdrop-blur-xs  shadow-sm"
+          ? "bg-transparent backdrop-blur-lg  shadow-sm"
           : "bg-(--background) shadow-sm";
     return `${base} ${theme}`;
   }, [isHeaderTransparent, isHero]);
