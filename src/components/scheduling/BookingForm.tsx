@@ -67,7 +67,7 @@ export function BookingForm({
   return (
     <div className="relative flex flex-col md:flex-row  max-h-[85vh]">
       {/* Left Panel - Description */}
-      <div className="bg-[#2d3648] w-[330px] flex flex-col gap-[24px] p-[20px] md:p-[40px] overflow-y-auto">
+      <div className="bg-[#394E79] w-[330px] flex flex-col gap-[24px] p-[20px] md:p-[40px] overflow-y-auto">
         <div className="flex flex-col gap-[24px] ">
           <button
             onClick={onBack}

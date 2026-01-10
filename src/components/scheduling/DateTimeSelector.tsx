@@ -91,7 +91,7 @@ export function DateTimeSelector({
     <motion.div className="relative w-full flex flex-col md:flex-row max-h-[85vh] max-sm:overflow-y-auto">
       {/* Left Panel - Description */}
       <div
-        className="bg-[#2d3648] w-full max-sm:w-[320px]  md:w-[330px] flex flex-col 
+        className="bg-[#394E79] w-full max-sm:w-[320px]  md:w-[330px] flex flex-col 
        p-[20px] md:p-[40px] gap-[85px] overflow-y-auto"
       >
         <div className="bg-[#2d3648] w-full">
