@@ -1,4 +1,5 @@
-import { ImagePlaceholder } from "@/components/shared/blocks/Icons";
+import { Image } from "@/components/shared/blocks";
+import { imgAboutApproach, imgAboutPhilosophy } from "@/assets";
 
 function Philosophy() {
   return (
@@ -42,12 +43,7 @@ function PhilosophyColumn() {
         className="relative bg-[#a0abc0] h-[300px] md:h-[538px] overflow-clip   w-full"
         data-name="Image"
       >
-        <div
-          className="absolute left-1/2 size-[80px] top-1/2 translate-x-[-50%] translate-y-[-50%]"
-          data-name="image-01"
-        >
-          <ImagePlaceholder />
-        </div>
+        <Image imgSrc={imgAboutPhilosophy} className="size-full" />
       </div>
     </div>
   );
@@ -96,12 +92,7 @@ function ApproachColumn() {
         className="bg-[#a0abc0] h-[300px] md:h-[538px] overflow-clip relative  w-full"
         data-name="Image"
       >
-        <div
-          className="absolute left-1/2 size-[80px] top-1/2 translate-x-[-50%] translate-y-[-50%]"
-          data-name="image-01"
-        >
-          <ImagePlaceholder />
-        </div>
+        <Image imgSrc={imgAboutApproach} className="size-full" />
       </div>
       <Approach />
     </div>

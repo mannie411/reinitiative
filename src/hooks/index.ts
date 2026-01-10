@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { AppContext } from "../context";
+import { AppContext, DefaultLayoutContext } from "../context";
 
 export * from "./ui";
 
@@ -7,6 +7,16 @@ export function useAppContext() {
   const context = useContext(AppContext);
   if (context === undefined) {
     throw new Error("useAppContext must be used within a AppProvider");
+  }
+  return context;
+}
+
+export function useDefaultLayoutContext() {
+  const context = useContext(DefaultLayoutContext);
+  if (context === undefined) {
+    throw new Error(
+      "useDefaultLayoutContext must be used within a LayoutProvider"
+    );
   }
   return context;
 }

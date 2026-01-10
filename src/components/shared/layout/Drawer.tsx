@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import svgPaths from "@/assets/svg";
-import { useAppContext } from "@/hooks";
+import { useDefaultLayoutContext } from "@/hooks";
 import { cn } from "../../ui/utils";
 
 const options = linkOptions([
@@ -45,7 +45,7 @@ const options = linkOptions([
 
 const Cancel = () => {
   return (
-    <div className="relative shrink-0 size-[26px]" data-name="cancel-01">
+    <div className="relative  size-[26px]" data-name="cancel-01">
       <svg
         className="block size-full"
         fill="none"
@@ -70,7 +70,7 @@ const Cancel = () => {
 const CloseMenu = ({ onClose }: { onClose: () => void }) => {
   return (
     <div
-      className="content-stretch flex gap-[10px] items-center relative shrink-0 
+      className="content-stretch flex gap-[10px] items-center relative  
       w-full cursor-pointer hover:opacity-70 transition-opacity"
       data-name="Close Menu"
       onClick={onClose}
@@ -78,7 +78,7 @@ const CloseMenu = ({ onClose }: { onClose: () => void }) => {
       <Cancel />
       <p
         className="font-eb-garamond font-semibold leading-[normal] relative 
-      shrink-0 text-[#53627e] text-[14px] text-nowrap tracking-[3.36px] uppercase"
+       text-[#53627e] text-[14px]  tracking-[3.36px] uppercase"
       >
         close
       </p>
@@ -100,12 +100,12 @@ const NavLink = ({
   if (!to) {
     return (
       <div
-        className="content-stretch flex items-center  py-[12px] relative shrink-0 w-full opacity-50"
+        className="content-stretch flex items-center  py-[12px] relative  w-full opacity-50"
         data-name="Link"
       >
         <p
-          className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
-        text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-0 "
+          className="font-eb-garamond font-normal leading-[normal] relative  
+        text-[#2d3648] text-[16px]   tracking-[0.96px] w-full text-left px-0 "
         >
           {text}
         </p>
@@ -117,7 +117,7 @@ const NavLink = ({
     <Link
       to={to}
       className={cn(
-        `content-stretch flex items-center px-0 py-[6px] relative shrink-0 w-full
+        `content-stretch flex items-center px-0 py-[6px] relative  w-full
         transition-all rounded-md`,
         active ? `italic font-semibold` : `hover:italic`
       )}
@@ -126,8 +126,8 @@ const NavLink = ({
       resetScroll={true}
     >
       <p
-        className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
-      text-[#2d3648] text-[16px]  text-nowrap tracking-[0.96px] w-full text-left px-0"
+        className="font-eb-garamond font-normal leading-[normal] relative  
+      text-[#2d3648] text-[16px]   tracking-[0.96px] w-full text-left px-0"
       >
         {text}
       </p>
@@ -139,17 +139,17 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
   const location = useLocation();
   return (
     <div
-      className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full"
+      className="content-stretch flex flex-col gap-[12px] items-start relative  w-full"
       data-name="Menu"
     >
       <p
-        className="hidden font-eb-garamond font-semibold leading-[normal] relative shrink-0 
+        className="hidden font-eb-garamond font-semibold leading-[normal] relative  
       text-[#53627e] text-[12px] tracking-[2.88px] uppercase w-full"
       >
         menu
       </p>
       <div
-        className="content-stretch flex flex-col items-start relative shrink-0 w-full"
+        className="content-stretch flex flex-col items-start relative  w-full"
         data-name="Menu Links"
       >
         {options.map(({ to, label }, idx) => (
@@ -170,21 +170,21 @@ const SocialLinks = ({ closeDrawer }: { closeDrawer: () => void }) => {
   return (
     <div
       className="content-stretch flex font-eb-garamond font-normal gap-[24px] italic 
-      items-center leading-[normal] relative shrink-0 text-[16px] text-center text-nowrap"
+      items-center leading-[normal] relative  text-[16px] text-center "
       data-name="Social Links"
     >
       <Link
-        to={"https://instagram.com/"}
-        target={"_blank"}
-        className="relative shrink-0 cursor-pointer hover:underline text-[#53627E]"
+        to="https://www.instagram.com/thereinitiative/"
+        target="_blank"
+        className="relative  cursor-pointer hover:underline text-[#53627E]"
         onClick={closeDrawer}
       >
         Instagram
       </Link>
       <Link
-        to={"https://linkedin.com/"}
-        target={"_blank"}
-        className="relative shrink-0 cursor-pointer hover:underline text-[#53627E]"
+        to="https://www.linkedin.com/company/the-reinitiative"
+        target="_blank"
+        className="relative  cursor-pointer hover:underline text-[#53627E]"
         onClick={closeDrawer}
       >
         LinkedIn
@@ -194,21 +194,21 @@ const SocialLinks = ({ closeDrawer }: { closeDrawer: () => void }) => {
 };
 
 const DrawerFooter = () => {
-  const { setDrawerState } = useAppContext();
+  const { setDrawerState } = useDefaultLayoutContext();
   const closeDrawer = () => {
     setDrawerState("collapsed");
   };
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0">
+    <div className="content-stretch flex flex-col gap-[32px] items-start relative ">
       <Link
         to={"/booking"}
         onClick={closeDrawer}
         className="content-stretch flex items-center justify-center pb-[10px] pt-0 px-0 
-      relative shrink-0 cursor-pointer"
+      relative  cursor-pointer"
       >
         <p
-          className="font-eb-garamond font-normal leading-[normal] relative shrink-0 
-        text-[#53627E] text-[14px] text-center text-nowrap tracking-[3.36px]"
+          className="font-eb-garamond font-normal leading-[normal] relative  
+        text-[#53627E] text-[14px] text-center  tracking-[3.36px]"
         >
           ENQUIRE
         </p>
@@ -223,7 +223,7 @@ interface NavMenuProps {
 }
 
 const Drawer = ({ onClose }: NavMenuProps) => {
-  const { setNavbarState } = useAppContext();
+  const { setNavbarState } = useDefaultLayoutContext();
 
   const onNavigationPop = () => {
     setNavbarState("default");
@@ -242,7 +242,7 @@ const Drawer = ({ onClose }: NavMenuProps) => {
       <div className="size-full min-h-screen">
         <div className="content-stretch flex items-start p-[32px] relative size-full">
           <div
-            className="content-stretch flex flex-col gap-[56px] h-full items-start relative shrink-0"
+            className="content-stretch flex flex-col gap-[56px] h-full items-start relative "
             data-name="Container"
           >
             <CloseMenu onClose={onNavigationPop} />

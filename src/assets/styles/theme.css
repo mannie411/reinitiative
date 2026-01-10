@@ -39,6 +39,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --heading-color: #394e79;
+  --body-color: #506081;
 }
 
 .dark {
@@ -142,15 +144,15 @@
     font-size: var(--text-2xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--heading-color);
   }
 
   h2 {
     font-family: var(--font-gt-super-ds);
-
-    font-family: var(--font-gt-super-ds);
     font-size: var(--text-xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--heading-color);
   }
 
   h3 {
@@ -158,6 +160,7 @@
     font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--heading-color);
   }
 
   h4 {
@@ -165,6 +168,7 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--heading-color);
   }
 
   label {
@@ -190,7 +194,7 @@
 
   p {
     font-family: var(--font-eb-garamond);
-    color: #506081;
+    color: var(--body-color);
   }
 }
 
@@ -219,5 +223,11 @@
       /* Moves the content its entire width to the left */
       transform: translateX(-100%);
     }
+  }
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

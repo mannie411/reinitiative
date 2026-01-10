@@ -10,7 +10,7 @@ export function AboutBookCall() {
         >
           <div
             className="font-eb-garamond font-normal leading-[0] relative 
-          shrink-0 text-[16px] text-center w-full max-w-[524px] px-4"
+           text-[16px] text-center w-full max-w-[524px] px-4"
           >
             <p className="leading-[normal] mb-0">
               We're architects, not decorators. Strategists, not theorists.

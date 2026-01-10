@@ -3,7 +3,7 @@ import { PlaceholderImage } from "@/components/shared/blocks/Placeholder";
 function Image() {
   return (
     <div
-      className="bg-[#a0abc0] h-[500px] md:h-[708px] overflow-clip relative shrink-0 w-full"
+      className="bg-[#a0abc0] h-[500px] md:h-[708px] overflow-clip relative  w-full"
       data-name="Image"
     >
       <PlaceholderImage />
@@ -13,21 +13,21 @@ function Image() {
 
 function Heading() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 uppercase w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-center relative  uppercase w-full">
       <p
-        className="font-avenir-lt not-italic relative shrink-0 text-[#a0abc0] 
+        className="font-avenir-lt not-italic relative  text-[#a0abc0] 
       text-[10px] tracking-[4px] w-full text-center"
       >
         CATEGORY
       </p>
       <p
-        className=" font-medium relative shrink-0 text-[#2d3648] text-[24px]
+        className=" font-medium relative  text-[#2d3648] text-[24px]
        md:text-[32px] tracking-[6.4px] w-full text-center"
       >
         name of article
       </p>
       <p
-        className="font-avenir-lt not-italic relative shrink-0 text-[#a0abc0] 
+        className="font-avenir-lt not-italic relative  text-[#a0abc0] 
       text-[10px] tracking-[4px] w-full text-center"
       >
         november 14, 2025
@@ -42,17 +42,17 @@ export function ArticleContent() {
       <div className="container">
         <div
           className="content-stretch flex flex-col gap-[64px] items-center 
-        justify-center py-[60px] md:py-[90px] relative shrink-0 
+        justify-center py-[60px] md:py-[90px] relative  
         "
           data-name="Section"
         >
           <Image />
           <div
-            className="content-stretch flex flex-col gap-[32px] items-center leading-[normal] relative shrink-0 text-center w-full max-w-[750px]"
+            className="content-stretch flex flex-col gap-[32px] items-center leading-[normal] relative  text-center w-full max-w-[750px]"
             data-name="Content"
           >
             <Heading />
-            <p className=" font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
+            <p className=" font-normal relative  text-[#53627e] text-[16px] w-full text-left md:text-justify">
               Lorem ipsum dolor sit amet consectetur. Condimentum massa enim
               imperdiet feugiat odio aliquam praesent mattis vitae. Lobortis
               pellentesque leo congue adipiscing eleifend magna diam. Quis eget
@@ -63,7 +63,7 @@ export function ArticleContent() {
               Habitasse massa velit arcu vitae morbi egestas. Amet vel ante
               egestas vulputate pharetra lectus felis nisl.
             </p>
-            <p className=" font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
+            <p className=" font-normal relative  text-[#53627e] text-[16px] w-full text-left md:text-justify">
               Lorem ipsum dolor sit amet consectetur. Condimentum massa enim
               imperdiet feugiat odio aliquam praesent mattis vitae. Lobortis
               pellentesque leo congue adipiscing eleifend magna diam. Quis eget
@@ -74,7 +74,7 @@ export function ArticleContent() {
               Habitasse massa velit arcu vitae morbi egestas. Amet vel ante
               egestas vulputate pharetra lectus felis nisl.
             </p>
-            <p className=" font-normal relative shrink-0 text-[#53627e] text-[16px] w-full text-left md:text-justify">
+            <p className=" font-normal relative  text-[#53627e] text-[16px] w-full text-left md:text-justify">
               Lorem ipsum dolor sit amet consectetur. Condimentum massa enim
               imperdiet feugiat odio aliquam praesent mattis vitae. Lobortis
               pellentesque leo congue adipiscing eleifend magna diam. Quis eget

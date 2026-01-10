@@ -21,10 +21,10 @@ export function SelectedWorksPage() {
     <Fragment>
       <HeroBanner>
         <p
-          className="leading-[normal] not-italic relative shrink-0
-       text-[18px] md:text-[22px] text-center text-white tracking-[-0.44px] w-full max-w-[740px]"
+          className="font-gt-super-ds leading-[normal] not-italic relative 
+       text-[18px] md:text-[22px] text-center tracking-[-0.44px] w-full max-w-[600px]"
         >
-          <span>Re:Initiative is a strategic consultancy, </span>
+          <span>RE:Initiative is a strategic consultancy, </span>
           <span className="not-italic">specializing</span>
           <span>{` in brand transformation `}</span>
           <span className="not-italic">through</span>

@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import type { PropsWithChildren } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Drawer from "./Drawer";
 import Footer from "./Footer";
 import Header from "./Header";
-import { AppProvider } from "@/context";
-import { SchedulingModal } from "../scheduling";
+import { DefaultLayoutProvider } from "@/context";
+import { SchedulingModal } from "../../scheduling";
 import type { DrawerState, NavbarState } from "@/types";
 
-export const Layout = ({ children }: PropsWithChildren) => {
+export const DefaultLayout = ({ children }: PropsWithChildren) => {
   const [drawerState, setDrawerState] = useState<DrawerState>("collapsed");
   const [navbarState, setNavbarState] = useState<NavbarState>("default");
   const [scheduleState, setScheduleState] = useState<boolean>(false);
@@ -28,7 +28,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <AppProvider value={contextValue}>
+    <DefaultLayoutProvider value={contextValue}>
       <Header />
       <main className="min-h-screen w-full overflow-clip">{children}</main>
       <Footer />
@@ -53,6 +53,10 @@ export const Layout = ({ children }: PropsWithChildren) => {
       </AnimatePresence>
 
       <SchedulingModal open={scheduleState} onOpenChange={setScheduleState} />
-    </AppProvider>
+    </DefaultLayoutProvider>
   );
+};
+
+export const BlankLayout = ({ children }: PropsWithChildren) => {
+  return <Fragment>{children}</Fragment>;
 };

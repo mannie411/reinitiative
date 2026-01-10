@@ -1,15 +1,15 @@
-import { ButtonUnderline } from "@/components/shared/blocks";
-import { ImagePlaceholder } from "@/components/shared/blocks/Icons";
+import { Image, LinkUnderLine } from "@/components/shared/blocks";
+import { team } from ".";
 
 function Heading() {
   return (
     <div
-      className="content-stretch flex flex-col items-center relative shrink-0 w-full max-w-[620px] px-4"
+      className="content-stretch flex flex-col items-center relative  w-full max-w-[620px] px-4"
       data-name="Heading"
     >
       <p
         className="font-gt-super-ds leading-[normal] not-italic 
-      relative shrink-0  text-[22px] text-center tracking-[-0.44px] w-full max-w-[362px]"
+      relative   text-[22px] text-center tracking-[-0.44px] w-full max-w-[362px]"
       >
         <span>If you're ready to create and collaborate, we'd love</span>
         <span className="not-italic"> to hear from you</span>
@@ -18,49 +18,59 @@ function Heading() {
   );
 }
 
-function Image() {
-  return (
-    <div className="content-stretch flex flex-col gap-[32px] h-[300px] md:h-[478px] items-start justify-self-stretch relative shrink-0 w-full">
-      <div
-        className="basis-0 bg-[#a0abc0] grow min-h-px min-w-px overflow-clip relative shrink-0 w-full"
-        data-name="Image"
-      >
-        <div
-          className="absolute left-1/2 size-[80px] top-1/2 translate-x-[-50%] translate-y-[-50%]"
-          data-name="image-01"
-        >
-          <ImagePlaceholder />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function CareersJoin() {
   return (
     <section className="relative ">
-      <div
-        className="content-stretch flex flex-col gap-[64px] items-center 
-      px-[20px] md:px-[180px] py-[90px] relative shrink-0 w-full "
-        data-name="Container"
-      >
-        <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-full">
-          <Heading />
-          <ButtonUnderline
-            text="JOIN US"
-            onClick={() => {
-              console.log("Join us");
-            }}
-          />
-        </div>
-
+      <div className="container">
         <div
-          className="gap-[32px] grid grid-cols-1 md:grid-cols-2 relative shrink-0 w-full"
-          data-name="Row"
+          className="content-stretch flex flex-col gap-[64px] items-center 
+       py-[90px] relative  w-full "
+          data-name="Container"
         >
-          {[...Array(4)].map((i) => (
-            <Image key={`item-${i}`} />
-          ))}{" "}
+          <div className="content-stretch flex flex-col gap-[32px] items-center relative  w-full">
+            <Heading />
+
+            <LinkUnderLine
+              to="mailto:people@thereinitiative.com"
+              text="JOIN US"
+            />
+          </div>
+
+          <div
+            className="gap-[32px] grid grid-cols-1 md:grid-cols-2 relative  w-full"
+            data-name="Row"
+          >
+            {team.map(({ name, role, image }, i) => (
+              <div
+                key={`team-${i}`}
+                className="content-stretch flex flex-col justify-end gap-[32px] h-[300px] md:h-[500px] 
+                items-start justify-self-stretch relative  w-full group overflow-clip"
+              >
+                <Image
+                  imgSrc={image}
+                  className="absolute size-full z-0 transition-all duration-300 group-hover:scale-105"
+                />
+
+                <div className="relative bottom-0 z-10 w-full">
+                  <div
+                    className="absolute size-full z-0"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(18, 25, 42, 0) 0%, #12192A 136.06%)",
+                    }}
+                  />
+                  <div className="relative px-8 py-12 z-10">
+                    <p className="text-white font-medium text-[20px] uppercase tracking-wide">
+                      {name}
+                    </p>
+                    <p className="text-white text-[14px] font-medium uppercase tracking-wide">
+                      {role}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

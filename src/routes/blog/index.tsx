@@ -19,10 +19,15 @@ export function BlogPage() {
   return (
     <Fragment>
       <HeroBanner>
-        <p className="font-gt-super-ds leading-[normal] not-italic relative shrink-0 text-[18px] md:text-[22px] text-center text-white tracking-[-0.44px] w-full max-w-[420px]">
-          <span>{`Thoughts on brand building, strategy, design, and the systems that `}</span>
-          <span className="italic">connect</span>
-          <span>{` them.`}</span>
+        <p
+          className="font-gt-super-ds leading-[normal] not-italic relative  text-[18px] 
+        md:text-[22px] text-center tracking-[-0.44px] w-full max-w-[600px]"
+        >
+          <span>Thoughts on brand building, strategy, design, </span>
+          <br />
+          <span>and the systems that</span>
+          <span className="not-italic"> connect</span>
+          <span> them.</span>
         </p>
       </HeroBanner>
       <BlogList />

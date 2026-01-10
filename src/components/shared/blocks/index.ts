@@ -5,5 +5,6 @@ import Testimonials from "./Testimonials";
 export { CompanyLogos, NotFoundError, Testimonials };
 
 export * from "./Button";
-export * from "./Hero";
 export * from "./Icons";
+export * from "./Hero";
+export * from "./ImageWithFallback";

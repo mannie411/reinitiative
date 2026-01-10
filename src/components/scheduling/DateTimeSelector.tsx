@@ -165,10 +165,10 @@ export function DateTimeSelector({
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-[24px]">
-          <div className="w-full">
+        <div className="flex flex-col md:flex-row items-center justify-evenly gap-[24px]">
+          <div className="w-full max-w-[400px]">
             {/* Calendar */}
-            <div className="bg-white flex flex-col gap-[24px] ">
+            <div className="bg-white flex flex-col gap-[24px] max-w-[400px]">
               {/* Month Navigation */}
               <div className="flex gap-[64px] items-center justify-center">
                 <Button
@@ -210,11 +210,11 @@ export function DateTimeSelector({
                 </div>
 
                 {/* Dates */}
-                <div className="grid grid-cols-7 gap-x-[16px] gap-y-[16px]">
+                <div className="grid grid-cols-7 gap-x-[16px] gap-y-[8px]">
                   {calendarDays.map((date, index) => {
                     if (!date) {
                       return (
-                        <div key={`empty-${index}`} className="size-[48px]" />
+                        <div key={`empty-${index}`} className="size-[32px]" />
                       );
                     }
 
@@ -229,8 +229,8 @@ export function DateTimeSelector({
                         onClick={() => isAvailable && onDateSelect(date)}
                         disabled={!isAvailable}
                         className={cn(
-                          `size-[32px] md:size-[48px] rounded-full flex items-center justify-center
-                      font-inter text-[16px] uppercase transition-colors not-italic`,
+                          `size-[32px] md:size-[38px] rounded-full flex items-center justify-center
+                      font-inter text-[14px] uppercase transition-colors not-italic`,
                           isSelected ? "bg-[#394e79] text-white" : "",
                           !isSelected && isAvailable
                             ? "bg-[#edeff2] text-[#2d3648] hover:bg-[#dde0e5]"
@@ -249,12 +249,12 @@ export function DateTimeSelector({
             </div>
 
             {/* Time Zone */}
-            <div className="flex flex-col gap-[12px] py-[12px]">
+            <div className="flex flex-col mt-4">
               <div className="flex gap-[8px] items-center">
                 <div className="size-[18px]">
                   <Globe color="#2D3648" className="size-[18px]" />
                 </div>
-                <p className="font-gt-super-ds text-[16px] tracking-[-0.32px] text-[#2d3648]">
+                <p className="font-gt-super-ds text-[12px] tracking-[-0.32px] text-[#2d3648]">
                   Time zone
                 </p>
               </div>
@@ -292,7 +292,7 @@ export function DateTimeSelector({
                     Select a date to see available times.
                   </p>
 
-                  <div className="grid grid-cols-3 md:flex md:flex-col gap-[12px] max-h-[480px] overflow-y-scroll">
+                  <div className="grid grid-cols-3 md:flex md:flex-col gap-[12px] max-h-[400px] overflow-y-scroll">
                     {TIME_SLOTS.map((time) => (
                       <button
                         key={time}

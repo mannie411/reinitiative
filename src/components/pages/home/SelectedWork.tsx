@@ -1,23 +1,26 @@
 import type { PropsWithChildren } from "react";
 import { PlaceholderImage } from "../../shared/blocks/Placeholder";
 import { Link } from "@tanstack/react-router";
+import { imgHomeAbout, imgHomeWorks } from "@/assets";
+import type { ImageProp } from "@/types";
 
 function Heading() {
   return (
     <div
-      className="content-stretch flex flex-col gap-[32px] items-center leading-[normal] relative shrink-0 text-center w-[406px]"
+      className="content-stretch flex flex-col gap-[32px] items-center leading-[normal] 
+      relative  text-center w-[406px]"
       data-name="Heading"
     >
-      <h3 className="font-gt-super-ds not-italic relative shrink-0 text-[#394E79] text-[22px] tracking-[-0.44px] w-[371px]">
-        <span>{`We meet you `}</span>
-        <span className="not-italic">{`where you are `}</span>
-        <span>{`and build the systems that `}</span>
+      <h3
+        className="  
+      text-[22px] tracking-[-0.44px]"
+      >
+        <span>We meet you </span>
+        <span className="not-italic">where you are </span>
+        <span>and build the systems that </span>
         <span className="not-italic">move you forward.</span>
       </h3>
-      <p
-        className="font-eb-garamond font-normal min-w-full relative 
-      shrink-0 text-[#506081] text-[16px] w-[min-content]"
-      >
+      <p>
         We power the growth engines of brands ready to scale globally and
         sustainably, designing the systems that give creative businesses the
         structure to grow intelligently and sustainably.
@@ -26,22 +29,25 @@ function Heading() {
   );
 }
 
-function Image() {
+function Image({ href, imgSrc = undefined }: ImageProp) {
   return (
-    <div
-      className="basis-0 bg-[#a0abc0] grow min-h-px min-w-px overflow-clip relative shrink-0 w-full"
-      data-name="Image"
-    >
-      <PlaceholderImage />
-    </div>
+    <Link to={href}>
+      <div
+        className="basis-0 bg-[#a0abc0] grow  h-[400px] md:h-[615px] overflow-clip relative  w-full"
+        data-name="Image"
+      >
+        {imgSrc && <img src={imgSrc} className="object-cover size-full" />}
+        {!imgSrc && <PlaceholderImage />}
+      </div>
+    </Link>
   );
 }
 
 function HypenButton() {
   return (
-    <div className="content-stretch flex gap-[4px] items-center relative shrink-0">
-      <div className="bg-[#2d3648] h-px shrink-0 w-[24px]" />
-      <p className="font-gt-super-txt leading-[normal] italic relative shrink-0 text-[16px] text-nowrap">
+    <div className="content-stretch flex gap-[4px] items-center relative ">
+      <div className="bg-[#0a111f] h-px  w-[24px]" />
+      <p className="font-gt-super-txt leading-[normal] italic relative  text-[16px] ">
         view more
       </p>
     </div>
@@ -50,10 +56,7 @@ function HypenButton() {
 
 function Container({ children }: PropsWithChildren) {
   return (
-    <div
-      className="basis-0 content-stretch flex flex-col gap-[32px] grow items-start
-      w-[300px] h-[400px] md:w-[445px] md:h-[615px]"
-    >
+    <div className="basis-0 content-stretch flex flex-col gap-[32px] grow items-start max-w-[445px]">
       {children}
     </div>
   );
@@ -65,7 +68,7 @@ export function SelectedWork() {
       <div className="container">
         <div className="content-stretch flex flex-col items-center">
           <div
-            className="content-stretch flex flex-col gap-[72px] items-center relative shrink-0 py-[40px] md:py-[80px]"
+            className="content-stretch flex flex-col gap-[72px] items-center relative  py-[40px] md:py-[80px]"
             data-name="Container"
           >
             <Heading />
@@ -74,14 +77,14 @@ export function SelectedWork() {
               data-name="Row"
             >
               <Container>
-                <Image />
+                <Image href="/works" imgSrc={imgHomeWorks} />
                 <Link
-                  to="/work"
-                  className="content-stretch flex items-center justify-between relative shrink-0 w-full"
+                  to="/works"
+                  className="content-stretch flex items-center justify-between relative  w-full"
                 >
                   <p
-                    className="font-eb-garamond font-medium leading-[normal] relative shrink-0 
-                   text-[16px] text-nowrap tracking-[6.4px]"
+                    className="font-eb-garamond font-medium leading-[normal] relative 
+                   text-[14px] md:text-base  tracking-[6.4px]"
                   >
                     SELECTED WORK
                   </p>
@@ -90,14 +93,14 @@ export function SelectedWork() {
               </Container>
 
               <Container>
-                <Image />
+                <Image href="/about-us" imgSrc={imgHomeAbout} />
                 <Link
                   to="/about-us"
-                  className="content-stretch flex items-center justify-between relative shrink-0 w-full"
+                  className="content-stretch flex items-center justify-between relative w-full"
                 >
                   <p
-                    className="font-eb-garamond font-medium leading-[normal] relative shrink-0 
-                  text-[16px] text-nowrap tracking-[6.4px]"
+                    className="font-eb-garamond font-medium leading-[normal] relative
+                  text-[14px] md:text-base  tracking-[6.4px]"
                   >
                     ABOUT US
                   </p>

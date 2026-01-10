@@ -1,26 +1,15 @@
 import type { PropsWithChildren } from "react";
-import { PlaceholderImage } from "../../shared/blocks/Placeholder";
+import { Image } from "@/components/shared/blocks/";
+import { imgCareerBg1, imgCareerBg2, imgCareerBg3 } from "@/assets";
 
 function Column({ children }: PropsWithChildren) {
   return (
     <div
       className="basis-0 content-stretch flex flex-col md:flex-row gap-[32px] 
-      md:gap-[64px] grow h-full items-center min-h-px min-w-px relative shrink-0 w-full"
+      md:gap-[64px] grow h-full items-center justify-center min-h-px min-w-px relative  w-full"
       data-name="Column"
     >
       {children}
-    </div>
-  );
-}
-
-function Image() {
-  return (
-    <div
-      className="basis-0 bg-[#a0abc0] grow h-[300px] md:h-[420px] 
-      min-h-px min-w-px overflow-clip relative shrink-0 w-full md:w-auto"
-      data-name="Image"
-    >
-      <PlaceholderImage />
     </div>
   );
 }
@@ -34,11 +23,11 @@ function Content() {
     >
       <p
         className="font-avenir-lt leading-[normal] 
-      not-italic relative shrink-0 text-[12px] tracking-[2.4px] uppercase w-full"
+      not-italic relative  text-[12px] tracking-[2.4px] uppercase w-full"
       >
         Who We Are
       </p>
-      <div className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[16px] w-full">
+      <div className="font-eb-garamond font-normal leading-[normal] relative  text-[16px] w-full">
         <p className="mb-0 text-[#53627e]">
           <span>{`We're `}</span>
           <span className="font-eb-garamond font-medium italic">
@@ -70,16 +59,16 @@ function Content1() {
   return (
     <div
       className="content-stretch flex flex-col gap-[16px] items-start 
-      relative shrink-0 text-[#53627e] w-full max-w-[380px]"
+      relative  text-[#53627e] w-full max-w-[380px]"
       data-name="Content"
     >
       <p
         className="font-avenir-lt leading-[normal] not-italic relative 
-      shrink-0 text-[12px] tracking-[2.4px] uppercase w-full"
+       text-[12px] tracking-[2.4px] uppercase w-full"
       >
         What We Value
       </p>
-      <div className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[16px] w-full">
+      <div className="font-eb-garamond font-normal leading-[normal] relative  text-[16px] w-full">
         <p className="font-eb-garamond font-medium italic mb-0 text-[#53627e]">
           Strategy over speed.
         </p>
@@ -106,14 +95,14 @@ function Content2() {
   return (
     <div
       className="content-stretch flex flex-col gap-[16px] items-start relative 
-      shrink-0 text-[#53627e] w-full max-w-[380px]"
+       text-[#53627e] w-full max-w-[380px]"
       data-name="Content"
     >
       <p
-        className="font-avenir-lt leading-[normal] not-italic relative shrink-0 
+        className="font-avenir-lt leading-[normal] not-italic relative  
       text-[12px] tracking-[2.4px] uppercase w-full"
       >{`Who We're Looking For`}</p>
-      <div className="font-eb-garamond font-normal leading-[normal] relative shrink-0 text-[16px] w-full">
+      <div className="font-eb-garamond font-normal leading-[normal] relative  text-[16px] w-full">
         <p className="mb-0">{`Curious minds. Clear communicators. People who ask "why" before "how."`}</p>
         <p className="mb-0">{`You don't need to know everything. But you need to want to learn everything.`}</p>
         <p className="mb-0">&nbsp;</p>
@@ -129,52 +118,70 @@ function Content2() {
 export function CareersValues() {
   return (
     <section className="relative">
-      <div
-        className=" content-stretch flex flex-col gap-[80px] md:gap-[120px] 
-      items-center pb-[120px] pt-[90px] px-0 relative shrink-0"
-        data-name="Container"
-      >
+      <div className="container">
         <div
-          aria-hidden="true"
-          className="absolute border-[1px_0px] border-[rgba(160,171,192,0.6)] 
+          className=" content-stretch flex flex-col gap-[80px] md:gap-[120px] 
+      items-center pb-[120px] pt-[90px] px-0 relative "
+          data-name="Container"
+        >
+          <div
+            aria-hidden="true"
+            className="absolute  border-[1px_0px] border-[rgba(160,171,192,0.6)] 
         border-solid inset-0 pointer-events-none "
-        />
+          />
 
-        <div
-          className="content-stretch flex items-center justify-center px-[20px] 
-      md:px-[40px] py-0 relative shrink-0 w-full max-w-[1080px]"
-          data-name="Section"
-        >
-          <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
-            <Column>
-              <Content />
-              <Image />
-            </Column>
+          <div
+            className="content-stretch flex items-center justify-center  relative  w-full"
+            data-name="Section"
+          >
+            <div className="basis-0 flex flex-row grow items-center self-stretch  w-full">
+              <Column>
+                <Content />
+                <div
+                  className="basis-0 bg-[#a0abc0] grow h-[300px] md:h-[420px] 
+      min-h-px min-w-px overflow-clip relative  w-full md:max-w-[550px]"
+                  data-name="Image"
+                >
+                  <Image imgSrc={imgCareerBg1} className="size-full" />
+                </div>
+              </Column>
+            </div>
           </div>
-        </div>
 
-        <div
-          className="content-stretch flex items-center justify-center px-[20px] md:px-[40px] py-0 relative shrink-0 w-full max-w-[1080px]"
-          data-name="Section"
-        >
-          <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
-            <Column>
-              <Image />
-              <Content1 />
-            </Column>
+          <div
+            className="content-stretch flex items-center justify-center relative  w-full"
+            data-name="Section"
+          >
+            <div className="basis-0 flex flex-row grow items-center self-stretch  w-full">
+              <Column>
+                <div
+                  className="basis-0 bg-[#a0abc0] grow h-[300px] md:h-[420px] 
+      min-h-px min-w-px overflow-clip relative  w-full md:max-w-[550px]"
+                  data-name="Image"
+                >
+                  <Image imgSrc={imgCareerBg2} className="size-full" />
+                </div>
+                <Content1 />
+              </Column>
+            </div>
           </div>
-        </div>
 
-        <div
-          className="content-stretch flex items-center justify-center px-[20px]
-           md:px-[40px] py-0 relative shrink-0 w-full max-w-[1080px]"
-          data-name="Section"
-        >
-          <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0 w-full">
-            <Column>
-              <Content2 />
-              <Image />
-            </Column>
+          <div
+            className="content-stretch flex items-center justify-centerrelative  w-full"
+            data-name="Section"
+          >
+            <div className="basis-0 flex flex-row grow items-center self-stretch  w-full">
+              <Column>
+                <Content2 />
+                <div
+                  className="basis-0 bg-[#a0abc0] grow h-[300px] md:h-[420px] 
+      min-h-px min-w-px overflow-clip relative w-full md:max-w-[550px]"
+                  data-name="Image"
+                >
+                  <Image imgSrc={imgCareerBg3} className="size-full" />
+                </div>
+              </Column>
+            </div>
           </div>
         </div>
       </div>

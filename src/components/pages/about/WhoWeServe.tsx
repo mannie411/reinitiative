@@ -1,39 +1,24 @@
-import { ImagePlaceholder } from "@/components/shared/blocks/Icons";
-
-function Image() {
-  return (
-    <div
-      className="bg-[#a0abc0] h-[300px] md:h-[538px] overflow-clip relative shrink-0 w-full"
-      data-name="Image"
-    >
-      <div
-        className="absolute left-1/2 size-[80px] top-1/2 translate-x-[-50%] translate-y-[-50%]"
-        data-name="image-01"
-      >
-        <ImagePlaceholder />
-      </div>
-    </div>
-  );
-}
+import { Image } from "@/components/shared/blocks";
+import { imgAboutBg2, imgAboutBg3 } from "@/assets";
 
 function Column1() {
   return (
     <div
       className="basis-0 content-stretch flex flex-col gap-[36px] grow 
-      items-start relative shrink-0 w-full"
+      items-start relative  w-full"
       data-name="Column"
     >
       <div
-        className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full"
+        className="content-stretch flex flex-col gap-[16px] items-start relative  w-full"
         data-name="Content"
       >
         <p
-          className="font-avenir-lt leading-[normal] not-italic relative shrink-0
+          className="font-avenir-lt leading-[normal] not-italic relative 
          text-[12px] tracking-[2.4px] uppercase w-full"
         >
           Who We Serve
         </p>
-        <p className=" font-normal leading-[normal] relative shrink-0 text-[16px] w-full">
+        <p className=" font-normal leading-[normal] relative  text-[16px] w-full">
           <span>{`We work with visionary founders who `}</span>
           <span className=" italic">refuse to settle</span>. Who see the gap
           between where they are and w
@@ -42,7 +27,12 @@ function Column1() {
           <span className=" italic">{` a new logo or marketing campaign.`}</span>
         </p>
       </div>
-      <Image />
+      <div
+        className="bg-[#a0abc0] h-[300px] md:h-[538px] overflow-clip relative  w-full"
+        data-name="Image"
+      >
+        <Image imgSrc={imgAboutBg2} className="size-full" />
+      </div>
     </div>
   );
 }
@@ -51,16 +41,21 @@ function Column2() {
   return (
     <div
       className="basis-0 content-stretch flex flex-col gap-[36px] grow 
-      items-start  relative shrink-0 w-full"
+      items-start  relative  w-full"
       data-name="Column"
     >
-      <Image />
       <div
-        className="content-stretch flex flex-col items-center relative shrink-0 w-full"
+        className="bg-[#a0abc0] h-[300px] md:h-[538px] overflow-clip relative  w-full"
+        data-name="Image"
+      >
+        <Image imgSrc={imgAboutBg3} className="size-full" />
+      </div>
+      <div
+        className="content-stretch flex flex-col items-center relative  w-full"
         data-name="Content"
       >
         <div
-          className=" font-normal leading-[normal] relative shrink-0 
+          className=" font-normal leading-[normal] relative  
         t text-[16px] text-center w-full"
         >
           <p className="mb-0">{`You have traction but your brand doesn't match your ambition. 

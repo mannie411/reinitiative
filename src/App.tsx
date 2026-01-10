@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
+import { AppProvider } from "./context";
+import type { LayoutType } from "./types";
 
 // Create a new router instance
 const router = createRouter({
@@ -9,5 +12,14 @@ const router = createRouter({
 });
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  const [layout, setLayout] = useState<LayoutType>("default");
+  const value = {
+    layout,
+    setLayout,
+  };
+  return (
+    <AppProvider value={value}>
+      <RouterProvider router={router} />
+    </AppProvider>
+  );
 }

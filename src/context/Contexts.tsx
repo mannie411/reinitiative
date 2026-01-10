@@ -1,13 +1,21 @@
 import { type ReactNode } from "react";
-import type { AppContextProps } from "@/types";
-import { AppContext } from ".";
+import type { DefaultLayoutProp, RootProp } from "@/types";
+import { AppContext, DefaultLayoutContext } from ".";
 
-export function AppProvider({
+export function AppProvider({ children, value }: RootProp) {
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+}
+
+export function DefaultLayoutProvider({
   children,
   value,
 }: {
   children: ReactNode;
-  value: AppContextProps;
+  value: DefaultLayoutProp;
 }) {
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <DefaultLayoutContext.Provider value={value}>
+      {children}
+    </DefaultLayoutContext.Provider>
+  );
 }

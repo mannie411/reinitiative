@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
 import svgPaths from "@/assets/svg";
 import type { Testimonial } from "@/types";
 import {
@@ -6,8 +8,6 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "../../ui/carousel";
-
-import { useEffect, useState } from "react";
 
 const testimonials: Testimonial[] = [
   {
@@ -83,7 +83,15 @@ function Testimonial() {
                 <KeyboardArrowUp />
               </div>
             </div>
-            <Carousel setApi={setApi} opts={{ loop: true }}>
+            <Carousel
+              setApi={setApi}
+              opts={{ loop: true }}
+              plugins={[
+                Autoplay({
+                  delay: 6000,
+                }),
+              ]}
+            >
               <CarouselContent>
                 {testimonials.map(({ content, name, position }, idx) => (
                   <CarouselItem key={`item-${idx}`} className="basis-full ">
@@ -100,7 +108,7 @@ function Testimonial() {
                         {content}
                       </p>
                       <p
-                        className="font-eb-garamond font-normal text-[14px] relative  tracking-normal 
+                        className="font-eb-garamond font-normal text-[12px] relative  tracking-normal 
                       md:tracking-[9.6px] w-full uppercase"
                       >
                         {name}
