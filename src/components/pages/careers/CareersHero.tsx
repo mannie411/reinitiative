@@ -4,27 +4,28 @@ import { Image } from "@/components/shared/blocks";
 function Heading() {
   return (
     <div
-      className="content-stretch flex flex-col items-center relative  w-full max-w-[620px] px-4"
+      className="content-stretch flex flex-col items-center relative  w-full max-w-[500px]"
       data-name="Heading"
     >
-      <p
-        className="font-gt-super-ds leading-[normal] not-italic relative  
-      text-[18px] md:text-[24px] text-center tracking-[-0.48px] w-full max-w-[386px]"
-      >
+      <h3 className="text-[18px] md:text-[22px] leading-[25px] font-normal text-center w-full max-w-[500px]">
         <span>We're looking for people </span>
-        <span className="not-italic">who build brands</span>, not just
-        campaigns.
-      </p>
+        <span className="not-italic">
+          who build
+          <br />
+          brands
+        </span>
+        , not just campaigns.
+      </h3>
     </div>
   );
 }
 
 export function CareersHero() {
   return (
-    <section className="relative ">
+    <section className="relative w-full py-[32px] md:py-[64px]">
       <div className="container" data-name="About Us">
         <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-          <div className="content-stretch flex flex-col gap-[64px] items-center  md:py-[90px] relative w-full">
+          <div className="content-stretch flex flex-col gap-[64px] items-center relative w-full">
             <div
               className="content-stretch flex flex-col gap-[64px] items-center relative  w-full overflow-clip"
               data-name="Container"

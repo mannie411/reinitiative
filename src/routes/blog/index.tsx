@@ -14,21 +14,18 @@ export const Route = createFileRoute("/blog/")({
 });
 
 export function BlogPage() {
-  useDocumentTitle("Blogs | RE:Initiative");
+  useDocumentTitle("Blogs | Re:Initiative");
 
   return (
     <Fragment>
       <HeroBanner>
-        <p
-          className="font-gt-super-ds leading-[normal] not-italic relative  text-[18px] 
-        md:text-[22px] text-center tracking-[-0.44px] w-full max-w-[600px]"
-        >
+        <h3 className="text-[18px] md:text-[22px] leading-[25px] font-normal text-center w-full max-w-[500px]">
           <span>Thoughts on brand building, strategy, design, </span>
           <br />
           <span>and the systems that</span>
           <span className="not-italic"> connect</span>
           <span> them.</span>
-        </p>
+        </h3>
       </HeroBanner>
       <BlogList />
       <CompanyLogos />

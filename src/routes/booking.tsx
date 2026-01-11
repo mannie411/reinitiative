@@ -9,7 +9,7 @@ export const Route = createFileRoute("/booking")({
 });
 
 function RouteComponent() {
-  useDocumentTitle("Booking | RE:Initiative");
+  useDocumentTitle("Booking | Re:Initiative");
   const router = useRouter();
 
   return (

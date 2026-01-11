@@ -1,17 +1,23 @@
 import { Fragment } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
-import { ArticleContent, RelatedArticles } from "@/components/pages/blog";
+import { ArticleContent, RelatedBlogs } from "@/components/pages/blog";
+import { CompanyLogos, Testimonials } from "@/components/shared/blocks";
+import { useDocumentTitle } from "@/hooks";
 
 export const Route = createFileRoute("/blog/$articleId")({
   component: BlogArticlePage,
 });
 
 export function BlogArticlePage() {
+  useDocumentTitle("Article | Re:Initiative");
+
   return (
     <Fragment>
       <ArticleContent />
-      <RelatedArticles />
+      <RelatedBlogs />
+      <CompanyLogos />
+      <Testimonials />
     </Fragment>
   );
 }

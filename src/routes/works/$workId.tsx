@@ -1,14 +1,14 @@
 import { Fragment } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
-
-import svgPaths from "@/assets/svg";
-
+import { createFileRoute } from "@tanstack/react-router";
 import {
   CompanyLogos,
   HeroSection,
+  ImagePlaceholder,
+  LinkUnderline,
   Testimonials,
 } from "@/components/shared/blocks";
-import { useDefaultLayoutContext } from "@/hooks";
+import { useDocumentTitle } from "@/hooks";
+import { RelatedWorks } from "@/components/pages/works";
 
 export const Route = createFileRoute("/works/$workId")({
   component: WorkDetailsPage,
@@ -67,14 +67,17 @@ function Services() {
 
 function DescriptionSection() {
   return (
-    <div className="content-stretch flex flex-col md:flex-row items-start justify-between relative  w-full max-w-[1080px] gap-8">
+    <div
+      className="content-stretch flex flex-col md:flex-row items-start 
+    justify-between relative  w-full max-w-[1080px] gap-8"
+    >
       <BrandDescription />
       <Services />
     </div>
   );
 }
 
-function ImagePlaceholder() {
+function ImageFullWidth() {
   return (
     <div
       className="bg-[#a0abc0] h-[500px] md:h-[708px] overflow-clip relative  w-full"
@@ -84,35 +87,7 @@ function ImagePlaceholder() {
         className="absolute left-1/2 size-[80px] top-1/2 translate-x-[-50%] translate-y-[-50%]"
         data-name="image-01"
       >
-        <svg
-          className="block size-full"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 80 80"
-        >
-          <g id="image-01">
-            <path
-              d={svgPaths.p1eb7e900}
-              id="Vector"
-              stroke="var(--stroke-0, white)"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="5"
-            />
-            <path
-              d={svgPaths.p2c4b0480}
-              id="Vector_2"
-              stroke="var(--stroke-0, white)"
-              strokeWidth="5"
-            />
-            <path
-              d={svgPaths.p374a8480}
-              id="Vector_3"
-              stroke="var(--stroke-0, white)"
-              strokeWidth="5"
-            />
-          </g>
-        </svg>
+        <ImagePlaceholder />
       </div>
     </div>
   );
@@ -125,7 +100,10 @@ function QuoteSection() {
         className="content-stretch flex flex-col items-start relative  w-full max-w-[504px]"
         data-name="Content"
       >
-        <p className=" font-normal leading-[normal] relative  text-[#53627e] text-[16px] text-center md:text-left w-full">
+        <p
+          className=" font-normal leading-[normal] relative  text-[#53627e] text-[16px] 
+        text-center md:text-left w-full"
+        >
           Lorem ipsum dolor sit amet consectetur. In massa ornare proin facilisi
           diam in fermentum. Molestie pharetra lectus feugiat tempus amet.
           Adipiscing duis interdum viverra aenean euismod commodo pellentesque
@@ -137,8 +115,6 @@ function QuoteSection() {
 }
 
 function WorkWithUsCTA() {
-  const { toggleSchedule } = useDefaultLayoutContext();
-
   return (
     <div
       className="content-stretch flex flex-col items-center relative  w-full mt-16"
@@ -146,30 +122,27 @@ function WorkWithUsCTA() {
     >
       <div className="content-stretch flex flex-col gap-[48px] items-center relative  w-full max-w-[660px]">
         <div className="content-stretch flex flex-col gap-[16px] items-center relative  w-full">
-          <p className=" font-medium leading-[normal] relative  text-[#2d3648] text-[20px] text-center  tracking-[8px] uppercase w-full">
+          <p
+            className="hidden font-medium leading-[normal] relative  text-[#2d3648] text-[20px] 
+          text-center  tracking-[8px] uppercase w-full"
+          >
             Explore what we do
           </p>
-          <p className="font-['GT_Super_Ds_Trial:Rg',sans-serif] leading-[normal] not-italic relative  text-[#2d3648] text-[36px] text-center tracking-[-0.72px] w-full">
-            Want to work with us?
+          <p
+            className="font-gt-super-ds leading-[normal] not-italic relative  text-[#2d3648] 
+          text-[22px] text-center tracking-[-0.72px] w-full"
+          >
+            Great brands aren't born.
+            <br />
+            They're <span className="italic">built.</span>
           </p>
         </div>
 
-        <div className="content-stretch flex flex-col gap-[24px] items-center relative  w-full">
-          <Link
-            to="/careers"
-            className="content-stretch flex items-center justify-center pb-[12px] pt-0 px-0 relative  cursor-pointer group"
-            data-name="Button Link"
-          >
-            <div
-              aria-hidden="true"
-              className="absolute border-[0px_0px_1px] border-[rgba(160,171,192,0.8)] border-solid inset-0 pointer-events-none group-hover:border-[#53627e] transition-colors"
-              onClick={toggleSchedule}
-            />
-            <p className="font-avenir-lt leading-[normal] not-italic relative  text-[#53627e] text-[12px] text-center  tracking-[2.88px] uppercase">
-              Get in touch
-            </p>
-          </Link>
-        </div>
+        <LinkUnderline
+          href="/booking"
+          text={"WORK WITH US"}
+          variant={"router"}
+        />
       </div>
     </div>
   );
@@ -182,10 +155,10 @@ function MainContent() {
         <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
           <div className="content-stretch flex flex-col gap-[72px] items-center  relative w-full">
             <DescriptionSection />
-            <ImagePlaceholder />
-            <ImagePlaceholder />
+            <ImageFullWidth />
+            <ImageFullWidth />
             <QuoteSection />
-            <ImagePlaceholder />
+            <ImageFullWidth />
             <WorkWithUsCTA />
           </div>
         </div>
@@ -194,45 +167,9 @@ function MainContent() {
   );
 }
 
-function RelatedWorks() {
-  return (
-    <section className="relative  w-full" data-name="Related Works Section">
-      <div className="container flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-        <div
-          className="content-stretch flex flex-col gap-[64px] items-center 
-         relative w-full"
-        >
-          <div className="content-stretch flex flex-col gap-[32px] items-center relative  w-full">
-            <p
-              className=" font-medium leading-[normal] relative  text-[#2d3648] 
-            text-[16px] text-center  tracking-[6.4px] uppercase"
-            >
-              More from our portfolio
-            </p>
-
-            <div className="flex flex-col md:flex-row gap-[32px] items-center w-full justify-center">
-              <Link
-                to="/works"
-                className="content-stretch flex items-center justify-center pb-[12px] pt-0 px-0 relative  cursor-pointer group"
-                data-name="Button Link"
-              >
-                <div
-                  aria-hidden="true"
-                  className="absolute border-[0px_0px_1px] border-[rgba(160,171,192,0.8)] border-solid inset-0 pointer-events-none group-hover:border-[#53627e] transition-colors"
-                />
-                <p className="font-avenir-lt leading-[normal] not-italic relative  text-[#53627e] text-[12px] text-center  tracking-[2.88px] uppercase">
-                  View all works
-                </p>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function WorkDetailsPage() {
+  useDocumentTitle("Work | Re:Initiative");
+
   return (
     <Fragment>
       <HeroSection />

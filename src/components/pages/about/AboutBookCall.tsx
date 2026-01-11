@@ -1,4 +1,4 @@
-import { ButtonUnderline } from "@/components/shared/blocks";
+import { LinkUnderline } from "@/components/shared/blocks";
 
 export function AboutBookCall() {
   return (
@@ -27,7 +27,7 @@ export function AboutBookCall() {
               </span>
             </p>
           </div>
-          <ButtonUnderline text="BOOK A CALL" onClick={() => {}} />
+          <LinkUnderline href="/booking" text="BOOK A CALL" variant="router" />
         </div>
       </div>
     </section>

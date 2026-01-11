@@ -1,4 +1,4 @@
-import { Image, LinkUnderLine } from "@/components/shared/blocks";
+import { Image, LinkUnderline } from "@/components/shared/blocks";
 import { team } from ".";
 
 function Heading() {
@@ -8,10 +8,12 @@ function Heading() {
       data-name="Heading"
     >
       <p
-        className="font-gt-super-ds leading-[normal] not-italic 
-      relative   text-[22px] text-center tracking-[-0.44px] w-full max-w-[362px]"
+        className="font-gt-super-ds leading-[25px] not-italic font-normal
+      relative   text-[22px] text-center tracking-[-0.44px] w-full max-w-[500px]"
       >
-        <span>If you're ready to create and collaborate, we'd love</span>
+        If you're ready to create and
+        <br />
+        collaborate, we'd love
         <span className="not-italic"> to hear from you</span>
       </p>
     </div>
@@ -30,9 +32,10 @@ export function CareersJoin() {
           <div className="content-stretch flex flex-col gap-[32px] items-center relative  w-full">
             <Heading />
 
-            <LinkUnderLine
-              to="mailto:people@thereinitiative.com"
+            <LinkUnderline
+              href="mailto:people@thereinitiative.com"
               text="JOIN US"
+              variant="default"
             />
           </div>
 

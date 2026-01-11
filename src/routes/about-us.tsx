@@ -17,7 +17,7 @@ export const Route = createFileRoute("/about-us")({
 });
 
 export function AboutPage() {
-  useDocumentTitle("About | RE:Initiative");
+  useDocumentTitle("About | Re:Initiative");
 
   return (
     <Fragment>

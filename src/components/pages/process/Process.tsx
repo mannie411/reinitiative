@@ -2,6 +2,7 @@ import { Image } from "@/components/shared/blocks";
 import type { ProcessCardProp } from "@/types";
 
 export function ProcessCard({
+  id,
   title,
   services,
   description,
@@ -11,6 +12,7 @@ export function ProcessCard({
 }: ProcessCardProp) {
   return (
     <div
+      id={id}
       className={`w-full ${isFirst ? "pb-[96px]" : "py-[96px]"} ${!isFirst ? "border-t border-[#a0abc0]" : ""}`}
     >
       <div className="flex flex-col gap-[64px]">

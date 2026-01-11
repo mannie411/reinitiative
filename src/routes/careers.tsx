@@ -14,7 +14,7 @@ export const Route = createFileRoute("/careers")({
 });
 
 export function CareersPage() {
-  useDocumentTitle("Careers | RE:Initiative");
+  useDocumentTitle("Careers | Re:Initiative");
 
   return (
     <Fragment>

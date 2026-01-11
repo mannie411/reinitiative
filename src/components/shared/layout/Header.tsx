@@ -3,68 +3,27 @@ import { useDefaultLayoutContext, useScrollPosition } from "@/hooks";
 import { useCallback, useEffect, useMemo } from "react";
 import { cn } from "@/components/ui/utils";
 import { isInViewport } from "@/lib";
+import { Menu } from "../blocks";
 
 const transparentPaths = ["/", "/home", "/works/"];
 
-function MenuIcon({ color = "#FFFFFF" }: { color?: string }) {
-  return (
-    <div className="relative  size-[20px]" data-name="menu-01">
-      <svg
-        className="inline-block size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 24 24"
-        style={{
-          "--stroke-0": color,
-        }}
-      >
-        <g id="menu-01">
-          <path
-            d="M4 5H20"
-            id="Vector"
-            stroke="var(--stroke-0, white)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M4 12H20"
-            id="Vector_2"
-            stroke="var(--stroke-0, white)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            className="hidden"
-            d="M4 19H20"
-            id="Vector_3"
-            stroke="var(--stroke-0, white)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
 function Logo() {
   return (
-    <div className="flex-1 text-center">
-      <Link
-        to="/"
-        className="content-stretch flex items-center justify-center relative  cursor-pointer"
-        data-name="Logo"
-      >
-        <p
-          className={cn(`font-gt-super-ds leading-[normal] not-italic relative  
-      text-[18px] md:text-[24px]   tracking-[5.2px] uppercase text-[var(--text-color)]`)}
+    <div className="flex-1 flex justify-center text-center">
+      <div className="max-w-[min-content]">
+        <Link
+          to="/"
+          className="content-stretch flex items-center justify-center relative  cursor-pointer"
+          data-name="Logo"
         >
-          Re:Initiative
-        </p>
-      </Link>
+          <p
+            className={cn(`font-gt-super-ds leading-[normal] not-italic relative  
+      text-[18px] md:text-[22px]   tracking-[5.2px] uppercase text-[var(--text-color)]`)}
+          >
+            Re:Initiative
+          </p>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -133,16 +92,21 @@ const Header = () => {
   );
 
   const headerClasses = useMemo(() => {
+    const isPastThreshold = scrollPosition > 100;
+
     const base =
       "sticky flex flex-col items-center z-40 justify-center top-0 w-full transition-all duration-300";
     const theme =
       isHeaderTransparent && !isHero
         ? "bg-transparent"
         : isHero
-          ? "bg-transparent backdrop-blur-lg  shadow-sm"
-          : "bg-(--background) shadow-sm";
-    return `${base} ${theme}`;
-  }, [isHeaderTransparent, isHero]);
+          ? "bg-transparent backdrop-blur-lg"
+          : "bg-(--background) ";
+
+    const shadow = isPastThreshold ? "shadow-sm" : "";
+
+    return `${base} ${theme} ${shadow}`;
+  }, [scrollPosition, isHeaderTransparent, isHero]);
 
   return (
     <header
@@ -164,7 +128,9 @@ const Header = () => {
             className="flex gap-[24px] items-center cursor-pointer"
             onClick={openDrawer}
           >
-            <MenuIcon color={color} />
+            <div className="relative  size-[20px]" data-name="menu-01">
+              <Menu color={color} />
+            </div>
             <p
               className={cn(
                 "font-eb-garamond text-[12px] tracking-[2.86px] hidden",

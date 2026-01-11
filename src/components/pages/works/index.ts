@@ -1,1 +1,1 @@
-export * from "./WorksGrid";
+export * from "./WorksContent";

@@ -155,3 +155,43 @@ export const Globe = ({ color = "#000000" }) => (
     />
   </svg>
 );
+
+export const Menu = ({ color = "#000000" }) => (
+  <svg
+    className="inline-block size-full"
+    fill="none"
+    preserveAspectRatio="none"
+    viewBox="0 0 24 24"
+    style={{
+      "--stroke-0": color,
+    }}
+  >
+    <g id="menu-01">
+      <path
+        d="M4 5H20"
+        id="Vector"
+        stroke="var(--stroke-0, white)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M4 12H20"
+        id="Vector_2"
+        stroke="var(--stroke-0, white)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+      <path
+        className="hidden"
+        d="M4 19H20"
+        id="Vector_3"
+        stroke="var(--stroke-0, white)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </g>
+  </svg>
+);

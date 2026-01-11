@@ -10,7 +10,7 @@ export const Route = createFileRoute("/our-services")({
 });
 
 function RouteComponent() {
-  useDocumentTitle("Our Process | RE:Initiative");
+  useDocumentTitle("Our Services | Re:Initiative");
   return (
     <Fragment>
       <ProcessHero />

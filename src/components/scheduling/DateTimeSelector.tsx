@@ -159,14 +159,13 @@ export function DateTimeSelector({
         className="bg-white max-sm:w-[320px] w-[750px] px-[20px] md:px-[40px] 
         py-[32px] flex flex-col border-l border-[#edeff2] overflow-y-auto"
       >
-        <div className="w-full">
-          <p className="font-gt-super-ds text-[22px] tracking-[-0.44px] text-[#2d3648]">
-            Select a Date & Time
-          </p>
-        </div>
-
         <div className="flex flex-col md:flex-row items-center justify-evenly gap-[24px]">
           <div className="w-full max-w-[400px]">
+            <div className="w-full">
+              <p className="font-gt-super-ds text-[22px] tracking-[-0.44px] text-[#2d3648]">
+                Select a Date & Time
+              </p>
+            </div>
             {/* Calendar */}
             <div className="bg-white flex flex-col gap-[24px] max-w-[400px]">
               {/* Month Navigation */}

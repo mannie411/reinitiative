@@ -47,7 +47,7 @@ export function Image({ className, imgSrc }: ImageProp) {
   return (
     <div
       className={cn(
-        "basis-0 bg-[#a0abc0] grow  overflow-clip relative  w-full",
+        "basis-0 bg-[#a0abc0] grow  overflow-clip relative size-full",
         className ? className : ""
       )}
       data-name="Image"

@@ -38,7 +38,7 @@ export function HeroSection({
 
 export function HeroBanner({ children, bgImage }: HeroProp) {
   return (
-    <div
+    <section
       className="content-stretch flex flex-col h-[min-content]
       items-center overflow-clip relative  w-full py-[32px] md:py-[64px]"
       data-name="Hero"
@@ -66,6 +66,6 @@ export function HeroBanner({ children, bgImage }: HeroProp) {
       </div> */}
 
       {children}
-    </div>
+    </section>
   );
 }

@@ -231,3 +231,7 @@
     display: none;
   }
 }
+
+@utility pause {
+  animation-play-state: paused;
+}

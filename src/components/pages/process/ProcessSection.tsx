@@ -1,23 +1,35 @@
-import { Fragment } from "react/jsx-runtime";
+import { Fragment } from "react";
+import { useLenis } from "lenis/react";
 import { ProcessCard } from "./Process";
 import { processSteps } from ".";
 
 export function ProcessHero() {
+  const lenis = useLenis();
+
+  const handleClick = (id: string) => {
+    // Scrolls to the element with id="contact-section"
+    lenis?.scrollTo(id, {
+      offset: -100, // Offset for fixed headers (e.g., 100px from top)
+      duration: 1.5, // Custom duration in seconds
+      immediate: false, // Set to true to skip the animation
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+  };
   return (
     <Fragment>
       {/* Hero Section */}
-      <section className="w-full py-[96px]">
+      <section className="relative w-full py-[32px] md:py-[64px]">
         <div className="container">
-          <div className="flex flex-col items-center gap-[64px]">
+          <div className="flex flex-col items-center gap-[32px] md:gap-[64px]">
             {/* Heading */}
-            <div className="flex flex-col items-center gap-[16px] max-w-[620px]">
-              <h1 className="font-gt-super-ds text-[22px] text-[#394E79] text-center tracking-[-0.44px]">
+            <div className="flex flex-col items-center gap-[16px] max-w-[500px]">
+              <h3 className="text-[18px] md:text-[22px] leading-[25px] font-normal text-center w-full max-w-[500px]">
                 <span>Five pillars. </span>
                 <span className="font-gt-super-ds">One</span>{" "}
                 <span className="font-gt-super-ds not-italic">
                   transformation.
                 </span>
-              </h1>
+              </h3>
               <p className="text-[16px] text-center max-w-[420px]">
                 We don't solve in fragments. We rebuild completely—from strategy
                 to scale, every dimension integrated.
@@ -31,12 +43,14 @@ export function ProcessHero() {
             >
               <div
                 className="flex gap-[20px] md:items-center md:justify-between max-sm:animate-marquee
-              w-full"
+              w-full hover:pause"
               >
                 {processSteps.map((step) => (
                   <p
                     key={step.id}
-                    className="font-eb-garamond text-[16px] text-[#53627e] tracking-[3.2px]"
+                    onClick={() => handleClick(`#${step.id}`)}
+                    className="font-eb-garamond text-[16px] text-[#53627e] group-hover:text-[#2d3648] cursor-pointer
+                      tracking-[3.2px] group-hover:border-[#2d3648]  transition-colors border-transparent border-[0px_0px_1px]"
                   >
                     {step.title}
                   </p>

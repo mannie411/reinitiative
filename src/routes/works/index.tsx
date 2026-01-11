@@ -1,8 +1,7 @@
 import { Fragment } from "react";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { WorksGrid } from "@/components/pages/works";
+import { createFileRoute } from "@tanstack/react-router";
+import { WorkList } from "@/components/pages/works";
 import {
-  ButtonUnderline,
   CompanyLogos,
   HeroBanner,
   Testimonials,
@@ -14,42 +13,21 @@ export const Route = createFileRoute("/works/")({
 });
 
 export function SelectedWorksPage() {
-  useDocumentTitle("Works | RE:Initiative");
-  const navigate = useNavigate();
+  useDocumentTitle("Works | Re:Initiative");
 
   return (
     <Fragment>
       <HeroBanner>
-        <p
-          className="font-gt-super-ds leading-[normal] not-italic relative 
-       text-[18px] md:text-[22px] text-center tracking-[-0.44px] w-full max-w-[600px]"
-        >
-          <span>RE:Initiative is a strategic consultancy, </span>
-          <span className="not-italic">specializing</span>
-          <span>{` in brand transformation `}</span>
+        <h3 className="text-[18px] md:text-[22px] leading-[25px] font-normal text-center w-full max-w-[500px]">
+          <span className="not-italic">Re:Initiative</span> is a strategic
+          consultancy,
+          <span className="not-italic"> specializing</span>
+          <span> in brand transformation </span>
           <span className="not-italic">through</span>
           <span> integrated strategy, design, and growth architecture.</span>
-        </p>
+        </h3>
       </HeroBanner>
-
-      {/* This section corresponds to 'About Us' in DesktopWorks.tsx which wraps the grid and the button */}
-      <section className="relative w-full">
-        <div className="container ">
-          <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-            <div className="content-stretch flex flex-col items-center  relative w-full">
-              {/* The grid component has its own internal width constraints but we need to ensure layout matches */}
-              <WorksGrid />
-              <ButtonUnderline
-                text="Book a Call"
-                onClick={() => {
-                  navigate({ to: "/booking" });
-                  console.log("Book a call");
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <WorkList />
       <CompanyLogos />
       <Testimonials />
     </Fragment>

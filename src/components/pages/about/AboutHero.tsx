@@ -4,27 +4,30 @@ import { Image } from "@/components/shared/blocks";
 function Heading() {
   return (
     <div
-      className="content-stretch flex flex-col items-center relative  w-full max-w-[620px] px-4"
+      className="container content-stretch flex flex-col items-center relative  w-full max-w-[620px] px-4"
       data-name="Heading"
     >
-      <p
-        className="font-gt-super-ds leading-[normal] not-italic relative 
-      text-[22px] text-center tracking-[-0.44px] w-full max-w-[444px]"
+      <h3
+        className="text-[18px] md:text-[22px]  leading-[25px] font-normal 
+       text-center tracking-[-0.44px] w-full max-w-[500px]"
       >
-        <span>{`We saw a pattern: brilliant brands failing not from `}</span>
+        <span>We saw a pattern: brilliant brands failing not from </span>
         <span className="not-italic">lack of vision</span>
-        <span>{`, but from `}</span>
+        <span>, but from </span>
         <span className="not-italic">scattered strategy.</span>
-      </p>
+      </h3>
     </div>
   );
 }
 
 export function AboutHero() {
   return (
-    <section className="relative " data-name="About Us">
+    <section
+      className="relative w-full py-[32px] md:py-[64px] "
+      data-name="About Us"
+    >
       <div className="container">
-        <div className="content-stretch flex flex-col gap-[64px] items-center py-[40px] md:py-[80px]  w-full">
+        <div className="content-stretch flex flex-col gap-[64px] items-center  w-full">
           <div
             className="content-stretch flex flex-col gap-[72px] items-center 
       relative  w-full max-w-[1440px] mx-auto"

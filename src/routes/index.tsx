@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  useDocumentTitle("RE:Initivative");
+  useDocumentTitle("Re:Initivative");
 
   return (
     <Fragment>

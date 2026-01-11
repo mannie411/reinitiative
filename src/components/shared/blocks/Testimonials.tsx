@@ -107,18 +107,20 @@ function Testimonial() {
                       >
                         {content}
                       </p>
-                      <p
-                        className="font-eb-garamond font-normal text-[12px] relative  tracking-normal 
-                      md:tracking-[9.6px] w-full uppercase"
-                      >
-                        {name}
-                      </p>
-                      <p
-                        className="font-eb-garamond font-normal text-[12px] relative tracking-normal 
-                      md:tracking-[6.4px] w-full uppercase"
-                      >
-                        {position}
-                      </p>
+                      <div className="space-y-2">
+                        <p
+                          className="font-eb-garamond font-normal text-[12px] relative  tracking-normal 
+                      md:tracking-[6px] w-full uppercase"
+                        >
+                          {name}
+                        </p>
+                        <p
+                          className="font-eb-garamond font-normal text-[12px] relative tracking-normal 
+                      md:tracking-[6px] w-full uppercase"
+                        >
+                          {position}
+                        </p>
+                      </div>
                     </div>
                   </CarouselItem>
                 ))}

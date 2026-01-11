@@ -1,5 +1,4 @@
 import type { Dispatch, PropsWithChildren, SetStateAction } from "react";
-import type { LinkProps } from "@tanstack/react-router";
 
 export type GenericObject = { [key: string]: unknown };
 
@@ -11,7 +10,6 @@ export type PageType = "default" | "blank";
 export type RootProp = PropsWithChildren & { value: AppProp };
 export type AppProp = PropsWithChildren & {
   layout: LayoutType;
-
   setLayout: Dispatch<SetStateAction<LayoutType>>;
 };
 
@@ -35,13 +33,15 @@ export interface Testimonial {
   position: string;
 }
 
-export type LinkProp = LinkProps & {
+export type LinkProp = {
+  href?: string;
   text: string;
+  variant: "default" | "router";
 };
 
 export type ButtonProp = {
-  text: string;
   onClick: () => void;
+  text: string;
 };
 
 export type HeroProp = PropsWithChildren & {

@@ -139,7 +139,7 @@ export function CareersValues() {
                 <Content />
                 <div
                   className="basis-0 bg-[#a0abc0] grow h-[300px] md:h-[420px] 
-      min-h-px min-w-px overflow-clip relative  w-full md:max-w-[550px]"
+                  overflow-clip relative  w-full md:max-w-[550px]"
                   data-name="Image"
                 >
                   <Image imgSrc={imgCareerBg1} className="size-full" />
@@ -156,7 +156,7 @@ export function CareersValues() {
               <Column>
                 <div
                   className="basis-0 bg-[#a0abc0] grow h-[300px] md:h-[420px] 
-      min-h-px min-w-px overflow-clip relative  w-full md:max-w-[550px]"
+                  overflow-clip relative  w-full md:max-w-[550px]"
                   data-name="Image"
                 >
                   <Image imgSrc={imgCareerBg2} className="size-full" />
@@ -175,7 +175,7 @@ export function CareersValues() {
                 <Content2 />
                 <div
                   className="basis-0 bg-[#a0abc0] grow h-[300px] md:h-[420px] 
-      min-h-px min-w-px overflow-clip relative w-full md:max-w-[550px]"
+                   overflow-clip relative w-full md:max-w-[550px]"
                   data-name="Image"
                 >
                   <Image imgSrc={imgCareerBg3} className="size-full" />

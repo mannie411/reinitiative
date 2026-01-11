@@ -1,7 +1,9 @@
 import { useState, type MouseEvent } from "react";
-import { Link } from "@tanstack/react-router";
-import { ImagePlaceholder } from "@/components/shared/blocks";
 import { AnimatePresence, motion, type Variants } from "motion/react";
+import { Link } from "@tanstack/react-router";
+import { ImagePlaceholder, LinkUnderline } from "@/components/shared/blocks";
+
+const categories = ["all", "category", "category", "category", "category"];
 
 function BlogCardContent({ articleId }: { articleId: string }) {
   return (
@@ -12,7 +14,7 @@ function BlogCardContent({ articleId }: { articleId: string }) {
             className="font-avenir-lt leading-[normal] not-italic relative  
           text-[#a0abc0] text-[9px]  tracking-[4px] uppercase"
           >
-            CATEGORY
+            category
           </p>
         </div>
         <p
@@ -101,8 +103,6 @@ function CategoryLinks() {
       transition: { duration: 0.4, ease: "easeOut" },
     },
   };
-
-  const categories = ["all", "category", "category", "category", "category"];
 
   return (
     <motion.ul
@@ -215,10 +215,46 @@ function BlogGrid() {
       gap-x-[32px] gap-y-[64px] items-start relative  w-full"
       data-name="Row"
     >
-      {Array.from({ length: 8 }).map((_, i) => (
+      {Array.from({ length: 6 }).map((_, i) => (
         <BlogCard key={i} articleId={`article-${i + 1}`} />
       ))}
     </div>
+  );
+}
+
+export function RelatedBlogs() {
+  return (
+    <section className="relative">
+      <div className="container" data-name="About Us">
+        <div
+          className="content-stretch flex flex-col gap-[72px] items-center pb-[90px]
+           pt-[40px]  relative w-full  overflow-clip rounded-[inherit] size-full"
+        >
+          <div className="content-stretch flex flex-col gap-[16px] items-start relative  w-full">
+            <div
+              className="content-stretch flex items-center justify-between px-0 py-[24px] relative  w-full"
+              data-name="Heading+Category Link"
+            >
+              <p
+                className="font-eb-garamond font-normal leading-[normal] relative 
+       text-[#53627e] text-[18px]  tracking-[7.2px] uppercase"
+              >
+                more blog articles
+              </p>
+            </div>
+            <div
+              className="grid grid-cols-1 md:grid-cols-3 gap-[32px] items-start relative  w-full"
+              data-name="Row"
+            >
+              {[...Array(3).keys()].map((_, i) => (
+                <BlogCard key={i} articleId={`article-${i}`} />
+              ))}
+            </div>
+          </div>
+          <LinkUnderline text="see all articles" variant="router" />
+        </div>
+      </div>
+    </section>
   );
 }
 
