@@ -1,4 +1,8 @@
-export { SchedulingModal } from './SchedulingModal';
-export { SchedulingFlow } from './SchedulingFlow';
-export { DateTimeSelector } from './DateTimeSelector';
-export { BookingForm } from './BookingForm';
+import Calendly from "./Calendly";
+
+export { Calendly };
+
+export { SchedulingModal } from "./SchedulingModal";
+export { SchedulingFlow } from "./SchedulingFlow";
+export { DateTimeSelector } from "./DateTimeSelector";
+export { BookingForm } from "./BookingForm";
