@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import svgPaths from "@/assets/svg";
 import { useDefaultLayoutContext } from "@/hooks";
-import { cn } from "../../ui/utils";
+import { cn } from "@/lib";
 
 const options = linkOptions([
   {

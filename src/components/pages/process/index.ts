@@ -4,7 +4,7 @@ import {
   imgServiceExpress,
   imgServiceScale,
   imgServiceStructure,
-} from "@/assets/images";
+} from "@/assets";
 
 import type { ProcessCardProp } from "@/types";
 

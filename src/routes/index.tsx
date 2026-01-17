@@ -10,7 +10,7 @@ import {
   HeroSection,
   Testimonials,
 } from "@/components/shared/blocks";
-import { videoHomeHero } from "@/assets";
+import { videoHomeHero2 } from "@/assets";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -21,7 +21,7 @@ function HomePage() {
 
   return (
     <Fragment>
-      <HeroSection videoSrc={videoHomeHero} />
+      <HeroSection videoSrc={videoHomeHero2} />
       <SelectedWork />
       {/* <OurProcess /> */}
       <CompanyLogos />

@@ -11,7 +11,10 @@ function Heading() {
       relative  text-center "
       data-name="Heading"
     >
-      <h3 className="text-[18px] md:text-[22px] leading-[25px] font-normal text-center tracking-[-0.44px] w-full max-w-[500px]">
+      <h3
+        className="text-[18px] md:text-[22px] leading-[25px] font-normal 
+      text-center tracking-[-0.44px] w-full max-w-[500px]"
+      >
         <span>We meet you </span>
         <span className="not-italic">where you are </span>
         <span>and build the systems that </span>
@@ -40,7 +43,7 @@ function ImageLink({ href, imgSrc = undefined }: ImageProp) {
 function HypenButton() {
   return (
     <div className="content-stretch flex gap-[4px] items-center relative ">
-      <div className="bg-[#0a111f] h-px  w-[24px]" />
+      <div className="bg-[#a0abc0] h-px  w-[14px]" />
       <p className="font-gt-super-txt leading-[normal] italic relative  text-[16px] ">
         view more
       </p>
@@ -50,7 +53,10 @@ function HypenButton() {
 
 function Container({ children }: PropsWithChildren) {
   return (
-    <div className="basis-0 content-stretch flex flex-col gap-[32px] grow items-start max-w-[445px]">
+    <div
+      className="basis-0 content-stretch flex flex-col 
+    gap-[32px] grow items-start w-full md:max-w-[445px]"
+    >
       {children}
     </div>
   );
@@ -69,7 +75,8 @@ export function SelectedWork() {
         >
           <Heading />
           <div
-            className="content-stretch flex flex-col md:flex-row items-center justify-center gap-[40px] md:gap-[80px] w-full"
+            className="content-stretch flex flex-col md:flex-row items-center 
+            justify-center gap-[40px] md:gap-[80px] w-full"
             data-name="Row"
           >
             <Container>
@@ -80,7 +87,7 @@ export function SelectedWork() {
               >
                 <p
                   className="font-eb-garamond font-medium leading-[normal] relative 
-                   text-[14px] md:text-base  tracking-[6.4px]"
+                   text-[14px] md:text-base  tracking-[4px]"
                 >
                   SELECTED WORK
                 </p>
@@ -96,7 +103,7 @@ export function SelectedWork() {
               >
                 <p
                   className="font-eb-garamond font-medium leading-[normal] relative
-                  text-[14px] md:text-base  tracking-[6.4px]"
+                  text-[14px] md:text-base  tracking-[4px]"
                 >
                   ABOUT US
                 </p>

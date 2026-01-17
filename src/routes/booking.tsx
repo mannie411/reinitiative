@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Calendly, SchedulingFlow } from "@/components/scheduling";
+import { Calendly, SchedulingFlow } from "@/components/shared/scheduling";
 import { useDocumentTitle } from "@/hooks";
 
 export const Route = createFileRoute("/booking")({

@@ -1,7 +1,7 @@
 import type { HeroProp } from "@/types";
 import { Image } from "../blocks";
 import { ImagePlaceholder } from "./Icons";
-import { cn } from "@/components/ui/utils";
+import { cn } from "@/lib";
 
 export function HeroSection({
   imgSrc,

@@ -16,8 +16,9 @@ import {
 import svgPaths from "@/assets/svg";
 import { Button } from "@/components/ui";
 import { ChevronDown, ChevronLeft, ChevronRight, Globe } from "lucide-react";
-import { cn } from "@/components/ui/utils";
+
 import { AnimatePresence, motion } from "motion/react";
+import { cn } from "@/lib";
 
 interface DateTimeSelectorProps {
   selectedDate: Date | undefined;

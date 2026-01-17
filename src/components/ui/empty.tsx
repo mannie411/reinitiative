@@ -1,7 +1,7 @@
 import { type VariantProps } from "class-variance-authority";
 
-import { cn } from "./utils";
 import { emptyMediaVariants } from "./constants";
+import { cn } from "@/lib";
 
 function Empty({ className, ...props }: React.ComponentProps<"div">) {
   return (

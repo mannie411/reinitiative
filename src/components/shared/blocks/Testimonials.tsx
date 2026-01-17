@@ -61,10 +61,10 @@ function Testimonial() {
   }, [api]);
   return (
     <div
-      className="content-stretch flex flex-col gap-[36px] items-center relative shrink-0 w-full"
+      className="content-stretch flex flex-col gap-[36px] items-center relative  w-full"
       data-name="Testimonal"
     >
-      <div className="relative shrink-0 w-full" data-name="Content+arrow">
+      <div className="relative  w-full" data-name="Content+arrow">
         <div className="flex flex-row items-center size-full justify-center">
           <div
             className="content-stretch flex items-center justify-between 
@@ -72,7 +72,7 @@ function Testimonial() {
           >
             <div
               onClick={() => api?.scrollPrev()}
-              className="flex items-center justify-center relative shrink-0 size-[24px]
+              className="hidden md:flex items-center justify-center relative  size-[24px]
                cursor-pointer hover:opacity-70 transition-opacity"
               style={{
                 "--transform-inner-width": "0",
@@ -102,7 +102,7 @@ function Testimonial() {
                       data-name="Name+Company"
                     >
                       <p
-                        className="font-eb-garamond font-normal leading-[normal] relative shrink-0
+                        className="font-eb-garamond font-normal leading-[normal] relative 
                        text-[16px] text-center w-full "
                       >
                         {content}
@@ -129,7 +129,7 @@ function Testimonial() {
 
             <div
               onClick={() => api?.scrollNext()}
-              className="flex items-center justify-center relative shrink-0 size-[24px] 
+              className="hidden md:flex items-center justify-center relative  size-[24px] 
               cursor-pointer hover:opacity-70 transition-opacity"
               style={
                 {
@@ -156,12 +156,12 @@ export default function Testimonials() {
         <div className="overflow-clip rounded-[inherit] size-full w-full">
           <div className="content-stretch flex flex-col items-center py-[40px] md:py-[80px]">
             <div
-              className="content-stretch flex flex-col gap-[26px] items-center relative shrink-0 w-full"
+              className="content-stretch flex flex-col gap-[26px] items-center relative  w-full"
               data-name="Container"
             >
               <p
                 className="font-eb-garamond font-normal leading-[normal] relative 
-            shrink-0  text-[20px] text-center tracking-[8px] uppercase w-full"
+              text-[20px] text-center tracking-[8px] uppercase w-full"
               >
                 <span className="tracking-[3.2px]">In </span>
                 <span className=" italic tracking-[1.12px] lowercase">

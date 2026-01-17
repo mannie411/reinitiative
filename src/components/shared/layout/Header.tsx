@@ -1,8 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useDefaultLayoutContext, useScrollPosition } from "@/hooks";
 import { useCallback, useEffect, useMemo } from "react";
-import { cn } from "@/components/ui/utils";
-import { isInViewport } from "@/lib";
+
+import { cn, isInViewport } from "@/lib";
 import { Menu } from "../blocks";
 
 const transparentPaths = ["/", "/home", "/works/"];

@@ -3,11 +3,11 @@
 import * as React from "react";
 import { type VariantProps } from "class-variance-authority";
 
-import { cn } from "./utils";
 import { Button } from "./button";
 import { Input } from "./input";
 import { Textarea } from "./textarea";
 import { inputGroupAddonVariants, inputGroupButtonVariants } from "./constants";
+import { cn } from "@/lib";
 
 function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (

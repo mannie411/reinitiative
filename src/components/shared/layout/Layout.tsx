@@ -1,11 +1,10 @@
-import { Fragment, useState } from "react";
-import type { PropsWithChildren } from "react";
+import { Fragment, useState, type PropsWithChildren } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Drawer from "./Drawer";
 import Footer from "./Footer";
 import Header from "./Header";
 import { DefaultLayoutProvider } from "@/context";
-import { SchedulingModal } from "../../scheduling";
+import { SchedulingModal } from "../scheduling";
 import type { DrawerState, NavbarState } from "@/types";
 
 export const DefaultLayout = ({ children }: PropsWithChildren) => {

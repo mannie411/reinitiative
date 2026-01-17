@@ -3,9 +3,9 @@
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
 
-import { cn } from "./utils";
 import { ChartContext } from "@/context";
 import { useChart } from "@/hooks";
+import { cn } from "@/lib";
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const;
