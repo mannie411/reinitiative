@@ -35,7 +35,7 @@ export function CareersHero() {
                 className="relative content-stretch flex flex-col gap-[32px] h-[500px] 
             md:h-[708px] items-start  w-full"
               >
-                <Image imgSrc={imgCareerHero} />
+                <Image imgSrc={imgCareerHero} className="size-full" />
               </div>
             </div>
             <p

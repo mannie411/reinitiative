@@ -1,4 +1,5 @@
 import { motion, type Variants } from "motion/react";
+import { useMediaQuery } from "usehooks-ts";
 import {
   imgCompany1,
   imgCompany2,
@@ -74,48 +75,47 @@ const itemVariants: Variants = {
 // }
 
 function Logos() {
-  // Double the array for a seamless loop on mobile
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   const marqueeLogos = [...companies, ...companies];
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* Mobile: animate-marquee + w-max (keeps logos in one line)
-        Desktop: animate-none + w-full + justify-between
-      */}
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
+        // 1. Only use variants on desktop to avoid mobile conflicts
+        variants={isDesktop ? containerVariants : {}}
+        initial={isDesktop ? "hidden" : "visible"}
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
         className={cn(
-          "flex items-center gap-[20px] w-max animate-marquee pause-on-hover",
+          // 2. Ensure opacity-100 is forced if variants fail
+          "flex items-center gap-[20px] w-max animate-marquee pause-on-hover opacity-100",
           "md:w-full md:justify-between md:animate-none md:gap-0"
         )}
       >
         {marqueeLogos.map((company, idx) => (
           <motion.div
             key={`${company.name}-${idx}`}
+            // 3. Disable item variants on mobile if they cause the "y: 20" stuck issue
             variants={itemVariants}
             className={cn(
               "relative h-[40px] shrink-0",
-              // Hide the second set of logos on desktop to avoid layout breakage
               idx >= companies.length && "md:hidden"
             )}
+            // IMPORTANT: use inline style for width if Tailwind (--) vars are failing
             style={{ width: company.w }}
           >
             <img
               src={company.img}
               alt={company.name}
-              className="absolute inset-0 size-full object-contain pointer-events-none filter 
-              grayscale hover:grayscale-0 transition-all duration-300"
+              className="absolute inset-0 size-full object-contain filter grayscale"
             />
           </motion.div>
         ))}
       </motion.div>
 
-      {/* Gradient masks to fade out the edges on mobile */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white to-transparent hidden" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white to-transparent hidden" />
+      {/* 4. FIX: You had 'hidden' class here! Remove it to see the gradients */}
+      {/* <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white md:hidden" /> */}
+      {/* <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white md:hidden" /> */}
     </div>
   );
 }

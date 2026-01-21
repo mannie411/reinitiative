@@ -33,9 +33,9 @@ function ImageLink({ href, imgSrc = undefined }: ImageProp) {
   return (
     <Link
       to={href}
-      className="basis-0 bg-[#a0abc0] grow  h-[400px] md:h-[615px] overflow-clip relative  w-full"
+      className=" bg-[#a0abc0] grow  h-[400px] md:h-[615px] overflow-clip relative  w-full"
     >
-      <Image imgSrc={imgSrc} />
+      <Image imgSrc={imgSrc} className="size-full" />
     </Link>
   );
 }

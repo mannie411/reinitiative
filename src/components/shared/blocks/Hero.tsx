@@ -1,5 +1,5 @@
 import type { HeroProp } from "@/types";
-import { Image } from "../blocks";
+import { Image, Video } from "../blocks";
 import { ImagePlaceholder } from "./Icons";
 import { cn } from "@/lib";
 
@@ -16,19 +16,7 @@ export function HeroSection({
         className="bg-[#2d3648] min-h-screen  w-full overflow-hidden"
         data-name="Hero"
       >
-        {videoSrc && (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="max-w-full h-screen object-cover size-full"
-          >
-            <source src={videoSrc} type="video/webm" />
-            <source src={videoSrc} type="video/mp4 " />
-            Your browser does not support the video tag.
-          </video>
-        )}
+        {videoSrc && <Video videoSrc={videoSrc} />}
 
         {!videoSrc && <Image imgSrc={imgSrc} className="size-full" />}
       </div>
