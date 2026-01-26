@@ -5,7 +5,7 @@ import { ArticleContent, RelatedBlogs } from "@/components/pages/blog";
 import { CompanyLogos, Testimonials } from "@/components/shared/blocks";
 import { useDocumentTitle } from "@/hooks";
 
-export const Route = createFileRoute("/blog/$articleId")({
+export const Route = createFileRoute("/blog/$slug")({
   component: BlogArticlePage,
 });
 

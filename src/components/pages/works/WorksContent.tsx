@@ -1,9 +1,50 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { type Variants, motion, AnimatePresence } from "motion/react";
-import { Link } from "@tanstack/react-router";
-import { Image, LinkUnderline } from "@/components/shared/blocks";
+import { ChevronDown } from "lucide-react";
+import { LinkUnderline, SkeletonList } from "@/components/shared/blocks";
+import { usePosts } from "@/hooks";
+import WorkItem from "./WorkItem";
 
-const categories = ["all", "category", "category", "category", "category"];
+const ex_categories = ["all", "category", "category", "category", "category"];
+
+const ex_works = [
+  {
+    title: "NAME OF title",
+    category: "CATEGORY",
+    slug: "/works/work-one",
+    img: undefined,
+  },
+  {
+    title: "NAME OF title",
+    category: "CATEGORY",
+    slug: "/works/work-two",
+    img: undefined,
+  },
+  {
+    title: "NAME OF title",
+    category: "CATEGORY",
+    slug: "/works/work-three",
+    img: undefined,
+  },
+  {
+    title: "NAME OF title",
+    category: "CATEGORY",
+    slug: "/works/work-four",
+    img: undefined,
+  },
+  {
+    title: "NAME OF title",
+    category: "CATEGORY",
+    slug: "/works/work-five",
+    img: undefined,
+  },
+  {
+    title: "NAME OF title",
+    category: "CATEGORY",
+    slug: "/works/work-six",
+    img: undefined,
+  },
+];
 
 function HeadingCategoryLink({ onClick }: { onClick: () => void }) {
   return (
@@ -18,19 +59,29 @@ function HeadingCategoryLink({ onClick }: { onClick: () => void }) {
       />
       <p
         className="font-eb-garamond font-normal leading-[normal] relative  
-      text-[#53627e] text-[16px]  tracking-[4px] uppercase"
+      text-[#53627e] text-[16px]  tracking-[4px] uppercase hidden md:inline-block"
       >
         SELECTION
         <span className="italic lowercase"> of </span>
         WORKS
       </p>
-      <button onClick={onClick}>
+      <button onClick={onClick} className="flex gap-4">
         <p
           className="font-eb-garamond font-normal leading-[normal] relative  cursor-pointer
-       text-[#53627e] text-[16px]  text-right tracking-[4px] hidden md:block uppercase"
+       text-[#53627e] text-[16px]  text-right tracking-[4px]  uppercase hidden md:inline-block"
         >
           Categories
         </p>
+
+        <p
+          className="inline-block md:hidden font-eb-garamond font-normal leading-[normal] relative  
+      text-[#53627e] text-[16px]  tracking-[4px] uppercase  "
+        >
+          SELECTION
+          <span className="italic lowercase"> of </span>
+          WORKS
+        </p>
+        <ChevronDown className="inline-block md:hidden" color="#53627e" />
       </button>
     </div>
   );
@@ -69,7 +120,7 @@ function CategoryLinks() {
       text-[#2d3648] text-[12px] tracking-[2.4px] uppercase"
       data-name="Category Links"
     >
-      {categories.map((cat, idx) => (
+      {ex_categories.map((cat, idx) => (
         <motion.li
           key={idx}
           variants={item}
@@ -129,88 +180,9 @@ function FilterSection() {
   );
 }
 
-function WorkItem({ brand, category }: { brand: string; category: string }) {
-  return (
-    <div className="content-stretch flex flex-col gap-[18px] items-start justify-center relative  w-full mb-2">
-      <div
-        className="bg-[#a0abc0] h-[458px] overflow-clip relative  w-full group-hover:opacity-90 transition-opacity"
-        data-name="Image"
-      >
-        <Image className="group-hover:scale-105" />
-      </div>
-      <p
-        className="font-avenir-lt leading-[normal] not-italic relative 
-           text-[#53627e] text-[9px]  tracking-[4.8px] uppercase"
-      >
-        {category}
-      </p>
-      <Link
-        to="/works/$workId"
-        params={{ workId: brand.toLowerCase().replace(/\s+/g, "-") }}
-        className="content-stretch flex flex-col gap-[32px] items-start relative  
-      w-full cursor-pointer group transition-all duration-300"
-        onClick={() => window.scrollTo(0, 0)}
-      >
-        <div className="content-stretch flex flex-col gap-[16px] items-start justify-center relative  w-full">
-          <p
-            className="font-medium leading-[normal] relative  text-[#2d3648] text-[12px]  
-        tracking-[6.4px] uppercase group-hover:text-[#53627e] transition-colors"
-          >
-            {brand}
-          </p>
-        </div>
-      </Link>
-    </div>
-  );
-}
-
-export function RelatedWorks() {
-  return (
-    <section className="relative  w-full" data-name="Related Works Section">
-      <div className="container flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-        <div
-          className="content-stretch flex flex-col gap-[64px] items-center 
-         relative w-full"
-        >
-          <div className="content-stretch flex flex-col gap-[32px] items-center relative  w-full">
-            <p
-              className=" font-medium leading-[normal] relative  
-            text-[16px] text-start  tracking-[6.4px] uppercase w-full"
-            >
-              More Selected Works
-            </p>
-
-            <div
-              className="grid grid-cols-1 md:grid-cols-3  gap-[32px] items-start relative  w-full"
-              data-name="Row"
-            >
-              {Array.from({ length: 3 }).map((_, i) => (
-                <WorkItem
-                  key={i}
-                  brand={"Name of Brand"}
-                  category={"Category"}
-                />
-              ))}
-            </div>
-
-            <LinkUnderline href="/works" text="View More" variant="router" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function WorksGrid() {
-  const works = [
-    { brand: "NAME OF BRAND", category: "CATEGORY" },
-    { brand: "NAME OF BRAND", category: "CATEGORY" },
-    { brand: "NAME OF BRAND", category: "CATEGORY" },
-    { brand: "NAME OF BRAND", category: "CATEGORY" },
-    { brand: "NAME OF BRAND", category: "CATEGORY" },
-    { brand: "NAME OF BRAND", category: "CATEGORY" },
-  ];
-
+export function WorksGrid({ data }: { data: any[] }) {
+  console.log(ex_works);
+  console.log(data);
   return (
     <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
       <div
@@ -218,11 +190,11 @@ export function WorksGrid() {
   relative w-full"
       >
         <div
-          className="grid grid-cols-1 md:grid-cols-2  gap-[32px] items-start relative  w-full"
+          className="grid grid-cols-1 md:grid-cols-3  gap-[32px] items-start relative  w-full"
           data-name="Row"
         >
-          {works.map((work, index) => (
-            <WorkItem key={index} brand={work.brand} category={work.category} />
+          {data.map((work, index) => (
+            <WorkItem key={index} {...work} />
           ))}
         </div>
       </div>
@@ -231,17 +203,44 @@ export function WorksGrid() {
 }
 
 export function WorkList() {
+  const { data, isLoading } = usePosts({ postType: "work", pageSize: 6 });
+
+  const works = useMemo(() => {
+    return (
+      data?.pages
+        .flatMap((page) => page.nodes ?? [])
+        .map(({ title, slug, categories, featuredImage, heroFields }) => ({
+          title,
+          slug,
+          img: featuredImage?.node?.sourceUrl,
+          category: categories?.nodes?.[0]?.name ?? "",
+          header:
+            heroFields?.hero?.at(0) === "full_image" ||
+            heroFields?.hero?.at(0) === "full_image"
+              ? "transparent"
+              : "default",
+        })) ?? []
+    );
+  }, [data]);
+
   return (
     <section className="relative w-full">
-      <div className="container ">
-        <div className="relative w-full content-stretch flex flex-col items-center gap-[24px] ">
-          <FilterSection />
-          <WorksGrid />
-          <div className="flex justify-center my-4 ">
+      <div className="container">
+        <div className="flex flex-col items-center gap-6">
+          {isLoading && <SkeletonList count={3} />}
+
+          {!isLoading && (
+            <>
+              <FilterSection />
+              <WorksGrid data={works} />
+            </>
+          )}
+
+          <div className="flex justify-center my-4">
             <LinkUnderline
               href="/booking"
               text="Book a Call"
-              variant={"router"}
+              variant="router"
             />
           </div>
         </div>

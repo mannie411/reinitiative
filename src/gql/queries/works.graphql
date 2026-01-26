@@ -1,0 +1,108 @@
+#import "../fragments/coreBlocks.graphql"
+
+query GetWork($slug: ID!) {
+  work(id: $slug, idType: URI) {
+    id
+    title
+    slug
+    content
+
+    categories {
+      nodes {
+        id
+        databaseId
+        name
+        slug
+      }
+    }
+
+    featuredImage {
+      node {
+        id
+        sourceUrl
+      }
+    }
+
+    heroFields {
+      hero
+      heroFormat
+      imageUrl
+      imageEmbed
+      imageUpload {
+        node {
+          sourceUrl
+        }
+      }
+      videoUrl
+      videoEmbed
+      videoUpload {
+        node {
+          sourceUrl
+        }
+      }
+    }
+
+    editorBlocks(flat: false) {
+      __typename
+      name
+      ...CoreBlocksFragment
+    }
+  }
+}
+
+query GetWorks($first: Int!, $after: String, $categoryName: String) {
+  works(first: $first, after: $after, where: { categoryName: $categoryName }) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+
+    nodes {
+      id
+      title
+      slug
+      date
+
+      categories {
+        nodes {
+          id
+          databaseId
+          name
+          slug
+        }
+      }
+
+      featuredImage {
+        node {
+          id
+          sourceUrl
+        }
+      }
+
+      heroFields {
+        hero
+        heroFormat
+        imageUrl
+        imageEmbed
+        imageUpload {
+          node {
+            sourceUrl
+          }
+        }
+        videoUrl
+        videoEmbed
+        videoUpload {
+          node {
+            sourceUrl
+          }
+        }
+      }
+
+      editorBlocks(flat: true) {
+        __typename
+        name
+        ...CoreBlocksFragment
+      }
+    }
+  }
+}

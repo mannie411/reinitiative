@@ -1,0 +1,110 @@
+#import "../fragments/coreBlocks.graphql"
+
+# Fetch a single post (or CPT if postType is replaced)
+query GetPost($slug: ID!) {
+  post(id: $slug, idType: SLUG) {
+    id
+    title
+    slug
+    content
+
+    categories {
+      nodes {
+        id
+        databaseId
+        name
+        slug
+      }
+    }
+
+    featuredImage {
+      node {
+        id
+        sourceUrl
+      }
+    }
+
+    heroFields {
+      hero
+      heroFormat
+      imageUrl
+      imageEmbed
+      imageUpload {
+        node {
+          sourceUrl
+        }
+      }
+      videoUrl
+      videoEmbed
+      videoUpload {
+        node {
+          sourceUrl
+        }
+      }
+    }
+
+    editorBlocks(flat: false) {
+      __typename
+      name
+      ...CoreBlocksFragment
+    }
+  }
+}
+
+# Fetch paginated posts (by category or all)
+query GetPosts($first: Int!, $after: String, $categoryName: String) {
+  posts(first: $first, after: $after, where: { categoryName: $categoryName }) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    nodes {
+      id
+      title
+      slug
+      excerpt
+      date
+
+      categories {
+        nodes {
+          id
+          databaseId
+          name
+          slug
+        }
+      }
+
+      featuredImage {
+        node {
+          id
+          sourceUrl
+        }
+      }
+
+      heroFields {
+        hero
+        heroFormat
+        imageUrl
+        imageEmbed
+        imageUpload {
+          node {
+            sourceUrl
+          }
+        }
+        videoUrl
+        videoEmbed
+        videoUpload {
+          node {
+            sourceUrl
+          }
+        }
+      }
+
+      editorBlocks(flat: true) {
+        __typename
+        name
+        ...CoreBlocksFragment
+      }
+    }
+  }
+}

@@ -23,7 +23,7 @@ export interface DefaultLayoutProp {
 
 export type ImageProp = {
   className?: string;
-  imgSrc?: string;
+  imgSrc?: string | null;
   href?: string;
 };
 
@@ -63,3 +63,5 @@ export interface Team {
   role: string;
   image: string;
 }
+
+export type PostTypeKey = "post" | "work";

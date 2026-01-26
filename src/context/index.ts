@@ -7,7 +7,7 @@ import type {
 } from "../components/ui/form";
 import type { ChartContextProps } from "../components/ui/chart";
 
-export * from "./Contexts";
+export * from "./Providers";
 
 export const AppContext = createContext<AppProp | undefined>(undefined);
 

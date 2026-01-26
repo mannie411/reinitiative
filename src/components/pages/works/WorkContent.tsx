@@ -1,20 +1,13 @@
 import { Fragment } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+
 import {
-  CompanyLogos,
-  HeroSection,
   ImagePlaceholder,
   LinkUnderline,
-  Testimonials,
+  SkeletonList,
 } from "@/components/shared/blocks";
-import { useDocumentTitle } from "@/hooks";
-import { RelatedWorks } from "@/components/pages/works";
+import WorkItem from "./WorkItem";
 
-export const Route = createFileRoute("/works/$workId")({
-  component: WorkDetailsPage,
-});
-
-function BrandDescription() {
+export function BrandDescription() {
   return (
     <div
       className="content-stretch flex flex-col gap-[64px] items-start relative  w-full md:w-[607px]"
@@ -44,7 +37,7 @@ function BrandDescription() {
   );
 }
 
-function Services() {
+export function Services() {
   return (
     <div
       className="content-stretch flex flex-col gap-[32px] items-start relative  text-[16px] w-full md:w-[219px]"
@@ -65,7 +58,7 @@ function Services() {
   );
 }
 
-function DescriptionSection() {
+export function DescriptionSection() {
   return (
     <div
       className="content-stretch flex flex-col md:flex-row items-start 
@@ -77,7 +70,7 @@ function DescriptionSection() {
   );
 }
 
-function ImageFullWidth() {
+export function ImageFullWidth() {
   return (
     <div
       className="bg-[#a0abc0] h-[500px] md:h-[708px] overflow-clip relative  w-full"
@@ -93,7 +86,7 @@ function ImageFullWidth() {
   );
 }
 
-function QuoteSection() {
+export function QuoteSection() {
   return (
     <div className="content-stretch flex items-start justify-between relative  w-full max-w-[1080px] mt-8 mb-8">
       <div
@@ -114,7 +107,7 @@ function QuoteSection() {
   );
 }
 
-function WorkWithUsCTA() {
+export function WorkWithUsCTA() {
   return (
     <div
       className="content-stretch flex flex-col items-center relative  w-full mt-16"
@@ -148,35 +141,53 @@ function WorkWithUsCTA() {
   );
 }
 
-function MainContent() {
+export function RelatedWorks({
+  data,
+  isLoading,
+}: {
+  data: any[];
+  isLoading: boolean;
+}) {
   return (
-    <section className="relative w-full" data-name="Work Section">
-      <div className="container py-[4opx] md:py-[80px]">
-        <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-          <div className="content-stretch flex flex-col gap-[72px] items-center  relative w-full">
-            <DescriptionSection />
-            <ImageFullWidth />
-            <ImageFullWidth />
-            <QuoteSection />
-            <ImageFullWidth />
-            <WorkWithUsCTA />
+    <section className="relative  w-full" data-name="Related Works Section">
+      <div className="container flex flex-col items-center overflow-clip rounded-[inherit] size-full">
+        <div
+          className="content-stretch flex flex-col gap-[64px] items-center 
+         relative w-full"
+        >
+          <div className="content-stretch flex flex-col gap-[32px] items-center relative  w-full">
+            {isLoading && <SkeletonList />}
+
+            {!isLoading && data.length > 0 && (
+              <Fragment>
+                <p
+                  className=" font-medium leading-[normal] relative  
+                              text-[16px] text-start  tracking-[6.4px] uppercase w-full"
+                >
+                  More Selected Works
+                </p>
+
+                <div
+                  className="grid grid-cols-1 md:grid-cols-3  gap-[32px] items-start relative  w-full"
+                  data-name="Row"
+                >
+                  {data.map((d, i) => (
+                    <WorkItem key={i} {...d} />
+                  ))}
+                  {/* {Array.from({ length: 3 }).map((_, i) => (
+                                  <WorkItem
+                                    key={i}
+                                    title={"Name of title"}
+                                    category={"Category"}
+                                  />
+                                ))} */}
+                </div>
+              </Fragment>
+            )}
+            <LinkUnderline href="/works" text="View More" variant="router" />
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-export function WorkDetailsPage() {
-  useDocumentTitle("Work | Re:Initiative");
-
-  return (
-    <Fragment>
-      <HeroSection />
-      <MainContent />
-      <RelatedWorks />
-      <CompanyLogos />
-      <Testimonials />
-    </Fragment>
   );
 }

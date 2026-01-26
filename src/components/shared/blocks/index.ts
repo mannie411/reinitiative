@@ -7,4 +7,5 @@ export { CompanyLogos, NotFoundError, Testimonials };
 export * from "./Button";
 export * from "./Icons";
 export * from "./Hero";
+export * from "./Loader";
 export * from "./Media";

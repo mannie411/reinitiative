@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useDefaultLayoutContext, useScrollPosition } from "@/hooks";
 import { useCallback, useEffect, useMemo } from "react";
 
@@ -29,11 +29,12 @@ function Logo() {
 }
 
 const Header = () => {
-  const routerState = useRouterState();
+  const router = useLocation();
   const scrollPosition = useScrollPosition();
   const { navbarState, setDrawerState, setNavbarState } =
     useDefaultLayoutContext();
-  const currentPath = routerState.location.pathname;
+  const currentPath = router.pathname;
+  const currentPathParams = router.search.header ?? "default";
 
   const openDrawer = useCallback(() => {
     setDrawerState((prev) => (prev === "collapsed" ? "expanded" : prev));
@@ -81,14 +82,17 @@ const Header = () => {
     // 2. Check if the current path starts with any of the subpaths
     const isMatchingPath = transparentPaths
       .filter((path) => path !== "/") // Exclude root from the "startsWith" check
-      .some((path) => currentPath.startsWith(path));
+      .some(
+        (path) =>
+          currentPath.startsWith(path) && currentPathParams === "transparent",
+      );
 
     return isMatchingPath && navbarState === "transparent";
-  }, [currentPath, navbarState]);
+  }, [currentPath, navbarState, currentPathParams]);
 
   const color = useMemo(
     () => (isHeaderTransparent || isHero ? "#FFFFFF" : "#506081"),
-    [isHeaderTransparent, isHero]
+    [isHeaderTransparent, isHero],
   );
 
   const headerClasses = useMemo(() => {
@@ -121,7 +125,7 @@ const Header = () => {
         <div
           className={cn(
             "flex flex-row items-center md:justify-between w-full",
-            `!text-(--text-color)`
+            `!text-(--text-color)`,
           )}
         >
           <div
@@ -134,7 +138,7 @@ const Header = () => {
             <p
               className={cn(
                 "font-eb-garamond text-[12px] tracking-[2.86px] hidden",
-                `!text-(--text-color)`
+                `!text-(--text-color)`,
               )}
             >
               MENU
@@ -151,7 +155,7 @@ const Header = () => {
             <p
               className={cn(
                 "font-eb-garamond text-[12px] tracking-[2.86px]",
-                `!text-(--text-color)`
+                `!text-(--text-color)`,
               )}
             >
               ENQUIRE

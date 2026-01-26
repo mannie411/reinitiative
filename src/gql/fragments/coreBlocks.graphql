@@ -1,0 +1,97 @@
+fragment CoreBlocksFragment on PostEditorBlock {
+  __typename
+  name
+  ... on CoreParagraph {
+    attributes {
+      content
+      className
+      style
+    }
+  }
+  ... on CoreHeading {
+    name
+    attributes {
+      content
+      level
+      className
+      style
+    }
+  }
+  ... on CoreImage {
+    name
+    attributes {
+      url
+      caption
+      align
+      className
+    }
+  }
+  ... on CoreButtons {
+    name
+    innerBlocks {
+      __typename
+      ... on CoreButton {
+        attributes {
+          text
+          url
+          style
+          className
+        }
+      }
+    }
+  }
+  ... on CoreColumns {
+    name
+    attributes {
+      className
+    }
+    innerBlocks {
+      __typename
+      ... on CoreHeading {
+        name
+        attributes {
+          content
+          level
+          className
+          style
+        }
+      }
+      ... on CoreColumn {
+        name
+        attributes {
+          className
+        }
+        innerBlocks {
+          __typename
+          ... on CoreHeading {
+            name
+            attributes {
+              content
+              level
+              className
+              style
+            }
+          }
+          ... on CoreParagraph {
+            name
+            attributes {
+              content
+              className
+              style
+            }
+          }
+        }
+      }
+    }
+  }
+  ... on CoreGallery {
+    name
+    attributes {
+      images {
+        url
+        caption
+        alt
+      }
+    }
+  }
+}

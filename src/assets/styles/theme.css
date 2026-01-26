@@ -41,6 +41,7 @@
   --sidebar-ring: oklch(0.708 0 0);
   --heading-color: #394e79;
   --body-color: #506081;
+  --color-bg1: #f5f6f8;
 }
 
 .dark {
@@ -198,10 +199,6 @@
   }
 }
 
-@utility container {
-  @apply max-w-[1440px] mx-auto px-[20px] md:px-[120px];
-}
-
 @theme {
   --animate-wiggle: wiggle 1s ease-in-out infinite;
   @keyframes wiggle {
@@ -226,6 +223,10 @@
   }
 }
 
+@utility container {
+  @apply max-w-[1440px] mx-auto px-[20px] md:px-[120px];
+}
+
 @utility scrollbar-hidden {
   &::-webkit-scrollbar {
     display: none;
@@ -234,4 +235,12 @@
 
 @utility pause {
   animation-play-state: paused;
+}
+
+.w-40 {
+  @apply w-full md:w-[40%];
+}
+
+.gap-20 {
+  @apply gap-8 md:gap-[20%];
 }

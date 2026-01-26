@@ -3,6 +3,8 @@ import { AppContext, DefaultLayoutContext } from "../context";
 
 export * from "./ui";
 
+export * from "./cms";
+
 export function useAppContext() {
   const context = useContext(AppContext);
   if (context === undefined) {
@@ -15,7 +17,7 @@ export function useDefaultLayoutContext() {
   const context = useContext(DefaultLayoutContext);
   if (context === undefined) {
     throw new Error(
-      "useDefaultLayoutContext must be used within a LayoutProvider"
+      "useDefaultLayoutContext must be used within a LayoutProvider",
     );
   }
   return context;

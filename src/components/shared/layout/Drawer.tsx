@@ -119,7 +119,7 @@ const NavLink = ({
       className={cn(
         `content-stretch flex items-center px-0 py-[6px] relative  w-full
         transition-all rounded-md`,
-        active ? `italic font-semibold` : `hover:italic`
+        active ? `italic font-semibold` : `hover:italic`,
       )}
       data-name="Link"
       onClick={onClose}
@@ -236,7 +236,7 @@ const Drawer = ({ onClose }: NavMenuProps) => {
       animate={{ x: 0 }}
       exit={{ x: "-100%" }}
       transition={{ type: "tween", duration: 0.5 }}
-      className="fixed inset-y-0 left-0 w-full md:max-w-sm bg-[#f5f6f8] shadow-xl overflow-y-auto z-50"
+      className="fixed inset-y-0 left-0 w-full md:max-w-sm bg-background shadow-xl overflow-y-auto z-50"
       data-name="Nav Menu"
     >
       <div className="size-full min-h-screen">

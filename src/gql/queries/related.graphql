@@ -1,0 +1,24 @@
+#import "../fragments/relatedPostFields.graphql"
+
+query GetRelatedPosts($first: Int! = 3, $categoryIds: [ID!], $exclude: [ID!]) {
+  posts(first: $first, where: { categoryIn: $categoryIds, notIn: $exclude }) {
+    nodes {
+      ...RelatedPost
+    }
+  }
+}
+
+query GetRelatedWorks($first: Int! = 3, $categoryIn: [ID!], $exclude: [ID!]) {
+  works(first: $first, where: { categoryIn: $categoryIn, notIn: $exclude }) {
+    nodes {
+      id
+      title
+      slug
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+    }
+  }
+}

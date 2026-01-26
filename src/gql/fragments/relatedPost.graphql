@@ -1,0 +1,13 @@
+fragment RelatedPost on Post {
+  id
+  title
+  slug
+  date
+  excerpt
+  featuredImage {
+    node {
+      sourceUrl
+      altText
+    }
+  }
+}

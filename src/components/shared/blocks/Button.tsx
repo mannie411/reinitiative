@@ -31,6 +31,7 @@ export function LinkUnderline({ href, text, variant = "default" }: LinkProp) {
       {variant === "router" && (
         <Link
           to={href}
+          resetScroll={true}
           className="content-stretch flex items-center justify-center pb-[12px] pt-0 px-0 
       relative  cursor-pointer group"
         >

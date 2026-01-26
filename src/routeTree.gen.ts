@@ -17,8 +17,8 @@ import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorksIndexRouteImport } from './routes/works/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
-import { Route as WorksWorkIdRouteImport } from './routes/works/$workId'
-import { Route as BlogArticleIdRouteImport } from './routes/blog/$articleId'
+import { Route as WorksSlugRouteImport } from './routes/works/$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
 const SampleRoute = SampleRouteImport.update({
   id: '/sample',
@@ -60,14 +60,14 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WorksWorkIdRoute = WorksWorkIdRouteImport.update({
-  id: '/works/$workId',
-  path: '/works/$workId',
+const WorksSlugRoute = WorksSlugRouteImport.update({
+  id: '/works/$slug',
+  path: '/works/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogArticleIdRoute = BlogArticleIdRouteImport.update({
-  id: '/blog/$articleId',
-  path: '/blog/$articleId',
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -78,8 +78,8 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/our-services': typeof OurServicesRoute
   '/sample': typeof SampleRoute
-  '/blog/$articleId': typeof BlogArticleIdRoute
-  '/works/$workId': typeof WorksWorkIdRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/works/$slug': typeof WorksSlugRoute
   '/blog': typeof BlogIndexRoute
   '/works': typeof WorksIndexRoute
 }
@@ -90,8 +90,8 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/our-services': typeof OurServicesRoute
   '/sample': typeof SampleRoute
-  '/blog/$articleId': typeof BlogArticleIdRoute
-  '/works/$workId': typeof WorksWorkIdRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/works/$slug': typeof WorksSlugRoute
   '/blog': typeof BlogIndexRoute
   '/works': typeof WorksIndexRoute
 }
@@ -103,8 +103,8 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/our-services': typeof OurServicesRoute
   '/sample': typeof SampleRoute
-  '/blog/$articleId': typeof BlogArticleIdRoute
-  '/works/$workId': typeof WorksWorkIdRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/works/$slug': typeof WorksSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/works/': typeof WorksIndexRoute
 }
@@ -117,8 +117,8 @@ export interface FileRouteTypes {
     | '/careers'
     | '/our-services'
     | '/sample'
-    | '/blog/$articleId'
-    | '/works/$workId'
+    | '/blog/$slug'
+    | '/works/$slug'
     | '/blog'
     | '/works'
   fileRoutesByTo: FileRoutesByTo
@@ -129,8 +129,8 @@ export interface FileRouteTypes {
     | '/careers'
     | '/our-services'
     | '/sample'
-    | '/blog/$articleId'
-    | '/works/$workId'
+    | '/blog/$slug'
+    | '/works/$slug'
     | '/blog'
     | '/works'
   id:
@@ -141,8 +141,8 @@ export interface FileRouteTypes {
     | '/careers'
     | '/our-services'
     | '/sample'
-    | '/blog/$articleId'
-    | '/works/$workId'
+    | '/blog/$slug'
+    | '/works/$slug'
     | '/blog/'
     | '/works/'
   fileRoutesById: FileRoutesById
@@ -154,8 +154,8 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   OurServicesRoute: typeof OurServicesRoute
   SampleRoute: typeof SampleRoute
-  BlogArticleIdRoute: typeof BlogArticleIdRoute
-  WorksWorkIdRoute: typeof WorksWorkIdRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  WorksSlugRoute: typeof WorksSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   WorksIndexRoute: typeof WorksIndexRoute
 }
@@ -218,18 +218,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/works/$workId': {
-      id: '/works/$workId'
-      path: '/works/$workId'
-      fullPath: '/works/$workId'
-      preLoaderRoute: typeof WorksWorkIdRouteImport
+    '/works/$slug': {
+      id: '/works/$slug'
+      path: '/works/$slug'
+      fullPath: '/works/$slug'
+      preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$articleId': {
-      id: '/blog/$articleId'
-      path: '/blog/$articleId'
-      fullPath: '/blog/$articleId'
-      preLoaderRoute: typeof BlogArticleIdRouteImport
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -242,8 +242,8 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   OurServicesRoute: OurServicesRoute,
   SampleRoute: SampleRoute,
-  BlogArticleIdRoute: BlogArticleIdRoute,
-  WorksWorkIdRoute: WorksWorkIdRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  WorksSlugRoute: WorksSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   WorksIndexRoute: WorksIndexRoute,
 }

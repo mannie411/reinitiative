@@ -29,3 +29,19 @@ export function detectBrowser() {
     return "Unknown";
   }
 }
+
+export function normalizeLink(url?: string | null) {
+  if (!url) return null;
+
+  try {
+    const parsed = new URL(url);
+    const isInternal = parsed.hostname === import.meta.env.VITE_WP_SITE_HOST;
+
+    return {
+      href: isInternal ? parsed.pathname : parsed.href,
+      external: !isInternal,
+    };
+  } catch {
+    return { href: url, external: false };
+  }
+}

@@ -28,6 +28,7 @@ export const DefaultLayout = ({ children }: PropsWithChildren) => {
 
   return (
     <DefaultLayoutProvider value={contextValue}>
+      <div id="#scroll-to-top" className="invisible absolute top-0" />
       <Header />
       <main className="min-h-screen w-full overflow-clip">{children}</main>
       <Footer />

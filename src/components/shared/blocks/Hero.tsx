@@ -7,8 +7,8 @@ export function HeroSection({
   imgSrc,
   videoSrc,
 }: {
-  imgSrc?: string;
-  videoSrc?: string;
+  imgSrc?: string | null;
+  videoSrc?: string | null;
 }) {
   return (
     <section className="relative -mt-[80px] hero">
@@ -34,7 +34,7 @@ export function HeroBanner({ children, bgImage }: HeroProp) {
       <div
         className={cn(
           "basis-0 bg-[#53627e] grow min-h-px min-w-px overflow-clip relative  w-full",
-          bgImage ? "block" : "hidden"
+          bgImage ? "block" : "hidden",
         )}
         data-name="Image"
       >
