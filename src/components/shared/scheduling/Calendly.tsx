@@ -11,7 +11,7 @@ const Calendly = () => {
   });
   return (
     <Fragment>
-      <p>
+      <p className="hidden">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima nulla
         dicta, sunt nobis explicabo autem voluptates non eaque tempora ducimus
         impedit modi exercitationem ipsum perspiciatis blanditiis similique
