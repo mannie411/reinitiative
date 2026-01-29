@@ -19,7 +19,7 @@ export function ProcessHero() {
     <Fragment>
       {/* Hero Section */}
       <section className="relative w-full py-[32px] md:py-[64px]">
-        <div className="container">
+        <div className="container-300 md:px-[4rem]">
           <div className="flex flex-col items-center gap-[32px] md:gap-[64px]">
             {/* Heading */}
             <div className="flex flex-col items-center gap-[16px] max-w-[500px]">

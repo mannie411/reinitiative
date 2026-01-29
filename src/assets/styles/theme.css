@@ -224,7 +224,7 @@
 }
 
 @utility container {
-  @apply max-w-[1440px] mx-auto px-[20px] md:px-[120px];
+  @apply relative md:!max-w-[1100px] w-full mx-auto;
 }
 
 @utility scrollbar-hidden {
@@ -237,10 +237,22 @@
   animation-play-state: paused;
 }
 
-.w-40 {
-  @apply w-full md:w-[40%];
-}
-
 .gap-20 {
   @apply gap-8 md:gap-[20%];
+}
+
+.media-default {
+  @apply max-sm:h-[400px] h-[500px] w-full;
+}
+
+.media-ratio {
+  @apply aspect-[3/2] h-full w-full;
+}
+
+.container-300 {
+  @apply max-sm:w-[340px] max-w-[1100px] w-full mx-auto;
+}
+
+.w-40 {
+  @apply w-full md:w-[40%];
 }

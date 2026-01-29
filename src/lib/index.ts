@@ -6,7 +6,7 @@ const endpoint = import.meta.env.VITE_WORDPRESS_URL + "/graphql";
 export const graphqlClient = new GraphQLClient(endpoint, {
   headers: {
     // Optional: Authorization: `Bearer ${process.env.WP_JWT_TOKEN}`
-    option: "",
+    "Content-Type": "application/json",
   },
 });
 
@@ -21,7 +21,7 @@ export const queryClient = new QueryClient({
 
 export async function resolveCptId(
   slug: string,
-  cpt: string
+  cpt: string,
 ): Promise<number | null> {
   const query = gql`
     query Get${cpt}Id($uri: String!) {

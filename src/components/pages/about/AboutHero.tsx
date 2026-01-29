@@ -4,7 +4,7 @@ import { Image } from "@/components/shared/blocks";
 function Heading() {
   return (
     <div
-      className="container content-stretch flex flex-col items-center relative  w-full max-w-[620px] px-4"
+      className="container content-stretch flex flex-col items-center relative  w-full max-w-[620px]"
       data-name="Heading"
     >
       <h3
@@ -26,27 +26,21 @@ export function AboutHero() {
       className="relative w-full py-[32px] md:py-[64px] "
       data-name="About Us"
     >
-      <div className="container">
+      <div className="container container-300 md:px-[2rem]">
         <div className="content-stretch flex flex-col gap-[64px] items-center  w-full">
+          <Heading />
+
           <div
-            className="content-stretch flex flex-col gap-[72px] items-center 
-      relative  w-full max-w-[1440px] mx-auto"
-            data-name="Container"
+            className="overflow-clip h-[25rem] md:h-[40rem]  w-full"
+            data-name="Row"
           >
-            <Heading />
-            <div
-              className="content-stretch flex h-[500px] md:h-[708px] items-start relative  w-full overflow-clip"
-              data-name="Row"
-            >
-              <div
-                className="basis-0 content-stretch flex flex-col gap-[32px] grow 
-        h-full items-start  relative "
-              >
-                <Image imgSrc={imgAboutHero} className="size-full" />
-              </div>
-            </div>
+            <Image imgSrc={imgAboutHero} className="size-full" />
           </div>
-          <p className="font-eb-garamond font-normal leading-[normal] relative  text-[#53627e] text-[16px] text-center w-full max-w-[534px]">
+
+          <p
+            className="font-eb-garamond font-normal leading-[normal] relative 
+           text-[#53627e] text-[16px] text-center w-full max-w-[534px]"
+          >
             Great products with unclear messaging. Strong missions hidden by
             weak design. Founders fixing symptoms, not systems.
             <span className="not-italic">{` We built the solution.`}</span>

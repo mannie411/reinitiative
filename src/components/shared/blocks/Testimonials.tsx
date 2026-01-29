@@ -12,19 +12,19 @@ import {
 const testimonials: Testimonial[] = [
   {
     content:
-      " They took the time to understand my objective and made thoughtful, strategic suggestions that elevated the final output.",
+      "They took the time to understand my objective and made thoughtful, strategic suggestions that elevated the final output.",
     name: "Assumpta Ozua",
     position: "Ave Creations",
   },
   {
     content:
-      " They took the time to understand my objective and made thoughtful, strategic suggestions that elevated the final output.",
+      "They took the time to understand my objective and made thoughtful, strategic suggestions that elevated the final output.",
     name: "Assumpta Ozua",
     position: "Ave Creations",
   },
   {
     content:
-      " They took the time to understand my objective and made thoughtful, strategic suggestions that elevated the final output.",
+      "They took the time to understand my objective and made thoughtful, strategic suggestions that elevated the final output.",
     name: "Assumpta Ozua",
     position: "Ave Creations",
   },
@@ -152,26 +152,23 @@ function Testimonial() {
 export default function Testimonials() {
   return (
     <section className="relative" data-name="Testimonials">
-      <div className="container">
-        <div className="overflow-clip rounded-[inherit] size-full w-full">
-          <div className="content-stretch flex flex-col items-center py-[40px] md:py-[80px]">
-            <div
-              className="content-stretch flex flex-col gap-[26px] items-center relative  w-full"
-              data-name="Container"
-            >
-              <p
-                className="font-eb-garamond font-normal leading-[normal] relative 
+      <div
+        className="container-300 py-[40px] md:py-[80px]"
+        data-name="Container"
+      >
+        <div
+          className="content-stretch flex flex-col gap-[26px] 
+        items-center justify-center relative  overflow-clip  w-full"
+        >
+          <p
+            className="font-eb-garamond font-normal leading-[normal] relative 
               text-[20px] text-center tracking-[8px] uppercase w-full"
-              >
-                <span className="tracking-[3.2px]">In </span>
-                <span className=" italic tracking-[1.12px] lowercase">
-                  their
-                </span>
-                <span className="tracking-[3.2px]"> words</span>
-              </p>
-              <Testimonial />
-            </div>
-          </div>
+          >
+            <span className="tracking-[3.2px]">In </span>
+            <span className=" italic tracking-[1.12px] lowercase">their</span>
+            <span className="tracking-[3.2px]"> words</span>
+          </p>
+          <Testimonial />
         </div>
       </div>
     </section>

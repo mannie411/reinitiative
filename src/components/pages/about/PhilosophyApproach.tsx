@@ -4,12 +4,13 @@ import { imgAboutApproach, imgAboutPhilosophy } from "@/assets";
 function Philosophy() {
   return (
     <div
-      className="content-stretch flex flex-col gap-[16px] items-start relative  w-full"
+      className="content-stretch flex flex-col gap-[16px] items-start relative  w-full
+      text-center md:text-start"
       data-name="Content"
     >
       <p
         className="font-avenir-lt leading-[normal] not-italic relative  text-[#53627e] 
-      text-[12px] tracking-[2.4px] uppercase w-full"
+      text-[12px] tracking-[2.4px] uppercase w-full "
       >
         our Philosophy
       </p>
@@ -40,7 +41,7 @@ function PhilosophyColumn() {
     >
       <Philosophy />
       <div
-        className="relative bg-[#a0abc0] h-[300px] md:h-[538px] overflow-clip   w-full"
+        className="relative bg-[#a0abc0] media-default  w-full"
         data-name="Image"
       >
         <Image imgSrc={imgAboutPhilosophy} className="size-full" />
@@ -53,7 +54,7 @@ function Approach() {
   return (
     <div
       className="relative content-stretch flex flex-col gap-[16px] items-center
-        md:text-center text-left w-full"
+        text-center w-full"
       data-name="Content"
     >
       <p
@@ -88,10 +89,7 @@ function ApproachColumn() {
       grow items-start w-full"
       data-name="Column"
     >
-      <div
-        className="bg-[#a0abc0] h-[300px] md:h-[538px] overflow-clip relative  w-full"
-        data-name="Image"
-      >
+      <div className="bg-[#a0abc0] media-default  w-full" data-name="Image">
         <Image imgSrc={imgAboutApproach} className="size-full" />
       </div>
       <Approach />
@@ -102,10 +100,10 @@ function ApproachColumn() {
 export function PhilosophyApproach() {
   return (
     <section className="relative">
-      <div className="container">
+      <div className="container container-300">
         <div
           className="content-stretch flex flex-col md:flex-row gap-[60px] 
-          md:gap-[80px] items-center justify-center py-[20px] md:py-[80px] "
+          md:gap-[80px] items-center justify-center py-[20px] md:py-[80px] md:w-[80%] mx-auto"
           data-name="Section"
         >
           <PhilosophyColumn />

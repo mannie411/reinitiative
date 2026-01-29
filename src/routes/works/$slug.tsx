@@ -24,7 +24,7 @@ export const Route = createFileRoute("/works/$slug")({
       slug: params.slug,
     };
   },
-  component: WorkDetailsPage,
+  component: RouteComponent,
 });
 
 // function MainContent({ data }: { data: any }) {
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/works/$slug")({
 //   );
 // }
 
-export function WorkDetailsPage() {
+export function RouteComponent() {
   useDocumentTitle("Work | Re:Initiative");
 
   const { postType, slug } = Route.useLoaderData();

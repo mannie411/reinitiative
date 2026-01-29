@@ -11,18 +11,13 @@ const Calendly = () => {
   });
   return (
     <Fragment>
-      <p className="hidden">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima nulla
-        dicta, sunt nobis explicabo autem voluptates non eaque tempora ducimus
-        impedit modi exercitationem ipsum perspiciatis blanditiis similique
-        necessitatibus? Iste, voluptatibus.
-      </p>
       <InlineWidget
+        className="content-stretch size-full"
         url="https://calendly.com/bookings-thereinitiative/30min?hide_gdpr_banner=1"
         styles={{
           minHeight: "700px",
           maxWidth: "1440px",
-          margin: "auto",
+          marginInline: "auto",
         }}
         pageSettings={{
           backgroundColor: "ffffff",

@@ -79,29 +79,25 @@ function Logos() {
   const marqueeLogos = [...companies, ...companies];
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="overflow-hidden">
       <motion.div
-        // 1. Only use variants on desktop to avoid mobile conflicts
         variants={isDesktop ? containerVariants : {}}
         initial={isDesktop ? "hidden" : "visible"}
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
         className={cn(
-          // 2. Ensure opacity-100 is forced if variants fail
-          "flex items-center gap-[20px] w-max animate-marquee pause-on-hover opacity-100",
-          "md:w-full md:justify-between md:animate-none md:gap-0"
+          `flex items-center gap-[20px] w-max animate-marquee pause-on-hover opacity-100
+          md:max-w-[1440px] md:mx-auto md:justify-between md:animate-none md:gap-0`,
         )}
       >
         {marqueeLogos.map((company, idx) => (
           <motion.div
             key={`${company.name}-${idx}`}
-            // 3. Disable item variants on mobile if they cause the "y: 20" stuck issue
             variants={itemVariants}
             className={cn(
-              "relative h-[40px] shrink-0",
-              idx >= companies.length && "md:hidden"
+              "relative h-[20px] ",
+              idx >= companies.length && "md:hidden",
             )}
-            // IMPORTANT: use inline style for width if Tailwind (--) vars are failing
             style={{ width: company.w }}
           >
             <img
@@ -123,9 +119,9 @@ function Logos() {
 export default function CompanyLogos() {
   return (
     <section className="relative" data-name="Company we keep">
-      <div className="container overflow-clip size-full py-[40px] md:py-[80px] space-y-12">
+      <div className="overflow-clip size-full py-[40px] md:py-[80px] space-y-12">
         <div
-          className="content-stretch flex flex-col gap-[36px] items-center relative  w-full"
+          className="container content-stretch flex flex-col gap-[36px] items-center relative  w-full"
           data-name="Container"
         >
           <p
@@ -135,6 +131,7 @@ export default function CompanyLogos() {
             The company we keep.
           </p>
         </div>
+
         <Logos />
       </div>
     </section>

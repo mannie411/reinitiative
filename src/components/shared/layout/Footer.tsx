@@ -93,30 +93,32 @@ const LinksCopyright = () => {
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#2d3648] " data-name="Footer">
-      <div
-        className="relative w-full content-stretch flex flex-col gap-[36px] items-center 
-        px-[20px] md:px-[64px] py-[49px]  text-white"
-      >
-        <p
-          className="font-gt-super-ds leading-[normal] not-italic relative 
-            text-white text-[16px] text-center  tracking-[5.2px] uppercase w-full"
-        >
-          Re:Initiative
-        </p>
+    <footer className="relative bg-[#2d3648] w-full" data-name="Footer">
+      <div className="px-[2rem] md:px-[4rem] w-full">
         <div
-          className="content-stretch flex flex-col  md:flex-row gap-[10px] items-center 
-      justify-center relative  w-full"
-          data-name="Copyright"
+          className="relative w-full content-stretch flex flex-col gap-[36px] items-center 
+         py-[49px]  text-white"
         >
           <p
-            className="font-eb-garamond font-normal leading-[16px] relative  
-      text-[9px] text-center text-white tracking-[6.6px] uppercase"
+            className="font-gt-super-ds leading-[normal] not-italic relative 
+            text-white text-[16px] text-center  tracking-[5.2px] uppercase w-full"
           >
-            created in house. all rights reserved
+            Re:Initiative
           </p>
+          <div
+            className="content-stretch flex flex-col  md:flex-row gap-[10px] items-center 
+      justify-center relative  w-full"
+            data-name="Copyright"
+          >
+            <p
+              className="font-eb-garamond font-normal leading-[16px] relative  
+      text-[9px] text-center text-white tracking-[6.6px] uppercase"
+            >
+              created in house. all rights reserved
+            </p>
+          </div>
+          <LinksCopyright />
         </div>
-        <LinksCopyright />
       </div>
     </footer>
   );

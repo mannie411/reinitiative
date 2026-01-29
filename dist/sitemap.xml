@@ -1,0 +1,35 @@
+<!-- public/sitemap.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://thereinitiative.com/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://thereinitiative.com/about-us</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://thereinitiative.com/our-services</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://thereinitiative.com/careers</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://thereinitiative.com/works</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://thereinitiative.com/blog</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://thereinitiative.com/booking</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+
+
+</urlset>

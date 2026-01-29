@@ -23,7 +23,7 @@ function Heading() {
 export function CareersHero() {
   return (
     <section className="relative w-full py-[32px] md:py-[64px]">
-      <div className="container" data-name="About Us">
+      <div className="container-300 md:px-[4rem]" data-name="About Us">
         <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
           <div className="content-stretch flex flex-col gap-[64px] items-center relative w-full">
             <div
@@ -33,7 +33,7 @@ export function CareersHero() {
               <Heading />
               <div
                 className="relative content-stretch flex flex-col gap-[32px] h-[500px] 
-            md:h-[708px] items-start  w-full"
+            items-start  w-full"
               >
                 <Image imgSrc={imgCareerHero} className="size-full" />
               </div>

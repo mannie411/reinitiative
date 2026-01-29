@@ -18,14 +18,16 @@ export function SelectedWorksPage() {
   return (
     <Fragment>
       <HeroBanner>
-        <h3 className="text-[18px] md:text-[22px] leading-[25px] font-normal text-center w-full max-w-[500px]">
-          <span className="not-italic">Re:Initiative</span> is a strategic
-          consultancy,
-          <span className="not-italic"> specializing</span>
-          <span> in brand transformation </span>
-          <span className="not-italic">through</span>
-          <span> integrated strategy, design, and growth architecture.</span>
-        </h3>
+        <div className="container container-300">
+          <h3 className="text-[18px] md:text-[22px] leading-[25px] font-normal text-center w-full max-w-[500px]">
+            <span className="not-italic">Re:Initiative</span> is a strategic
+            consultancy,
+            <span className="not-italic"> specializing</span>
+            <span> in brand transformation </span>
+            <span className="not-italic">through</span>
+            <span> integrated strategy, design, and growth architecture.</span>
+          </h3>
+        </div>
       </HeroBanner>
       <WorkList />
       <CompanyLogos />

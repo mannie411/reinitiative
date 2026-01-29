@@ -121,7 +121,7 @@ const Header = () => {
         height: "80px",
       }}
     >
-      <div className="relative w-full  px-[20px] md:px-[64px] py-[15px]">
+      <div className="px-[2rem] md:px-[4rem]  w-full">
         <div
           className={cn(
             "flex flex-row items-center md:justify-between w-full",
@@ -132,7 +132,7 @@ const Header = () => {
             className="flex gap-[24px] items-center cursor-pointer"
             onClick={openDrawer}
           >
-            <div className="relative  size-[20px]" data-name="menu-01">
+            <div className="relative  h-[20px] w-[28px]" data-name="menu-01">
               <Menu color={color} />
             </div>
             <p

@@ -31,10 +31,7 @@ function Heading() {
 
 function ImageLink({ href, imgSrc = undefined }: ImageProp) {
   return (
-    <Link
-      to={href}
-      className=" bg-[#a0abc0] grow  h-[400px] md:h-[615px] overflow-clip relative  w-full"
-    >
+    <Link to={href} className=" bg-[#a0abc0] media-wrapper">
       <Image imgSrc={imgSrc} className="size-full" />
     </Link>
   );
@@ -68,7 +65,7 @@ export function SelectedWork() {
       className="relative py-[32px] md:py-[64px]"
       data-name="Selected Works"
     >
-      <div className="container">
+      <div className="container-300 md:px-[4rem]">
         <div
           className="content-stretch flex flex-col gap-[72px] w-full"
           data-name="Container"
@@ -80,22 +77,6 @@ export function SelectedWork() {
             data-name="Row"
           >
             <Container>
-              <ImageLink href="/works" imgSrc={imgHomeWorks} />
-              <Link
-                to="/works"
-                className="content-stretch flex items-center justify-between relative  w-full"
-              >
-                <p
-                  className="font-eb-garamond font-medium leading-[normal] relative 
-                   text-[14px] md:text-base  tracking-[4px]"
-                >
-                  SELECTED WORK
-                </p>
-                <HypenButton />
-              </Link>
-            </Container>
-
-            <Container>
               <ImageLink href="/about-us" imgSrc={imgHomeAbout} />
               <Link
                 to="/about-us"
@@ -106,6 +87,22 @@ export function SelectedWork() {
                   text-[14px] md:text-base  tracking-[4px]"
                 >
                   ABOUT US
+                </p>
+                <HypenButton />
+              </Link>
+            </Container>
+
+            <Container>
+              <ImageLink href="/works" imgSrc={imgHomeWorks} />
+              <Link
+                to="/works"
+                className="content-stretch flex items-center justify-between relative  w-full"
+              >
+                <p
+                  className="font-eb-garamond font-medium leading-[normal] relative 
+                   text-[14px] md:text-base  tracking-[4px]"
+                >
+                  SELECTED WORK
                 </p>
                 <HypenButton />
               </Link>

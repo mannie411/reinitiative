@@ -1,11 +1,4 @@
-import { Fragment } from "react";
-
-import {
-  ImagePlaceholder,
-  LinkUnderline,
-  SkeletonList,
-} from "@/components/shared/blocks";
-import WorkItem from "./WorkItem";
+import { ImagePlaceholder, LinkUnderline } from "@/components/shared/blocks";
 
 export function BrandDescription() {
   return (
@@ -138,56 +131,5 @@ export function WorkWithUsCTA() {
         />
       </div>
     </div>
-  );
-}
-
-export function RelatedWorks({
-  data,
-  isLoading,
-}: {
-  data: any[];
-  isLoading: boolean;
-}) {
-  return (
-    <section className="relative  w-full" data-name="Related Works Section">
-      <div className="container flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-        <div
-          className="content-stretch flex flex-col gap-[64px] items-center 
-         relative w-full"
-        >
-          <div className="content-stretch flex flex-col gap-[32px] items-center relative  w-full">
-            {isLoading && <SkeletonList />}
-
-            {!isLoading && data.length > 0 && (
-              <Fragment>
-                <p
-                  className=" font-medium leading-[normal] relative  
-                              text-[16px] text-start  tracking-[6.4px] uppercase w-full"
-                >
-                  More Selected Works
-                </p>
-
-                <div
-                  className="grid grid-cols-1 md:grid-cols-3  gap-[32px] items-start relative  w-full"
-                  data-name="Row"
-                >
-                  {data.map((d, i) => (
-                    <WorkItem key={i} {...d} />
-                  ))}
-                  {/* {Array.from({ length: 3 }).map((_, i) => (
-                                  <WorkItem
-                                    key={i}
-                                    title={"Name of title"}
-                                    category={"Category"}
-                                  />
-                                ))} */}
-                </div>
-              </Fragment>
-            )}
-            <LinkUnderline href="/works" text="View More" variant="router" />
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }

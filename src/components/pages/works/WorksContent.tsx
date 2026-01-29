@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { type Variants, motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import { LinkUnderline, SkeletonList } from "@/components/shared/blocks";
+import { Image, LinkUnderline, SkeletonList } from "@/components/shared/blocks";
 import { usePosts } from "@/hooks";
-import WorkItem from "./WorkItem";
 
 const ex_categories = ["all", "category", "category", "category", "category"];
 
@@ -180,7 +180,62 @@ function FilterSection() {
   );
 }
 
-export function WorksGrid({ data }: { data: any[] }) {
+function WorkItem({
+  title,
+  category,
+  slug,
+  img,
+  header = "default",
+}: {
+  title: string;
+  category: string;
+  slug: string;
+  img?: string;
+  header?: string;
+}) {
+  return (
+    <div className="content-stretch flex flex-col gap-[18px] items-start justify-center relative  w-full mb-2">
+      <Link
+        to="/works/$workId"
+        // params={{ workId: title.toLowerCase().replace(/\s+/g, "-") }}
+        params={{ workId: slug }}
+        search={{ header }}
+        preload="intent"
+        className="bg-[#a0abc0] h-[200px] md:h-[240px] lg:h-[280px] overflow-clip relative  w-full group-hover:opacity-90 transition-opacity"
+        data-name="Image"
+      >
+        <Image className="group-hover:scale-105" imgSrc={img} />
+      </Link>
+      <p
+        className="font-avenir-lt leading-[normal] not-italic relative 
+           text-[#53627e] text-[9px]  tracking-[4.8px] uppercase"
+      >
+        {category}
+      </p>
+      <Link
+        to="/works/$workId"
+        // params={{ workId: title.toLowerCase().replace(/\s+/g, "-") }}
+        params={{ workId: slug }}
+        search={{ header }}
+        preload="intent"
+        className="content-stretch flex flex-col gap-[32px] items-start relative  
+      w-full cursor-pointer group transition-all duration-300"
+        onClick={() => window.scrollTo(0, 0)}
+      >
+        <div className="content-stretch flex flex-col gap-[16px] items-start justify-center relative  w-full">
+          <p
+            className="font-medium leading-[normal] relative  text-[#2d3648] text-[12px]  
+        tracking-[6.4px] uppercase group-hover:text-[#53627e] transition-colors"
+          >
+            {title}
+          </p>
+        </div>
+      </Link>
+    </div>
+  );
+}
+
+function WorksGrid({ data }: { data: any[] }) {
   console.log(ex_works);
   console.log(data);
   return (
@@ -190,7 +245,7 @@ export function WorksGrid({ data }: { data: any[] }) {
   relative w-full"
       >
         <div
-          className="grid grid-cols-1 md:grid-cols-3  gap-[32px] items-start relative  w-full"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-[32px] items-start relative  w-full"
           data-name="Row"
         >
           {data.map((work, index) => (
@@ -199,6 +254,57 @@ export function WorksGrid({ data }: { data: any[] }) {
         </div>
       </div>
     </div>
+  );
+}
+
+export function RelatedWorks({
+  data,
+  isLoading,
+}: {
+  data: any[];
+  isLoading: boolean;
+}) {
+  return (
+    <section className="relative  w-full" data-name="Related Works Section">
+      <div className="container flex flex-col items-center overflow-clip rounded-[inherit] size-full">
+        <div
+          className="content-stretch flex flex-col gap-[64px] items-center 
+         relative w-full"
+        >
+          <div className="content-stretch flex flex-col gap-[32px] items-center relative  w-full">
+            {isLoading && <SkeletonList />}
+
+            {!isLoading && data.length > 0 && (
+              <Fragment>
+                <p
+                  className=" font-medium leading-[normal] relative  
+                              text-[16px] text-start  tracking-[6.4px] uppercase w-full"
+                >
+                  More Selected Works
+                </p>
+
+                <div
+                  className="grid grid-cols-1 md:grid-cols-3  gap-[32px] items-start relative  w-full"
+                  data-name="Row"
+                >
+                  {data.map((d, i) => (
+                    <WorkItem key={i} {...d} />
+                  ))}
+                  {/* {Array.from({ length: 3 }).map((_, i) => (
+                                  <WorkItem
+                                    key={i}
+                                    title={"Name of title"}
+                                    category={"Category"}
+                                  />
+                                ))} */}
+                </div>
+              </Fragment>
+            )}
+            <LinkUnderline href="/works" text="View More" variant="router" />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -225,7 +331,7 @@ export function WorkList() {
 
   return (
     <section className="relative w-full">
-      <div className="container">
+      <div className="container container-300 md:px-[2rem]">
         <div className="flex flex-col items-center gap-6">
           {isLoading && <SkeletonList count={3} />}
 

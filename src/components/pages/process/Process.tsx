@@ -13,16 +13,19 @@ export function ProcessCard({
   return (
     <div
       id={id}
-      className={`w-full ${isFirst ? "pb-[96px]" : "py-[96px]"} ${!isFirst ? "border-t border-[#a0abc0]" : ""}`}
+      className={`w-full md:px-[4rem] ${isFirst ? "pb-[96px]" : "py-[96px]"} ${!isFirst ? "border-t border-[#a0abc0]" : ""}`}
     >
       <div className="flex flex-col gap-[64px]">
         {/* Image - only show for non-first sections */}
-        <div className="w-full h-[708px] bg-[#a0abc0] rounded-[4px] overflow-hidden relative">
+        <div
+          className="w-full h-[30vh] md:h-[400px] lg:h-[500px] 
+        bg-[#a0abc0] rounded-[4px] overflow-hidden relative"
+        >
           <Image imgSrc={img} className="size-full" />
         </div>
 
         {/* Content */}
-        <div className="flex flex-col gap-[16px] max-w-[980px] mx-auto">
+        <div className="flex flex-col gap-[16px] max-w-[980px] mx-auto  container-300 md:px-[2rem]">
           {/* Title */}
           <div className="font-eb-garamond text-[16px] text-[#53627e] tracking-[7.68px] uppercase">
             <span className="font-eb-garamond font-semibold">RE:</span>
@@ -65,7 +68,7 @@ export function ProcessCard({
                     paragraph.includes("told right.")
                   ) {
                     const parts = paragraph.split(
-                      /\b(clarity|tangible|told right)\b/
+                      /\b(clarity|tangible|told right)\b/,
                     );
                     return (
                       <p key={index} className="mb-0">

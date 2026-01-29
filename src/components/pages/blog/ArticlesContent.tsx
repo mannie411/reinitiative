@@ -1,56 +1,10 @@
-import { useState, type MouseEvent } from "react";
+import { Fragment, useMemo, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import { Link } from "@tanstack/react-router";
-import { ImagePlaceholder, LinkUnderline } from "@/components/shared/blocks";
+import { Image, LinkUnderline, SkeletonList } from "@/components/shared/blocks";
+import { usePosts } from "@/hooks";
 
 const categories = ["all", "category", "category", "category", "category"];
-
-function BlogCardContent({ articleId }: { articleId: string }) {
-  return (
-    <div className="content-stretch flex flex-col gap-[18px] items-start justify-center relative  w-full">
-      <div className="content-stretch flex flex-col gap-[8px] items-start relative ">
-        <div className="content-stretch flex items-center relative ">
-          <p
-            className="font-avenir-lt leading-[normal] not-italic relative  
-          text-[#a0abc0] text-[9px]  tracking-[4px] uppercase"
-          >
-            category
-          </p>
-        </div>
-        <p
-          className="font-eb-garamond font-medium leading-[normal] relative  
-         text-[12px]  tracking-[4px] uppercase group-hover:text-[#53627e] transition-colors"
-        >
-          name of article
-        </p>
-      </div>
-
-      <Link
-        to="/blog/$articleId"
-        params={{ articleId }}
-        className="content-stretch flex items-center justify-center pb-[8px] pt-0 px-0 
-        relative  cursor-pointer"
-        data-name="Button"
-        onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-          e.stopPropagation();
-          window.scrollTo(0, 0);
-        }}
-      >
-        <div
-          aria-hidden="true"
-          className="absolute border-[0px_0px_1px] border-[rgba(160,171,192,0.8)] 
-          border-solid inset-0 pointer-events-none group-hover:border-[#53627e] transition-colors"
-        />
-        <p
-          className="font-avenir-lt leading-[normal] not-italic relative  
-        text-[#53627e] text-[10px] text-center  tracking-[2.88px] uppercase"
-        >
-          read more
-        </p>
-      </Link>
-    </div>
-  );
-}
 
 function HeadingCategoryLink({ onClick }: { onClick: () => void }) {
   return (
@@ -174,25 +128,19 @@ function FilterSection() {
   );
 }
 
-function BlogCardImage() {
-  return (
-    <div
-      className="bg-[#a0abc0] h-[300px] md:h-[458px] overflow-clip relative 
-       w-full group-hover:opacity-90 transition-opacity"
-      data-name="Image"
-    >
-      <div
-        className="absolute left-[calc(50%-0.33px)] size-[80px] top-1/2 
-        translate-x-[-50%] translate-y-[-50%] group-hover:scale-105 transition-transform"
-        data-name="image-01"
-      >
-        <ImagePlaceholder />
-      </div>
-    </div>
-  );
-}
-
-function BlogCard({ articleId }: { articleId: string }) {
+function BlogCard({
+  slug,
+  title,
+  category,
+  img,
+  header = "default",
+}: {
+  slug: string;
+  title: string;
+  header?: string;
+  category?: string;
+  img?: string;
+}) {
   return (
     <div
       className="content-stretch flex flex-col gap-[32px] items-start 
@@ -201,22 +149,77 @@ function BlogCard({ articleId }: { articleId: string }) {
         window.scrollTo(0, 0);
       }}
     >
-      <BlogCardImage />
-      <BlogCardContent articleId={articleId} />
+      <Link
+        to="/works/$workId"
+        // params={{ workId: title.toLowerCase().replace(/\s+/g, "-") }}
+        params={{ articleId: slug }}
+        search={{ header }}
+        preload="intent"
+        className="bg-[#a0abc0] media-default overflow-clip relative  w-full
+         group-hover:opacity-90 transition-opacity"
+        data-name="Image"
+      >
+        <Image className="group-hover:scale-105" imgSrc={img} />
+      </Link>
+      <div className="content-stretch flex flex-col gap-[18px] items-start justify-center relative  w-full">
+        <div className="content-stretch flex flex-col gap-[8px] items-start relative ">
+          <p
+            className="font-avenir-lt leading-[normal] not-italic relative  
+          text-[#a0abc0] text-[9px]  tracking-[4px] uppercase"
+          >
+            {category}
+          </p>
+
+          <p
+            className="font-eb-garamond font-medium leading-[normal] relative  
+         text-[12px]  tracking-[4px] uppercase group-hover:text-[#53627e] transition-colors"
+          >
+            {title}
+          </p>
+        </div>
+
+        <Link
+          to="/blog/$articleId"
+          params={{ articleId: slug }}
+          className="content-stretch flex items-center justify-center pb-[8px] pt-0 px-0 
+        relative  cursor-pointer"
+          data-name="Button"
+          onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            e.stopPropagation();
+            window.scrollTo(0, 0);
+          }}
+        >
+          <div
+            aria-hidden="true"
+            className="absolute border-[0px_0px_1px] border-[rgba(160,171,192,0.8)] 
+          border-solid inset-0 pointer-events-none group-hover:border-[#53627e] transition-colors"
+          />
+          <p
+            className="font-avenir-lt leading-[normal] not-italic relative  
+        text-[#53627e] text-[10px] text-center  tracking-[2.88px] uppercase"
+          >
+            read more
+          </p>
+        </Link>
+      </div>
     </div>
   );
 }
 
-function BlogGrid() {
-  // Creating a grid with 8 items as per the Figma import
+function BlogGrid({ data }: { data: any[] }) {
   return (
     <div
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
       gap-x-[32px] gap-y-[64px] items-start relative  w-full"
       data-name="Row"
     >
-      {Array.from({ length: 6 }).map((_, i) => (
+      {/* {Array.from({ length: 6 }).map((_, i) => (
         <BlogCard key={i} articleId={`article-${i + 1}`} />
+
+
+      ))} */}
+      {data.map((article, idx) => (
+        <BlogCard key={`article-${idx}`} {...article} />
       ))}
     </div>
   );
@@ -247,7 +250,11 @@ export function RelatedBlogs() {
               data-name="Row"
             >
               {[...Array(3).keys()].map((_, i) => (
-                <BlogCard key={i} articleId={`article-${i}`} />
+                <BlogCard
+                  key={i}
+                  slug={`article-${i}`}
+                  title="Name of Article"
+                />
               ))}
             </div>
           </div>
@@ -259,20 +266,58 @@ export function RelatedBlogs() {
 }
 
 export function BlogList() {
+  const { data, isLoading } = usePosts({ postType: "post", pageSize: 6 });
+
+  const articles = useMemo(() => {
+    return (
+      data?.pages
+        .flatMap((page) => page.nodes ?? [])
+        .map(({ title, slug, categories, featuredImage, heroFields }) => ({
+          title,
+          slug,
+          img: featuredImage?.node?.sourceUrl,
+          category: categories?.nodes?.[0]?.name ?? "",
+          header:
+            heroFields?.hero?.at(0) === "full_image" ||
+            heroFields?.hero?.at(0) === "full_image"
+              ? "transparent"
+              : "default",
+        })) ?? []
+    );
+  }, [data]);
+
   return (
-    <section className="relative">
-      <div className="container" data-name="Container">
-        <div className="flex flex-col items-center size-full">
-          <motion.div
-            layout
-            className="content-stretch flex flex-col items-center
-        relative w-full gap-[64px]"
+    <Fragment>
+      {isLoading && (
+        <section className="relative">
+          <div
+            className="container container-300 md:px-[2rem]"
+            data-name="Container"
           >
-            <FilterSection />
-            <BlogGrid />
-          </motion.div>
+            <SkeletonList count={3} />
+          </div>
+        </section>
+      )}
+
+      <section className="relative">
+        <div
+          className="container container-300 md:px-[2rem]"
+          data-name="Container"
+        >
+          <div className="flex flex-col items-center size-full">
+            {!isLoading && (
+              <motion.div
+                layout
+                className="content-stretch flex flex-col items-center
+        relative w-full gap-[64px]"
+              >
+                <FilterSection />
+                <BlogGrid data={articles} />
+              </motion.div>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Fragment>
   );
 }

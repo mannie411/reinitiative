@@ -1,15 +1,4 @@
-import { PlaceholderImage } from "@/components/shared/blocks/Placeholder";
-
-function Image() {
-  return (
-    <div
-      className="bg-[#a0abc0] h-[500px] md:h-[708px] overflow-clip relative  w-full"
-      data-name="Image"
-    >
-      <PlaceholderImage />
-    </div>
-  );
-}
+import { Image } from "@/components/shared/blocks/";
 
 function Heading() {
   return (

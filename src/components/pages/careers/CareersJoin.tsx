@@ -23,7 +23,7 @@ function Heading() {
 export function CareersJoin() {
   return (
     <section className="relative ">
-      <div className="container">
+      <div className="container-300 md:px-[4rem]">
         <div
           className="content-stretch flex flex-col gap-[64px] items-center 
        py-[90px] relative  w-full "
@@ -46,7 +46,7 @@ export function CareersJoin() {
             {team.map(({ name, role, image }, i) => (
               <div
                 key={`team-${i}`}
-                className="content-stretch flex flex-col justify-end gap-[32px] h-[300px] md:h-[500px] 
+                className="content-stretch flex flex-col justify-end gap-[32px] media-default 
                 items-start justify-self-stretch relative  w-full group overflow-clip"
               >
                 <Image
